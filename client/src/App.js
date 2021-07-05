@@ -11,6 +11,7 @@ import Booking from "./pages/Booking";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import News from "./pages/News";
+import Weather from "./pages/Weather";
 
 //Import Components
 import Burger from "./components/Burger";
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/booking" exact>
             <Booking />
+          </Route>
+          <Route path="/weather" exact>
+            <Weather />
           </Route>
           <Route path="/news" exact>
             <News />
