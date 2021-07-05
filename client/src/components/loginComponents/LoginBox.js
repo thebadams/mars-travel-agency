@@ -1,8 +1,6 @@
 import React from "react";
 //Style
 import styled from "styled-components";
-//Link
-import { Link } from "react-router-dom";
 
 const LoginBox = () => {
   return (
