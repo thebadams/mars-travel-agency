@@ -2,6 +2,8 @@ import React from "react";
 import $ from "jquery";
 //Style
 import styled from "styled-components";
+//Components
+import LoginBox from "./LoginBox";
 
 const Background = () => {
   for (let i = 0; i < 500; i++) {
@@ -19,13 +21,16 @@ const Background = () => {
   });
 
   return (
-    <StarStyle>
-      <div className="space">
-        <div className="star">
-          <div className="glow"></div>
+    <div>
+      <StarStyle>
+        <div className="space">
+          <div className="star">
+            <div className="glow"></div>
+          </div>
         </div>
-      </div>
-    </StarStyle>
+      </StarStyle>
+      <LoginBox></LoginBox>
+    </div>
   );
 };
 
