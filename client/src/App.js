@@ -3,9 +3,6 @@ import React from "react";
 //Import API
 import API from "./utils/spotifysearch";
 
-//Global Style
-import GlobalStyle from "./components/GlobalStyle";
-
 //Import Pages
 import Booking from "./pages/Booking";
 import Home from "./pages/Home";
@@ -30,7 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <GlobalStyle />
       <Burger />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>

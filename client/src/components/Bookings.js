@@ -6,10 +6,28 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 
-const BookingStyle = styled.div`
+const BookingsStyle = styled.div`
 .hero {
+  position: absolute;
   background-color: white;
   color: black;
+  width: 600px;
+  height: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  top: 40%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -300px;
+}
+
+.hero_heading {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.flight {
+  margin-bottom: 2rem;
 }
 
 .depart, 
@@ -20,8 +38,7 @@ const BookingStyle = styled.div`
 }
 
 .booking-button {
-  padding: 10px 80px;
-  margin: 5px 0;
+  padding: 5px 90px;
 }
 
 .from, 
@@ -105,7 +122,7 @@ const passengers = [
   },
 ];
 
-const Booking = () => {
+const Bookings = () => {
 
 const [passenger, setPassenger] = React.useState('1');
 const handleChange = (event) => {
@@ -113,7 +130,7 @@ const handleChange = (event) => {
 };
 
 return (
-    <BookingStyle>
+    <BookingsStyle>
       <div className="hero">
         <Container maxWidthMd>
           <h1 className="hero_heading">Book</h1>
@@ -123,6 +140,7 @@ return (
                 size="medium"
                 color="primary"
                 aria-label="add"
+                className="flight"
               >
                 Flight
               </Fab>
@@ -164,8 +182,8 @@ return (
           </form>
         </Container>
       </div>
-    </BookingStyle>
+    </BookingsStyle>
   );
 };
 
-export default Booking;
+export default Bookings;
