@@ -16,9 +16,8 @@ import SignUp from "./pages/SignUp";
 
 import Weather from "./pages/Weather";
 
-
 //Import Components
-import Burger from "./components/Burger";
+import Burger from "./components/BurgerComponents/Burger";
 
 //Animations
 import { AnimatePresence } from "framer-motion";
