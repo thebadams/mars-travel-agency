@@ -14,7 +14,13 @@ const userSchema = new Schema({
   },
   facebookId: {
     type: String
-  }
+  },
+  reservations: [{
+    type: Schema.Types.ObjectId,
+    ref: "Reservation"
+    }],
+    
+
   // password: {
   //   type: String,
   //   required: [true, "please enter a password"]
