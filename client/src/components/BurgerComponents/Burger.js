@@ -1,8 +1,8 @@
 import React from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+
 import "./styles.css";
-// import { useLocation } from "react-router-dom";
+
 //Animation
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions";

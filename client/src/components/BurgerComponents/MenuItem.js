@@ -1,6 +1,8 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { ItemAnim } from "./BurgerAnimation";
+import { Link } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 
@@ -12,8 +14,8 @@ export const MenuItem = ({ i }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="icon-placeholder" style={style} />
-      <div className="text-placeholder" style={style} />
+      <div className="icon" style={style} />
+      <div className="text" style={style} />
     </motion.li>
   );
 };
