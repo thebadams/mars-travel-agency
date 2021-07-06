@@ -1,8 +1,17 @@
 import React from "react";
-import Bookings from '../components/Booking'
+import styled from "styled-components";
+import Bookings from '../components/Bookings'
+
+const BookingStyle = styled.div`
+  background-color: white;
+`;
 
 const Booking = () => {
-  return <Bookings />;
+  return (
+      <BookingStyle>
+          <Bookings />
+      </BookingStyle>
+  )
 };
 
 export default Booking;
