@@ -2,8 +2,6 @@ import React from "react";
 import $ from "jquery";
 //Style
 import styled from "styled-components";
-//Components
-import LoginBox from "./LoginBox";
 
 const Background = () => {
   $(document).ready(function () {
@@ -31,7 +29,6 @@ const Background = () => {
           </div>
         </div>
       </StarStyle>
-      <LoginBox />
     </div>
   );
 };

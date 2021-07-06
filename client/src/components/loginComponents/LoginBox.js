@@ -1,192 +1,121 @@
 import React from "react";
-//Style
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+//Material ui components
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const LoginBox = () => {
+  const classes = useStyles();
   return (
-    <StyledBox>
-      <div className="login-box">
-        <h2>Login</h2>
-        <form>
-          <div className="user-box">
-            <input type="text" name="" required="" />
-            <label>Username</label>
-          </div>
-          <div className="user-box">
-            <input type="password" name="" required="" />
-            <label>Password</label>
-          </div>
-          <a href="/">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
+    <Container className={classes.container} component="main" maxWidth="xs">
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item>
+              <Link to="/signup">Don't have an account, Sign Up here!</Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
-    </StyledBox>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
+    </Container>
   );
 };
 
-const StyledBox = styled.div`
-  .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-
-    h2 {
-      margin: 0 0 30px;
-      padding: 0;
-      color: #fff;
-      text-align: center;
-    }
-    .user-box {
-      position: relative;
-      input {
-        width: 100%;
-        padding: 10px 0;
-        font-size: 16px;
-        color: #fff;
-        margin-bottom: 30px;
-        border: none;
-        border-bottom: 1px solid #fff;
-        outline: none;
-        background: transparent;
-      }
-      label {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10px 0;
-        font-size: 16px;
-        color: #fff;
-        pointer-events: none;
-        transition: 0.5s;
-      }
-    }
-  }
-
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
-  }
-
-  .login-box form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #03e9f4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: 0.5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
-  }
-
-  .login-box a:hover {
-    background: #03e9f4;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-      0 0 100px #03e9f4;
-  }
-
-  .login-box a span {
-    position: absolute;
-    display: block;
-  }
-
-  .login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
-    animation: btn-anim1 1s linear infinite;
-  }
-
-  @keyframes btn-anim1 {
-    0% {
-      left: -100%;
-    }
-    50%,
-    100% {
-      left: 100%;
-    }
-  }
-
-  .login-box a span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
-    animation: btn-anim2 1s linear infinite;
-    animation-delay: 0.25s;
-  }
-
-  @keyframes btn-anim2 {
-    0% {
-      top: -100%;
-    }
-    50%,
-    100% {
-      top: 100%;
-    }
-  }
-
-  .login-box a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
-    animation: btn-anim3 1s linear infinite;
-    animation-delay: 0.5s;
-  }
-
-  @keyframes btn-anim3 {
-    0% {
-      right: -100%;
-    }
-    50%,
-    100% {
-      right: 100%;
-    }
-  }
-
-  .login-box a span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
-    animation: btn-anim4 1s linear infinite;
-    animation-delay: 0.75s;
-  }
-
-  @keyframes btn-anim4 {
-    0% {
-      bottom: -100%;
-    }
-    50%,
-    100% {
-      bottom: 100%;
-    }
-  }
-`;
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%",
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+  container: {
+    border: "1px solid #54a7a8",
+    marginTop: "20px",
+    opacity: ".8",
+    zIndex: "1",
+    borderRadius: "44px",
+    background: "linear-gradient(145deg, #04d1db, #04f8ff)",
+    boxShadow: "20px 20px 60px #03c5cf, -20px -20px 60px #05ffff",
+  },
+}));
 
 export default LoginBox;
