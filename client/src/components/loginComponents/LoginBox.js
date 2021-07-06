@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #54a7a8",
     marginTop: "20px",
     opacity: ".8",
-    zIndex: "1",
+    zIndex: "2",
     borderRadius: "44px",
     background: "linear-gradient(145deg, #04d1db, #04f8ff)",
     boxShadow: "20px 20px 60px #03c5cf, -20px -20px 60px #05ffff",
