@@ -11,7 +11,6 @@ const BookingsStyle = styled.div`
   position: absolute;
   background-color: white;
   color: black;
-  width: 600px;
   height: 350px;
   margin-right: auto;
   margin-left: auto;
@@ -132,7 +131,7 @@ const handleChange = (event) => {
 return (
     <BookingsStyle>
       <div className="hero">
-        <Container maxWidthMd>
+        <Container maxWidthLg>
           <h1 className="hero_heading">Book</h1>
           <div>
             <Fab
