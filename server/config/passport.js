@@ -1,9 +1,13 @@
+//require passport
 const passport = require('passport')
+//require strategies
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy
+//import user
 const User = require('../models/user')
 const dotenv = require('dotenv')
- 
+const axios = require('axios')
+//sets up local strategy
 passport.use(
 User.createStrategy()
 )
@@ -15,24 +19,30 @@ passport.use(new FacebookStrategy({
 },
 function(accessToken, refreshToken, profile, done){
   console.log(accessToken);
-  console.log(refreshToken);
+  console.log(refreshToken);  
   console.log(profile)
   User.findOne({facebookId: profile.id}, (err, user) => {
     if(err) {
       return done(err, false, {message: err});
     } else {
+      console.log(user)
       if (user !== '' && user !== null) {
         return done(null, user, {message: user})
     } else {
-      console.log(profile)
+      const email = axios.get(`https://graph.facebook.com/v11.0/me?fields=id%2Cname%2Cemail&access_token=${accessToken}`).then(response=>{
+
+      console.log(response.data)
+      return response.data.email
+    }).then(email => {
       let password = 'password1234'
       let userData = new User({
         username: profile.displayName,
-        email: "test_email@gmail.com",
+        email: email,
         facebookId: profile.id
       })
-
       User.register(userData, password)
+    })
+ 
     }
     } 
   })
