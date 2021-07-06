@@ -12,6 +12,9 @@ const userSchema = new Schema({
     type: String,
     required: [true, "please enter an email"]
   },
+  facebookId: {
+    type: String
+  }
   // password: {
   //   type: String,
   //   required: [true, "please enter a password"]

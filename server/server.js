@@ -54,9 +54,14 @@ app.get('/test', (req, res) => {
   console.log(req.body)
   res.json({message:"success"})
 })
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/failure'}), (req, res) => {
+  res.redirect('/success')
 })
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"))
+// })
 
 app.listen(PORT, ()=> {
   console.log(`Listening on ${PORT}`)
