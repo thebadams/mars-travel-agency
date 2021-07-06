@@ -1,11 +1,8 @@
 import React from "react";
-
-//Page Components
-
-//Animations
+import Bookings from '../components/Booking'
 
 const Booking = () => {
-  return <h1>Booking</h1>;
+  return <Bookings />;
 };
 
 export default Booking;
