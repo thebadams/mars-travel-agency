@@ -2,16 +2,16 @@ import React from "react";
 
 //Page Components
 import Background from "../components/loginComponents/Background.js";
-import LoginBox from "../components/loginComponents/LoginBox.js";
+import SignUpBox from "../components/loginComponents/SignUpBox.js";
 //Animations
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div>
       <Background />
-      <LoginBox />
+      <SignUpBox />
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

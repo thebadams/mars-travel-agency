@@ -11,6 +11,7 @@ import Booking from "./pages/Booking";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import News from "./pages/News";
+import SignUp from "./pages/SignUp";
 
 //Import Components
 import Burger from "./components/Burger";
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/login" exact>
             <Login />
+          </Route>
+          <Route path="/signup" exact>
+            <SignUp />
           </Route>
           <Route path="/booking" exact>
             <Booking />
