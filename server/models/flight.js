@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const flightSchema = new Schema({
   flightNum: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.now
+  },
   totalSeats: Number,
   currentReservations: Number
 });

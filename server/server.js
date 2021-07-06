@@ -5,6 +5,7 @@ const passport = require('./config/passport');
 
 const mongoose = require('./config/mongoose')
 const User = require('./models/user');
+const Flight = require('./models/flight');
 const app = express();
 const PORT = 3001
 
@@ -34,6 +35,19 @@ app.use(passport.session())
 
 // passport.deserializeUser(User.deserializeUser());
 // app.use(passport.session());
+
+app.post('/api/flight', async (req, res) => {
+  const { totalSeats, currentReservations  } = req.body;
+  const flight = new Flight({totalSeats, currentReservations});
+  flight.setFlightNum();
+  try {
+    const flightData = await Flight.create(flight);
+    res.json(flightData)
+  } catch (error) {
+    res.json(error)
+  }
+  
+})
 app.post('/auth/local/register', async (req, res) => {
   console.log(req.body)
   const {email, username, password} = req.body;
