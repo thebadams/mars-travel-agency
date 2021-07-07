@@ -8,8 +8,10 @@ import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from
 
 const BookingsStyle = styled.div`
 .hero {
+  opacity: 0.8;
+  border-radius: 25px;
   position: absolute;
-  background-color: white;
+  background-color: #dbd7d2;
   color: black;
   height: 350px;
   margin-right: auto;
