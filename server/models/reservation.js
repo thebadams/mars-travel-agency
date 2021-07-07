@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const reservationSchema = new Schema({
   numTickets: Number,
   partyNum: Number,
-  refundable: Boolean,
+  refundable: {
+    type: Boolean,
+    default: true
+  },
   name: {
     type: Schema.Types.ObjectId,
     ref: "User"
