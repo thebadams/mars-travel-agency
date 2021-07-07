@@ -17,7 +17,7 @@ import {
   faNewspaper
 } from "@fortawesome/free-regular-svg-icons"
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF", "#0033ff"];
+const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF", "#0d00ff"];
 const links = ["/", "/booking", "/weather", "/news", "/login", "/signup"]
 const text = ["Home", "Booking", "Weather", "News", "Login", "SignUp"]
 const icons = [ faHome, faCalendarAlt, faCloudSun, faNewspaper, faSignInAlt, faUserPlus]
