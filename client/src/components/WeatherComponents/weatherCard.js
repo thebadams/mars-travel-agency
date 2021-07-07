@@ -17,12 +17,8 @@ const useStyles = makeStyles((theme) => ({
 const WeatherCardStyle = styled.div`
     .hero {
         position: absolute;
-        top: 80%;
-        left: 20%;
-        right: 20%;
-        margin-top: -250px;
-        margin-right: auto;
-        margin-left: auto;
+        top: 75%;
+        left:20%;
     }
 `;
 
@@ -37,12 +33,12 @@ export default function WeatherCard() {
   return (
       <WeatherCardStyle>
           <div className="hero">
-            <Grid container className={classes.root} spacing={10} >
+            <Grid container className={classes.root}>
             <Grid item xs={12} >
-                <Grid container justifyContent="center" spacing={spacing} >
+                <Grid container spacing={spacing} className={classes.cardContainer} >
                 {[0, 1, 2, 3, 4, 5, 6].map((value) => (
                     <Grid key={value} item>
-                    <Paper className={classes.paper}>
+                    <Paper  className={classes.paper}>
                     <h1>hello</h1>
 
                     </Paper>
