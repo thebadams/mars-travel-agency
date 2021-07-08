@@ -44,7 +44,8 @@ function(accessToken, refreshToken, profile, done){
       //set the password: will set up email to user.
       let password = 'password1234'
       let userData = new User({
-        username: profile.displayName,
+        firstName: profile.displayName.split(' ')[0],
+        lastName: profile.displayName.split(' ')[1],
         email: email,
         facebookId: profile.id
       })
