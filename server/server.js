@@ -111,6 +111,7 @@ app.post('/auth/local/register', async (req, res) => {
 
 //login with local strategy using the passport.authenticate middleware
 app.post('/auth/local/login', passport.authenticate('local'), (req, res) => {
+  req.session.user = req.user
   res.json({message: "hello"})
 })
 
