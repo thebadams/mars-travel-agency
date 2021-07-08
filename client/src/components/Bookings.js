@@ -48,6 +48,11 @@ const BookingsStyle = styled.div`
 .return-field  {
   padding-right: 15px;
 }
+
+.depart-field,
+.return-field {
+  margin-top: 1.5rem;
+}
 `;
 
 const useStyles = makeStyles({
