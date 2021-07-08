@@ -6,24 +6,12 @@ import WeatherCard from "../components/WeatherComponents/weatherCard"
 
 const WeatherStyle = styled.div`
 
-width: 100vw;
-height: 100vh;
-display: flex;
-    justify-content: center;
-
-.weatherBtn{
-    background: red;
-}
-.weatherCard{
-    background: red;
-}
 `;
 
 const Weather = () => {
     return(
         <WeatherStyle>
-            <Button color="primary" className= "weatherBtn">Hello World</Button>
-            <WeatherCard className= "weatherCard" />
+            <WeatherCard className= "WeatherCard" />
         </WeatherStyle>
     )
 };
