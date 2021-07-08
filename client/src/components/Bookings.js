@@ -7,8 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 
 const BookingsStyle = styled.div`
+margin-top: 20%;
+
 .hero {
-  opacity: 0.8;
+  text-align: left;
+  opacity: 0.9;
   border-radius: 25px;
   position: absolute;
   background-color: #dbd7d2;
@@ -16,9 +19,8 @@ const BookingsStyle = styled.div`
   height: 350px;
   margin-right: auto;
   margin-left: auto;
-  top: 40%;
-  left: 50%;
-  margin-top: -100px;
+  top: 60%;
+  left: 30%;
   margin-left: -300px;
 }
 
@@ -47,6 +49,11 @@ const BookingsStyle = styled.div`
 .depart-field,
 .return-field  {
   padding-right: 15px;
+}
+
+.depart-field,
+.return-field {
+  margin-top: 1.5rem;
 }
 `;
 
