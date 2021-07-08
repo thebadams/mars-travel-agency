@@ -7,15 +7,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 
 const BookingsStyle = styled.div`
+  display: inline-block;
 
 .hero {
+  display: flex;
+  flex-wrap: wrap;
   text-align: left;
   opacity: 0.9;
   border-radius: 25px;
   position: absolute;
   background-color: #dbd7d2;
   color: black;
-  height: 350px;
+  height: 30%;
   margin-right: auto;
   margin-left: auto;
   top: 20%;
