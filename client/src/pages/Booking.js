@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Bookings from '../components/Bookings'
+import Bookings from '../components/Bookings';
+import Ticket from '../components/TicketComponents/ticket';
 import Img from '../assets/img/mars.jpg';
 
 const BookingStyle = styled.div`
@@ -14,6 +15,7 @@ const Booking = () => {
   return (
       <BookingStyle>
           <Bookings />
+          <Ticket />
       </BookingStyle>
   )
 };
