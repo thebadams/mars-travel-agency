@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 
 const BookingsStyle = styled.div`
-margin-top: 20%;
 
 .hero {
   text-align: left;
@@ -19,7 +18,7 @@ margin-top: 20%;
   height: 350px;
   margin-right: auto;
   margin-left: auto;
-  top: 60%;
+  top: 20%;
   left: 30%;
   margin-left: -300px;
 }
