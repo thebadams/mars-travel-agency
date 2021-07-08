@@ -120,6 +120,16 @@ app.get('/auth/logout', function(req, res){
   res.redirect('http://localhost:3000/');
 });
 
+
+app.get('/auth/session', (req, res) => {
+  if(req.session.user) {
+    res.json({ user:req.session.user, loggedIn: true });
+  } else {
+    res.json({
+      loggedIn: false
+    })
+  }
+})
 //facebook authorization
 //run the facebook authorization using the authenticate middleware, ask for email scope
 app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
