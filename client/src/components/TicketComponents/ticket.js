@@ -444,7 +444,7 @@ const Flight = [
         label: "rgb(252, 178, 50)"
     },
     {
-        src: "https://lh3.googleusercontent.com/proxy/m_YtB8mkGFxA25EUx5srzDmosCNxbcsAUlv1qLbvHYHkMlhampl8mcuW6ZessSRiN2O1433Y0qtzdi-Q1sDc-iESbl5PxQ-1QtAxmG7ILtq5",
+        src: "https://upload.wikimedia.org/wikipedia/commons/6/67/Kennedy_Space_Center_Logo.svg",
         style: {
         height: "51px",
         margin: "22px 12px"
