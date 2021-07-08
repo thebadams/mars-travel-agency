@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
 //Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faCalendarAlt,
   faCloudSun,
   faSignInAlt,
   faUserPlus,
+  faSignOutAlt,
   faUserAstronaut
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -25,7 +26,11 @@ import {
 //   </motion.ul>
 // );
 
-const loggedIn = false; 
+const logMeOut = () => {
+
+}
+
+const loggedIn = true; 
 
 const displayProfile = () => {
 
@@ -42,7 +47,7 @@ const displayLoginOrOut = () => {
 
   if (loggedIn) {
     return (
-      <MenuItem navItems={logOutButton}></MenuItem>
+      <MenuItem navItems={logOutButton} onClick={logMeOut}></MenuItem>
     )
 
   }
@@ -128,6 +133,6 @@ const logOutButton =   {
   colors: "#4400FF",
   links: "/login",
   text: "Logout",
-  icons: faSignInAlt,
+  icons: faSignOutAlt,
   id: 4
 }

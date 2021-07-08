@@ -6,17 +6,7 @@ import styled from "styled-components";
 // import { useLocation } from "react-router-dom";
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faCalendarAlt,
-  faCloudSun,
-  faSignInAlt,
-  faUserPlus,
-  faUserAstronaut
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faNewspaper
-} from "@fortawesome/free-regular-svg-icons"
+
 
 // const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF", "#0d00ff", "#5a0cd7"];
 // const links = ["/", "/booking", "/weather", "/news", "/login", "/signup", "/profile"]
@@ -29,7 +19,7 @@ export const MenuItem = (props) => {
   const { colors, links, text, icons } = props.navItems
   const style = { border: `2px solid ${colors}`, color: `${colors}` };
 
-  const loggedIn = true; 
+  // const loggedIn = true; 
 
   
 
