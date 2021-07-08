@@ -194,11 +194,12 @@ const FlightStyle = styled.div`
 
 #animContainer {
     padding-left: 0px;
+    margin-left: 120px;
     position: absolute;
     width: 19px;
     height: 10px;
-    top: 10px;
-    left: 15px;
+    top: 50px;
+    left: 25px;
     overflow: hidden;
 }
 
@@ -211,7 +212,7 @@ const FlightStyle = styled.div`
 
 @keyframes slidein {
     to {
-        transform: translateX(-18px);
+        transform: translateX(-17px);
     }
 
     from {
