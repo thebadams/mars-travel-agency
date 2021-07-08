@@ -1,11 +1,19 @@
 import React from "react";
+import { Button } from '@material-ui/core';
+import styled from "styled-components";
+import WeatherCard from "../components/WeatherComponents/weatherCard"
 
-//Page Components
 
-//Animations
+const WeatherStyle = styled.div`
+
+`;
 
 const Weather = () => {
-    return <h1>Weather</h1>;
+    return(
+        <WeatherStyle>
+            <WeatherCard className= "WeatherCard" />
+        </WeatherStyle>
+    )
 };
 
 export default Weather;

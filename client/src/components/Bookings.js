@@ -7,17 +7,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 
 const BookingsStyle = styled.div`
+  display: inline-block;
+
 .hero {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  opacity: 0.9;
+  border-radius: 25px;
   position: absolute;
-  background-color: white;
+  background-color: #dbd7d2;
   color: black;
-  width: 600px;
-  height: 350px;
+  height: 30%;
   margin-right: auto;
   margin-left: auto;
-  top: 40%;
-  left: 50%;
-  margin-top: -100px;
+  top: 20%;
+  left: 30%;
   margin-left: -300px;
 }
 
@@ -46,6 +51,11 @@ const BookingsStyle = styled.div`
 .depart-field,
 .return-field  {
   padding-right: 15px;
+}
+
+.depart-field,
+.return-field {
+  margin-top: 1.5rem;
 }
 `;
 
@@ -132,7 +142,7 @@ const handleChange = (event) => {
 return (
     <BookingsStyle>
       <div className="hero">
-        <Container maxWidthMd>
+        <Container maxWidthLg>
           <h1 className="hero_heading">Book</h1>
           <div>
             <Fab

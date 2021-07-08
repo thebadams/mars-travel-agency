@@ -23,12 +23,12 @@ export const pageAnimation = {
 
 export const titleAnim = {
   hidden: { y: 200 },
-  show: { y: 0, transition: { duration: 0.75, ease: "easeOut" } },
+  show: { y: 0, transition: { duration: 1.5, ease: "easeOut" } },
 };
 
 export const fadeAnim = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.75, ease: "easeOut" } },
+  show: { opacity: 1, transition: { duration: 3, ease: "easeOut" } },
 };
 
 export const photoAnim = {

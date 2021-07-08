@@ -1,13 +1,12 @@
 import React from "react";
 
-//Import API
-import API from "./utils/spotifysearch";
-
 //Import Pages
 import Booking from "./pages/Booking";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import News from "./pages/News";
+import Profile from "./pages/Profile";
+import Confirmation from "./pages/Confirmation"
 
 import SignUp from "./pages/SignUp";
 
@@ -48,16 +47,16 @@ function App() {
           <Route path="/news" exact>
             <News />
           </Route>
+          <Route path="/profile" exact>
+            <Profile />
+          </Route>
+          <Route path="/confirmation" exact>
+            <Confirmation />
+          </Route>
         </Switch>
       </AnimatePresence>
     </div>
   );
-}
-
-{
-  /* <header className="App-header">
-  <button onClick={API}>Click ME</button>
-</header>; */
 }
 
 export default App;
