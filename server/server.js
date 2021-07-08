@@ -96,6 +96,12 @@ app.post('/auth/local/register', async (req, res) => {
   //create hte user, by passing in the user object and the password to the register method
   try {
       const registered = await User.register(user, password);
+      req.logIn(registered, (error) => {
+        error ? res.json(error) : console.log(registered)
+      });
+      console.log(req.user)
+      req.session.user = req.user
+      console.log(req.session.user)
       res.json(registered)
   } catch (error) {
     res.json(error)
