@@ -72,13 +72,18 @@ export default function SignUp() {
     e.preventDefault();
     const body = {
       email: document.querySelector('#email').value,
-      firstname: document.querySelector('#firstName').value,
-      lastname: document.querySelector('#lastName').value,
+      firstName: document.querySelector('#firstName').value,
+      lastName: document.querySelector('#lastName').value,
       password: document.querySelector('#password').value
     }
     const response = await axios.post('/auth/local/register', body)
     console.log(response)
 
+    //if response status = 200 then dispatch(LOGIN)
+    //sets app state to LOGGED IN: true
+    //sets current user to user that is returned in the response
+
+    //logic run after registration
   }
 
   return (
@@ -151,6 +156,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleRegister}
           >
             Sign Up
           </Button>

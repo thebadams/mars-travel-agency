@@ -90,9 +90,9 @@ app.post('/api/reservation', async (req, res) => {
 //create new user using the local strategy
 app.post('/auth/local/register', async (req, res) => {
   console.log(req.body)
-  const {email, username, password} = req.body;
+  const {email, firstName, lastName, password} = req.body;
   //pass in the user's email, username
-  const user = new User({email, username});
+  const user = new User({email, firstName, lastName});
   //create hte user, by passing in the user object and the password to the register method
   try {
       const registered = await User.register(user, password);
@@ -108,12 +108,17 @@ app.post('/auth/local/login', passport.authenticate('local'), (req, res) => {
   res.json({message: "hello"})
 })
 
+app.get('/auth/logout', function(req, res){
+  req.logout();
+  res.redirect('http://localhost:3000/');
+});
+
 //facebook authorization
 //run the facebook authorization using the authenticate middleware, ask for email scope
 app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
 //run call back, redirect if successful
-app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/failure'}), (req, res) => {
-  res.redirect('/success')
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: 'http://localhost:3000/failure'}), (req, res) => {
+  res.redirect('http://localhost:3000/success')
 })
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"))
