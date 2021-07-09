@@ -1,6 +1,6 @@
-import React from 'react';
-
-const AppStateContext = React.createContext({
+import React, { createContext, useContext, useReducer} from 'react';
+import reducer from './globalUserReducer';
+const AppStateContext = createContext({
   loggedIn: false,
   user: {},
   successMessage: "",
@@ -8,4 +8,19 @@ const AppStateContext = React.createContext({
   
 })
 
-export default AppStateContext;
+const GlobalProvider = ({ value = [], ...props}) => {
+  const [state, dispatch] = useReducer(reducer, {
+    loggedIn: false,
+    user: {
+    },
+    successMessage: "",
+    errorMessage: ""
+  })
+  return < AppStateContext.Provider value={[state, dispatch]} {...props} />
+
+}
+
+const useAppStateContext = () => {
+  return useContext(AppStateContext);
+}
+export { GlobalProvider, useAppStateContext}
