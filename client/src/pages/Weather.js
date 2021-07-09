@@ -1,19 +1,34 @@
 import React from "react";
-import { Button } from '@material-ui/core';
+import WeatherCard from "../components/WeatherComponents/weatherCard";
+import SwipeableTextMobileStepper from "../components/WeatherComponents/weatherCarosel";
 import styled from "styled-components";
-import WeatherCard from "../components/WeatherComponents/weatherCard"
+import MarsLandscape from "../assets/img/MarsLandscape.jpg";
+import { style } from "@material-ui/system";
 
+const WeatherStyle = styled.div `
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+const WeatherBgImg = styled.div `
+background-image: url(${MarsLandscape});
+background-repeat: no-repeat;
+background-size: cover;
+width: 100vw;
+  height: 100vh
 
-const WeatherStyle = styled.div`
-
-`;
+`
 
 const Weather = () => {
-    return(
-        <WeatherStyle>
-            <WeatherCard className= "WeatherCard" />
-        </WeatherStyle>
-    )
+  return (
+      <WeatherBgImg>
+    <WeatherStyle>
+      <SwipeableTextMobileStepper />
+      <WeatherCard />
+    </WeatherStyle>
+    </WeatherBgImg>
+  );
 };
 
 export default Weather;
