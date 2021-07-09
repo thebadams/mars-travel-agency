@@ -8,7 +8,7 @@ const BookingStyle = styled.div`
   background-image: url(${Img});
   background-position: center;
   width: 100vw;
-  height: 100vh
+  height: 100vh;
 `;
 
 const Booking = () => {
