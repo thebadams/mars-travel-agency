@@ -16,6 +16,7 @@ import Container from "@material-ui/core/Container";
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons"
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -66,6 +67,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const body = {
+      email: document.querySelector('#email').value,
+      firstName: document.querySelector('#firstName').value,
+      lastName: document.querySelector('#lastName').value,
+      password: document.querySelector('#password').value
+    }
+    const response = await axios.post('/auth/local/register', body)
+    console.log(response)
+
+    //if response status = 200 then dispatch(LOGIN)
+    //sets app state to LOGGED IN: true
+    //sets current user to user that is returned in the response
+
+    //logic run after registration
+  }
 
   return (
     <Container className={classes.container} component="main" maxWidth="xs">
@@ -137,6 +156,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleRegister}
           >
             Sign Up
           </Button>

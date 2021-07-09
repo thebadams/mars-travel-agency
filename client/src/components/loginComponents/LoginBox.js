@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 //Material ui components
 import Avatar from "@material-ui/core/Avatar";
@@ -16,6 +16,7 @@ import Container from "@material-ui/core/Container";
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons"
+import axios from 'axios'
 
 function Copyright() {
   return (
@@ -30,8 +31,22 @@ function Copyright() {
   );
 }
 
+
 const LoginBox = () => {
   const classes = useStyles();
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    const body = {
+      email: document.querySelector('#email').value,
+      password: document.querySelector('#password').value
+    }
+    console.log(body)
+  const response = await axios.post('/auth/local/login', body)
+  console.log(response)
+  //logic to run after successfully or unsuccessfully logging in using local strat
+}
+
   return (
     <Container className={classes.container} component="main" maxWidth="xs">
       <div className={classes.paper}>
@@ -74,6 +89,7 @@ const LoginBox = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleLogin}
           >
             Sign In
           </Button>
@@ -88,6 +104,7 @@ const LoginBox = () => {
                 variant="contained"
                 color="default"
                 className={classes.button}
+                href="http://localhost:3001/auth/facebook"
               >
                 <FontAwesomeIcon icon={faFacebookSquare} color="blue" size="3x"/>
               Sign In
