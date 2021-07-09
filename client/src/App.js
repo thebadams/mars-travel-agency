@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import API from './utils/spotifysearch';
-import Login from './components/Login';
-=======
 import React from "react";
 
 //Import Pages
@@ -24,19 +20,12 @@ import { AnimatePresence } from "framer-motion";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
->>>>>>> development-trunk
 
 function App() {
   const location = useLocation();
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      <Login />
-      <header className="App-header">
-        <button onClick={API}>Click ME</button>
-      </header>
-=======
       <Burger />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
@@ -66,7 +55,6 @@ function App() {
           </Route>
         </Switch>
       </AnimatePresence>
->>>>>>> development-trunk
     </div>
   );
 }
