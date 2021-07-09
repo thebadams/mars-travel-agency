@@ -8,7 +8,7 @@ import { titleAnim, fadeAnim } from "../animation";
 
 const Confirm = () => {
     return (
-        <div className="space">
+        <div className="outer-space">
         <motion.h1 
             className="confirm" 
             variants={fadeAnim} 
