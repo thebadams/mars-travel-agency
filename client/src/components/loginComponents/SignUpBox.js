@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-
+import FacebookButton from "./FacebookButton";
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
@@ -162,14 +162,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
           <Grid item xs={6}>
-              <Button
-                variant="contained"
-                color="default"
-                className={classes.button}
-              >
-                <FontAwesomeIcon icon={faFacebookSquare} color="blue" size="3x"/>
-              Sign In
-              </Button>
+             <FacebookButton/>
             </Grid>
             <Grid item>
               <Link to="/login">Already have an account? Sign in</Link>
