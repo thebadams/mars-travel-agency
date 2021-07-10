@@ -1,10 +1,7 @@
-const Comment = require('./Comment');
-const Review = require('./Review');
+const Flight = require('./flight');
 
 
 
 module.exports = {
-  Comment,
-  Review,
-
-}
+  Flight
+};
