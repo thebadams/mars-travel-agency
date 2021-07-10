@@ -24,8 +24,10 @@ function(accessToken, refreshToken, profile, done){
   console.log(accessToken);
   console.log(refreshToken);  
   console.log(profile)
-  //find user by facebook id
-  User.findOne({facebookId: profile.id}, (err, user) => {
+
+ const email = axios.get(`https://graph.facebook.com/v11.0/me?fields=id%2Cname%2Cemail&access_token=${accessToken}`).then(response=> {
+   return response.data.email}).then(email=>{
+    User.findOneAndUpdate({email: email}, {$set:{facebookId: profile.id}}, (err, user) => {
     if(err) {
       return done(err, false, {message: err});
     } else {
@@ -35,27 +37,25 @@ function(accessToken, refreshToken, profile, done){
         return done(null, user, {message: user})
     } else {
       //if user does not exist get their email
-      const email = axios.get(`https://graph.facebook.com/v11.0/me?fields=id%2Cname%2Cemail&access_token=${accessToken}`).then(response=>{
-
-      console.log(response.data)
-      return response.data.email
-    }).then(email => {
       //set up new user using the information parsed from the facebook data
       //set the password: will set up email to user.
       let password = 'password1234'
       let userData = new User({
-        username: profile.displayName,
+        firstName: profile.displayName.split(' ')[0],
+        lastName: profile.displayName.split(' ')[1],
         email: email,
         facebookId: profile.id
       })
       //register the data
       User.register(userData, password)
-    })
- 
     }
-    } 
+    }
   })
-}))
+   })
+
+  //find user by facebook id
+  
+}))  
 
 //set up serializing method
 passport.serializeUser(User.serializeUser());

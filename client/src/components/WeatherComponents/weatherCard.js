@@ -3,10 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
+import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: '10%',
+
   },
   paper: {
     height: 140,
@@ -14,13 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WeatherCardStyle = styled.div`
-    .hero {
-        position: absolute;
-        top: 75%;
-        left:20%;
-    }
-`;
+
 
 export default function WeatherCard() {
   const [spacing, setSpacing] = React.useState(5);
@@ -31,7 +28,6 @@ export default function WeatherCard() {
   };
 
   return (
-      <WeatherCardStyle>
           <div className="hero">
             <Grid container className={classes.root}>
             <Grid item xs={12} >
@@ -48,6 +44,5 @@ export default function WeatherCard() {
             </Grid>
             </Grid>
         </div>
-    </WeatherCardStyle>
   );
 }
