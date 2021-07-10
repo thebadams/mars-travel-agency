@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //Material ui components
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
+import FacebookButton from "./FacebookButton";
 
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -100,15 +101,7 @@ const LoginBox = () => {
             alignItems="center"
           >
           <Grid item xs={6}>
-              <Button
-                variant="contained"
-                color="default"
-                className={classes.button}
-                href="http://localhost:3001/auth/facebook"
-              >
-                <FontAwesomeIcon icon={faFacebookSquare} color="blue" size="3x"/>
-              Sign In
-              </Button>
+              <FacebookButton/>
             </Grid>
             <Grid item xs={6}>
               <Link to="/signup" style={{textDecoration: "none"}}>Don't have an account, Sign Up here!</Link>
