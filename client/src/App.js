@@ -21,10 +21,14 @@ import { AnimatePresence } from "framer-motion";
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
 
+//Context
+import { GlobalProvider } from "./utils/GlobalContext";
+
 function App() {
   const location = useLocation();
 
   return (
+    <GlobalProvider>
     <div className="App">
       <Burger />
       <AnimatePresence exitBeforeEnter>
@@ -56,6 +60,7 @@ function App() {
         </Switch>
       </AnimatePresence>
     </div>
+    </GlobalProvider>
   );
 }
 
