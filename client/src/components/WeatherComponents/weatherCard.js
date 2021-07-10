@@ -2,18 +2,19 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import styled from 'styled-components';
-import { red } from '@material-ui/core/colors';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: '10%',
+    marginBottom: '2%',
 
   },
   paper: {
-    height: 140,
-    width: 100,
+    height: 160,
+    width: 150,
+    opacity: '0.5',
   },
 }));
 
