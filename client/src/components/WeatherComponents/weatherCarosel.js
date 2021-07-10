@@ -60,6 +60,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     width: '100%',
   },
+
+  pictureNav: {
+    opacity: '0.65',
+    height: 50,
+
+  },
+
+  arrow:{
+    marginBottom: 20,
+    fontSize: 40,
+  }
+
+
 }));
 
 function SwipeableTextMobileStepper() {
@@ -97,20 +110,19 @@ function SwipeableTextMobileStepper() {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+      className={classes.pictureNav} 
         steps={maxSteps}
         position="static"
-        variant="text"
+        variant="none"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          <Button onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft className={classes.arrow} /> : <KeyboardArrowRight className={classes.arrow} />}
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
+          <Button  onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? <KeyboardArrowRight className={classes.arrow} /> : <KeyboardArrowLeft className={classes.arrow} />}
           </Button>
         }
       />
