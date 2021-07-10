@@ -15,35 +15,61 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology:true, useFindAnd
 const seedDb = async () => {
   const seedData = await Flight.insertMany([
     {
-      flightName: "Falcon-9",
-      totalSeats: 10,
-      currentReservations: 4,
-      departureLocation: "Kennedy Space Center - Cape Canaveral, Florida"
+      aircraftType: "Falcon-9",
+      seatingClass: "Economy",
+      flightTime: 300,
+      boardingTime: 1500,
+      seatNumber: "14A",
+      currentReservations: 9,
+      departure:  "Kennedy Space Center - Cape Canaveral, Florida",
+      arrival: "Mars",
+      captain: "Sarah",
     },
     {
-      flightName: "Starlink-30",
-      totalSeats: 10,
+      aircraftType: "Inspiration4",
+      seatingClass: "First",
+      flightTime: 300,
+      boardingTime: 1700,
+      seatNumber: "5A",
+      currentReservations: 2,
+      departure:  "Johnson Space Center - Houston, Texas",
+      arrival: "Mars",
+      captain: "Lucy",
+    },
+    {
+      aircraftType: "Falcon-9",
+      seatingClass: "Economy",
+      flightTime: 300,
+      boardingTime: 2000,
+      seatNumber: "15A",
+      currentReservations: 4,
+      departure:  "Vandenberg Space Launch Complex 4 - Vandenberg Space Force Base, California",
+      arrival: "Mars",
+      captain: "Roger",
+    },
+    {
+      aircraftType: "Falcon-9",
+      seatingClass: "Economy",
+      flightTime: 300,
+      boardingTime: 0900,
+      seatNumber: "30A",
       currentReservations: 6,
-      departureLocation: "Kennedy Space Center - Cape Canaveral, Florida"
+      departure:  "Kennedy Space Center - Cape Canaveral, Florida",
+      arrival: "Mars",
+      captain: "Bill",
     },
     {
-      flightName: "Inspiration4",
-      totalSeats: 10,
-      currentReservations: 4,
-      departureLocation: "Kennedy Space Center - Cape Canaveral, Florida"
+      aircraftType: "Inspiration4",
+      seatingClass: "First",
+      flightTime: 300,
+      boardingTime: 1200,
+      seatNumber: "1A",
+      currentReservations: 1,
+      departure:  "Johnson Space Center - Houston, Texas",
+      arrival: "Mars",
+      captain: "Michael",
     },
-    {
-      flightName: "Starlink-29",
-      totalSeats: 10,
-      currentReservations: 3,
-      departureLocation: "Kennedy Space Center - Cape Canaveral, Florida"
-    },
-    {
-      flightName: "Falcon-9",
-      totalSeats: 12,
-      currentReservations: 8,
-      departureLocation: "Kennedy Space Center - Cape Canaveral, Florida"
-    },
+    
   ])
   return seedData;
 };
