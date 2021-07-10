@@ -17,6 +17,9 @@ import Container from "@material-ui/core/Container";
 
 import axios from 'axios'
 
+//context
+import { useAppStateContext } from '../../utils/GlobalContext'
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -33,6 +36,7 @@ function Copyright() {
 
 const LoginBox = () => {
   const classes = useStyles();
+  const [state, dispatch] = useAppStateContext();
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -43,7 +47,10 @@ const LoginBox = () => {
     console.log(body)
   const response = await axios.post('/auth/local/login', body)
   console.log(response)
-  //logic to run after successfully or unsuccessfully logging in using local strat
+  dispatch({
+    type: 'LOG_IN',
+    value: response.data
+  })
 }
 
   return (

@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import axios from 'axios';
+import {useAppStateContext} from '../../utils/GlobalContext'
 
 function Copyright() {
   return (
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [state, dispatch] = useAppStateContext()
   const handleRegister = async (e) => {
     e.preventDefault();
     const body = {
@@ -76,6 +77,10 @@ export default function SignUp() {
     }
     const response = await axios.post('/auth/local/register', body)
     console.log(response)
+    dispatch({
+      type: 'LOG_IN',
+      value: response.data
+    })
 
     //if response status = 200 then dispatch(LOGIN)
     //sets app state to LOGGED IN: true
