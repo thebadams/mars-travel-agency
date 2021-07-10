@@ -12,22 +12,6 @@ const BookingStyle = styled.div`
   height: 100vh;
 `;
 
-// useEffect(() => {
-//   axios.get(`mongodb://localhost:27017/marstravelDB/Flight`)
-//   .then(res => {
-//     const flights = res.data;
-//     this.setState({ flights });
-//   })
-// })
-
-// componentDidMount() {
-//   axios.get(`mongodb://localhost:27017/marstravelDB/Flight`)
-//     .then(res => {
-//       const flights = res.data;
-//       this.setState({ flights });
-//     })
-// };
-
 const Booking = () => {
 
   const [flightState, setFlightState] = useState([])
@@ -43,9 +27,9 @@ const Booking = () => {
   
   return (
       <BookingStyle>
-          <ul>
+          {/* <ul>
             { flightState.map(flight => <li>{flight.aircraftType}</li>)}
-          </ul>
+          </ul> */}
           <Bookings />
           <Ticket />
       </BookingStyle>
