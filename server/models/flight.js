@@ -4,12 +4,19 @@ const Schema = mongoose.Schema;
 
 const flightSchema = new Schema({
   flightNum: String,
+  aircraftType: String,
   date: {
     type: Date,
     default: Date.now
   },
-  totalSeats: Number,
-  currentReservations: Number
+  seatingClass: String,
+  flightTime: Number,
+  boardingTime: Number,
+  seatNumber: String,
+  currentReservations: Number,
+  departure: String,
+  arrival: String,
+  captain: String
 });
 
 flightSchema.methods.setFlightNum = function() {

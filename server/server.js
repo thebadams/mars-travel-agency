@@ -8,12 +8,30 @@ const User = require('./models/user');
 const Flight = require('./models/flight');
 const Reservation = require('./models/reservation');
 const app = express();
-const PORT = 3001
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
+
+
+
+// mongoose.connect('mongodb://localhost/music-reviews',
+// {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true})
+// .then(() => console.log('Connected to MongoDb'))
+// .catch(err => console.error('Error connecting to MongoDb!', err));
 
 
 //body parser
 app.use(express.json())
 // app.use(express.static(app.use(express.static("client/build"))))
+// const routes = require("./controllers/flightsController");
+// app.use(routes);
+
+const routes = require('./routes');
+app.use(routes);
 
 //set up session
 app.use(session({
