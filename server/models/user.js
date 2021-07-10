@@ -1,40 +1,23 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose')
 
-const Schema = mongoose.Schema
-
-const userSchema = new Schema({
-  firstName:{
+const userSchema = new mongoose.Schema({
+  username: {
     type: String,
-    required: [true, "Please Enter a First Name"]
+    trim: true,
+    required: true
   },
-  lastName: {
+  password: {
     type: String,
-    required: [true, "Please Enter a Last Name"]
+    minlength: 6,
+    trim: true,
+    required: true
   },
-  email: {
-    type: String,
-    required: [true, "please enter an email"]
-  },
-  facebookId: {
-    type: String
-  },
-  reservations: [{
-    type: Schema.Types.ObjectId,
-    ref: "Reservation"
-    }],
-    
-
-  // password: {
-  //   type: String,
-  //   required: [true, "please enter a password"]
-  // }
-})
-
-userSchema.plugin(passportLocalMongoose, {
-  usernameField: 'email'
+  userCreated: {
+    type: Date,
+    default: Date.now,
+  }
 });
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
