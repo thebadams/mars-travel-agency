@@ -18,7 +18,7 @@ const BookingsStyle = styled.div`
   position: absolute;
   background-color: #dbd7d2;
   color: black;
-  height: 30%;
+  height: 345px;
   margin-right: auto;
   margin-left: auto;
   top: 20%;
