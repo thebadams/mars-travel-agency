@@ -17,6 +17,8 @@ import {
   faNewspaper
 } from "@fortawesome/free-regular-svg-icons"
 
+import { useAppStateContext } from "../../utils/GlobalContext"
+
 
 // export const Navigation = () => (
 //   <motion.ul variants={NavAnim}>
@@ -26,15 +28,15 @@ import {
 //   </motion.ul>
 // );
 
-const logMeOut = () => {
-
+const logMeOut = (dispatch) => {
+  //dispatch the object or log out get req to /auth/logout
+  //DISPATCH 
 }
 
-const loggedIn = true; 
 
-const displayProfile = () => {
+const displayProfile = (state) => {
 
-  if (loggedIn)
+  if (state.loggedIn)
  {
    return (
      <MenuItem navItems={portfolioButton}></MenuItem>
@@ -42,12 +44,12 @@ const displayProfile = () => {
  }
 }
 
-const displayLoginOrOut = () => {
+const displayLoginOrOut = (state, dispatch) => {
 
 
-  if (loggedIn) {
+  if (state.loggedIn) {
     return (
-      <MenuItem navItems={logOutButton} onClick={logMeOut}></MenuItem>
+      <MenuItem navItems={logOutButton} onClick={() => {logMeOut(dispatch)}}></MenuItem>
     )
 
   }
@@ -58,16 +60,20 @@ const displayLoginOrOut = () => {
  
 }
 
-export const Navigation = () => (
+export const Navigation = () => {
+  const [state, dispatch] = useAppStateContext()
+
+  return (
   <motion.ul variants={NavAnim}>
     {navItems.map((navitem) => (
       <MenuItem navItems={navitem} key={navitem.id}/>
     ))}
 
-    {displayProfile()}
-    {displayLoginOrOut()}
+    {displayProfile(state)}
+    {displayLoginOrOut(state, dispatch)}
   </motion.ul>
-);
+  )
+};
 
 
 
