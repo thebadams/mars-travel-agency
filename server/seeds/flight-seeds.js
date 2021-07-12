@@ -9,9 +9,6 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology:true, useFindAnd
 .catch(err => console.error('Error Connecting to MongoDb', err));
 
 
-
-
-
 const seedDb = async () => {
   const seedData = await Flight.insertMany([
     {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
@@ -40,11 +38,13 @@ const tutorialSteps = [
 ];
 
 const useStyles = makeStyles((theme) => ({
+
   root: {
       maxWidth: 400,
     flexGrow: 1,
-    marginLeft: '30%',
+    marginRight: '10%',
     marginTop: '5%',
+    fontFamily: 'Roboto-Regular, HelveticaNeue, Arial, sans-serif',
   },
   header: {
     display: 'flex',
@@ -54,12 +54,24 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 255,
+    height: 320,
     display: 'block',
     maxWidth: 400,
     overflow: 'hidden',
     width: '100%',
   },
+
+  pictureNav: {
+    opacity: '0.35',
+    height: 50,
+  },
+
+  arrow:{
+    marginBottom: 20,
+    fontSize: 40,
+  }
+
+
 }));
 
 function SwipeableTextMobileStepper() {
@@ -82,9 +94,6 @@ function SwipeableTextMobileStepper() {
 
   return (
     <div className={classes.root}>
-      <Paper square elevation={0} className={classes.header}>
-        <Typography>{tutorialSteps[activeStep].label}</Typography>
-      </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -100,20 +109,19 @@ function SwipeableTextMobileStepper() {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+      className={classes.pictureNav} 
         steps={maxSteps}
         position="static"
-        variant="text"
+        variant="none"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          <Button onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft className={classes.arrow} /> : <KeyboardArrowRight className={classes.arrow} />}
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
+          <Button  onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? <KeyboardArrowRight className={classes.arrow} /> : <KeyboardArrowLeft className={classes.arrow} />}
           </Button>
         }
       />

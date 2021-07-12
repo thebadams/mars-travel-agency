@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-
+import FacebookButton from "./FacebookButton";
 import { Link } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
@@ -13,10 +13,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-//Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons"
+
 import axios from 'axios';
+import {useAppStateContext} from '../../utils/GlobalContext'
 
 function Copyright() {
   return (
@@ -67,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [state, dispatch] = useAppStateContext()
   const handleRegister = async (e) => {
     e.preventDefault();
     const body = {
@@ -78,6 +77,10 @@ export default function SignUp() {
     }
     const response = await axios.post('/auth/local/register', body)
     console.log(response)
+    dispatch({
+      type: 'LOG_IN',
+      value: response.data
+    })
 
     //if response status = 200 then dispatch(LOGIN)
     //sets app state to LOGGED IN: true
@@ -162,14 +165,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
           <Grid item xs={6}>
-              <Button
-                variant="contained"
-                color="default"
-                className={classes.button}
-              >
-                <FontAwesomeIcon icon={faFacebookSquare} color="blue" size="3x"/>
-              Sign In
-              </Button>
+             <FacebookButton/>
             </Grid>
             <Grid item>
               <Link to="/login">Already have an account? Sign in</Link>
