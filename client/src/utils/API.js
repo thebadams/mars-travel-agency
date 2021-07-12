@@ -9,5 +9,11 @@ export default {
   },
   getSpaceNews: function() {
     return axios.get(spaceNewsAPI);
+  },
+  getFlights: function() {
+    return axios.get("/api/booking")
+  },
+  getFlight: function(id) {
+    return axios.get("/api/booking/" + id)
   }
 };
