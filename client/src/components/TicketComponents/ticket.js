@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
-const { useState } = React;
 
 const FlightStyle = styled.div`
   opacity: 0.9;
@@ -484,6 +483,16 @@ const Flight = [
 const Cell = (props)=> {
   const { index } = props;
   const [active, handleActive] = useState(false);
+  const [flightState, setFlightState] = useState([])
+
+  useEffect(() => {
+    axios.get(`/api/booking`)
+    .then(res => {
+      const flights = res.data;
+      setFlightState(flights);
+      console.log(res);
+    })
+  },[])
 	
   return (
     <div
@@ -804,6 +813,18 @@ const DataArr = Array(5)
   .fill(0)
   .map(Number.call, Number);
 const Ticket = () => {
+  
+  const [flightState, setFlightState] = useState([])
+
+  useEffect(() => {
+    axios.get(`/api/booking`)
+    .then(res => {
+      const flights = res.data;
+      setFlightState(flights);
+      console.log(res);
+    })
+  },[])
+
   return (
     <FlightStyle>
       <div className="App">

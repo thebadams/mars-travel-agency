@@ -13,13 +13,13 @@ const ProfileStyle = styled.div`
 `;
 
 const Profile = () => {
-  return (
-      <ProfileStyle>
-          <div className="text">
-          <h1>Hello Tak</h1>
-          </div>
-      </ProfileStyle>
-  )
+    return (
+        <ProfileStyle>
+            <div className="text">
+            <h1>Hello Takuya</h1>
+            </div>
+        </ProfileStyle>
+    )
 };
 
 export default Profile;
