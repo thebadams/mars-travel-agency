@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import News from "./pages/News";
 import Profile from "./pages/Profile";
 import Confirmation from "./pages/Confirmation"
+import NoMatch from "./pages/NoMatch";
 
 import SignUp from "./pages/SignUp";
 
@@ -56,6 +57,9 @@ function App() {
           </Route>
           <Route path="/confirmation" exact>
             <Confirmation />
+          </Route>
+          <Route path="*">
+            <NoMatch />
           </Route>
         </Switch>
       </AnimatePresence>
