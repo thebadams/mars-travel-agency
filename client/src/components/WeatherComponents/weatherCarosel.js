@@ -40,7 +40,7 @@ const tutorialSteps = [
 const useStyles = makeStyles((theme) => ({
 
   root: {
-      maxWidth: 500,
+      maxWidth: 400,
     flexGrow: 1,
     marginLeft: '10%',
     marginRight: '10%',
@@ -55,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 420,
+    height: 320,
     display: 'block',
-    maxWidth: 500,
+    maxWidth: 400,
     overflow: 'hidden',
     width: '100%',
   },
