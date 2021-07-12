@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
       maxWidth: 400,
     flexGrow: 1,
-    marginLeft: '10%',
     marginRight: '10%',
     marginTop: '5%',
     fontFamily: 'Roboto-Regular, HelveticaNeue, Arial, sans-serif',
