@@ -40,9 +40,10 @@ const tutorialSteps = [
 const useStyles = makeStyles((theme) => ({
 
   root: {
-      maxWidth: 400,
+      maxWidth: 500,
     flexGrow: 1,
-    marginLeft: '20%',
+    marginLeft: '10%',
+    marginRight: '10%',
     marginTop: '5%',
     fontFamily: 'Roboto-Regular, HelveticaNeue, Arial, sans-serif',
   },
@@ -54,17 +55,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 255,
+    height: 420,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 500,
     overflow: 'hidden',
     width: '100%',
   },
 
   pictureNav: {
-    opacity: '0.65',
+    opacity: '0.35',
     height: 50,
-
   },
 
   arrow:{

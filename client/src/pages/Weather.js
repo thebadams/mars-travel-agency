@@ -19,7 +19,6 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: flex-end;
-padding-left: 20%;
 `
 const WeatherBottom = styled.div `
 display: flex;
@@ -33,12 +32,12 @@ background-image: url(${MarsLandscape});
 background-repeat: no-repeat;
 background-size: cover;
 width: 100vw;
-  height: 100vh
+height: 100vh;
 `
 
 const Weather = () => {
   return (
-      <WeatherBgImg>
+    <WeatherBgImg>
     <WeatherStyle>
 
     <WeatherTop>
