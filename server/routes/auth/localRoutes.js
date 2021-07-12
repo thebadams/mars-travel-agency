@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('../../config/passport')
 
 router.post('/register', async (req, res) => {
   console.log(req.body)
@@ -25,4 +26,7 @@ router.post('/auth/local/login', passport.authenticate('local'), (req, res) => {
   req.session.user = req.user
   res.json(req.user)
 });
+
+module.exports = router;
+
 

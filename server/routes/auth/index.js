@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const localRoutes = require('./localRoutes')
-con
+const localRoutes = require('./localRoutes');
+const facebookRoutes = require('./facebookRoutes');
 router.use('/local', localRoutes)
 router.use('/facebook', facebookRoutes);
 
