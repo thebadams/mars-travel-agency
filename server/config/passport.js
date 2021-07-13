@@ -2,7 +2,8 @@
 const passport = require('passport')
 //require strategies
 const LocalStrategy = require('passport-local').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy
+const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //import user
 const User = require('../models/user')
 const dotenv = require('dotenv')
@@ -25,7 +26,8 @@ function(accessToken, refreshToken, profile, done){
   console.log(refreshToken);  
   console.log(profile)
 
- const email = axios.get(`https://graph.facebook.com/v11.0/me?fields=id%2Cname%2Cemail&access_token=${accessToken}`).then(response=> {
+ const email = axios.get(`https://graph.facebook.com/v11.0/me?fields=id%2Cname%2Cemail&picture& access_token=${accessToken}`).then(response=> {
+   console.log(response.data)
    return response.data.email}).then(email=>{
     User.findOneAndUpdate({email: email}, {$set:{facebookId: profile.id}}, (err, user) => {
     if(err) {
@@ -55,7 +57,17 @@ function(accessToken, refreshToken, profile, done){
 
   //find user by facebook id
   
-}))  
+}))
+
+passport.use( new GoogleStrategy({
+  clientID: '618143945163-cheu1834f1dvfh2r5e860qgj7je481no.apps.googleusercontent.com',
+  clientSecret: 'ds2xVwWuIQIrrLpotq2TvX-Q',
+  callbackURL: 'http://localhost:3001/auth/google/callback'
+},
+function (accessToken, refreshToken, profile, done) {
+  console.log(profile);
+}
+))
 
 //set up serializing method
 passport.serializeUser(User.serializeUser());
