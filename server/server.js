@@ -2,11 +2,13 @@ const express = require('express');
 const path = require('path')
 const session = require('express-session')
 const passport = require('./config/passport');
-
 const mongoose = require('./config/mongoose')
+const MongoStore = require('connect-mongo')(session)
 const User = require('./models/user');
 const Flight = require('./models/flight');
 const Reservation = require('./models/reservation');
+const routes = require('./routes');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -30,12 +32,19 @@ app.use(express.json())
 // const routes = require("./controllers/flightsController");
 // app.use(routes);
 
-const routes = require('./routes');
-app.use(routes);
+
 
 //set up session
+const secret = "General"
+const dbURL = 'mongodb://localhost:27017/marstravelDB'
+const store = new MongoStore({
+  url: dbURL,
+    secret,
+    touchAfter: 24 * 60 * 60
+})
 app.use(session({
-  secret: "General",
+  store,
+  secret,
   resave: false,
   saveUninitialized: true
 }))
@@ -46,7 +55,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 // const localStrategy = require('passport-local').Strategy;
 // // const User = require('../models/user')
- 
+app.use(routes);
 // passport.use(new localStrategy(
 // User.authenticate()
 
