@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background: #1b1b1b;
+    background: #000000;
     /* background-image: url(${Img});
     background-position: center;
     width: 100vw;
