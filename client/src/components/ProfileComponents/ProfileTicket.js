@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Ticket = () => {
+const ProfileTicket = () => {
     return (
         <TicketStyle>
             <div className="box">
@@ -575,4 +575,4 @@ const TicketStyle = styled.div`
 `
 
 
-export default Ticket;
+export default ProfileTicket;
