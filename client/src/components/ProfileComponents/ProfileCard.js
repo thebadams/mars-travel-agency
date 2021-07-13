@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -61,7 +61,7 @@ const ProfileCard = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={props.name}
         subheader="September 14, 2016"
       />
       <CardMedia

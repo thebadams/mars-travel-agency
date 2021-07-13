@@ -59,15 +59,28 @@ function(accessToken, refreshToken, profile, done){
   
 }))
 
-passport.use( new GoogleStrategy({
-  clientID: '618143945163-cheu1834f1dvfh2r5e860qgj7je481no.apps.googleusercontent.com',
-  clientSecret: 'ds2xVwWuIQIrrLpotq2TvX-Q',
-  callbackURL: 'http://localhost:3001/auth/google/callback'
-},
-function (accessToken, refreshToken, profile, done) {
-  console.log(profile);
-}
-))
+// passport.use( new GoogleStrategy({
+//   clientID: '618143945163-cheu1834f1dvfh2r5e860qgj7je481no.apps.googleusercontent.com',
+//   clientSecret: 'ds2xVwWuIQIrrLpotq2TvX-Q',
+//   callbackURL: 'http://localhost:3001/auth/google/callback'
+// },
+// function (accessToken, refreshToken, profile, done) {
+//   User.findOneAndUpdate({email: profile.email}, (err, user) => {
+//     if(err) {
+//       return done(err, false, {message: err});
+//     } else {
+//       if(user!== '' && suer !== null) {
+//         return done(null, user, {message: user})
+//       } else {
+//         let password = 'password1234';
+//         let userData = new User({
+//           firstName: 
+//         })
+//       }
+//     }
+//   })
+// }
+// ))
 
 //set up serializing method
 passport.serializeUser(User.serializeUser());
