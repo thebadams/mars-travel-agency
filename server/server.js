@@ -3,7 +3,7 @@ const path = require('path')
 const session = require('express-session')
 const passport = require('./config/passport');
 const mongoose = require('./config/mongoose')
-const MongoStore = require('connect-mongo')(session)
+const MongoDBStore = require('connect-mongo')
 const User = require('./models/user');
 const Flight = require('./models/flight');
 const Reservation = require('./models/reservation');
@@ -37,8 +37,8 @@ app.use(express.json())
 //set up session
 const secret = "General"
 const dbURL = 'mongodb://localhost:27017/marstravelDB'
-const store = new MongoStore({
-  url: dbURL,
+const store =  MongoDBStore.create({
+  mongoUrl: dbURL,
     secret,
     touchAfter: 24 * 60 * 60
 })
