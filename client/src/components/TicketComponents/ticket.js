@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
+import {Link} from "react-router-dom"
 
 const FlightStyle = styled.div`
   opacity: 0.9;
@@ -653,15 +654,17 @@ const Cell = (props)=> {
               >
                 <div id="thirdTop" />
                 <div id="secondBehindBottom">
-                  <Button
-                    id="button"
-                    style={{
-                      color: Flight[index].label,
-                      border: `1px solid ${Flight[index].label}`
-                    }}
-                  >
-                    Select
-                  </Button>
+                  <Link to="/confirmation" style={{textDecoration: "none"}}>
+                    <Button
+                      id="button"
+                      style={{
+                        color: Flight[index].label,
+                        border: `1px solid ${Flight[index].label}`
+                      }}
+                    >
+                      Select
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

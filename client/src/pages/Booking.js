@@ -8,6 +8,8 @@ import axios from 'axios';
 const BookingStyle = styled.div`
   background-image: url(${Img});
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   width: 100vw;
   height: 100vh;
 `;
