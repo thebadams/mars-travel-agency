@@ -80,8 +80,8 @@ const TicketStyle = styled.div`
 
 .box{
   position: absolute;
-  top: calc(50% - 125px);
-  top: -webkit-calc(50% - 125px);
+  top: calc(50% - -100px);
+  top: -webkit-calc(50% - -100px);
   left: calc(50% - 300px);
   left: -webkit-calc(50% - 300px);
 }
