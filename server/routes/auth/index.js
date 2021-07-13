@@ -6,7 +6,10 @@ router.use('/facebook', facebookRoutes);
 
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('http://localhost:3000/');
+  res.json({
+    message: "You have been successfully logged out",
+    user: {}
+  }).redirect('http://localhost:3000/');
 });
 
 router.get('/session', (req, res) => {
