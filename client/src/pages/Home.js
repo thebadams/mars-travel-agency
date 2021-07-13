@@ -1,22 +1,17 @@
 import React from "react";
-import styled from "styled-components";
-import Background from "../components/loginComponents/Background";
-import Img from '../assets/img/mars.bg.jpg';
-
-
-const HomeStyle = styled.div`
-background-image: url(${Img});
-background-position: center;
-width: 100vw;
-height: 100vh;
-opacity: 0.8;
-`;
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import FixedBG from '../components/FixedBG';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <HomeStyle>
-      <Background />
-    </HomeStyle>
+      <>
+        <Hero />
+        <Header />
+        <FixedBG />
+        <Footer />
+      </>
   )
 };
 
