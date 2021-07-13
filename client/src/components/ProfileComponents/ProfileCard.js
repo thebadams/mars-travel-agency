@@ -47,7 +47,11 @@ const ProfileCard = (props) => {
             <MoreVertIcon />
           </IconButton>
         }
+
         title={props.name}
+
+        title={props.name}
+
         subheader="September 14, 2016"
       />
       <CardContent>
