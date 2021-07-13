@@ -5,6 +5,7 @@ const AppStateContext = createContext({
   user: {},
   successMessage: "",
   errorMessage: "",
+  messageContainer: false
   
 })
 
@@ -14,7 +15,8 @@ const GlobalProvider = ({ value = [], ...props}) => {
     user: {
     },
     successMessage: "",
-    errorMessage: ""
+    errorMessage: "",
+    messageContainer: false
   })
   return < AppStateContext.Provider value={[state, dispatch]} {...props} />
 
