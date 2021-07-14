@@ -157,13 +157,12 @@ return (
           </div>
           <FormControl component="fieldset">
             <RadioGroup aria-label="booking" name="booking" row>
-              <FormControlLabel value="round-trip" control={<StyledRadio />} label="Round Trip" labelPlacement="top"/>
               <FormControlLabel value="one-way" control={<StyledRadio />} label="One-Way" labelPlacement="top"/>
             </RadioGroup>
           </FormControl>
           <form noValidate autoComplete="off">
             <TextField id="outlined-basic" label="From" variant="outlined" className="from"/>
-            <TextField id="outlined-basic" label="To" variant="outlined" className="to"/>
+            <TextField id="outlined-basic" label="MARS" variant="outlined" className="to" disabled="disabled"/>
             <TextField
               id="outlined-select-passenger-native"
               select
@@ -186,8 +185,6 @@ return (
           <form noValidate autoComplete="off">
             <span className="depart">Depart</span>
             <TextField id="outlined-basic" label="mm/dd/yyyy" variant="outlined" className="depart-field"/>
-            <span className="return">Return</span>
-            <TextField id="outlined-basic" label="mm/dd/yyyy" variant="outlined" className="return-field"/>
             <Button variant="contained" color="primary" className="booking-button">Search</Button>
           </form>
         </Container>

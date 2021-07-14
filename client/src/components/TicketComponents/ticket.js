@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const FlightStyle = styled.div`
   opacity: 0.9;
@@ -290,6 +290,8 @@ const FlightStyle = styled.div`
 }
 
 #detailLabel {
+    display: flex;
+    flex-direction: row;
     color: #686868;
     font-size: 10px;
     font-weight: 100;
@@ -408,92 +410,84 @@ const FlightStyle = styled.div`
 `;
 
 
-const Flight = [
-    {
-        src: "https://afspacemuseum.org/wp-content/uploads/Cape-Canaveral-AFS-logo.png",
-        style: {
-        height: "51px",
-        margin: "22px 12px"
-        },
-        label: "rgb(13, 28, 83)"
-    },
-    {
-        src:
-        "https://militarybase.net/wp-content/uploads/2019/02/Vandenberg-Air-Force-Base-California.png",
-        style: {
-        height: "46px",
-        margin: "34px 16px"
-        },
-        label: "rgb(90, 5, 49)"
-    },
-    {
-        src:
-        "https://www.wallopsisland.org/wp-content/uploads/2016/06/747px-Nasa_Wallops_Flight_Facility_Insignia.svg.png",
-        style: {
-        height: "43px",
-        margin: "31px 22px"
-        },
-        label: "rgb(230, 26, 56)"
-    },
-    {
-        src:
-        "https://p.kindpng.com/picc/s/474-4746211_spacex-falcon-9-spacex-logo-hd-png-download.png",
-        style: {
-        height: "46px",
-        margin: "22px 20px"
-        },
-        label: "rgb(252, 178, 50)"
-    },
-    {
-        src: "https://upload.wikimedia.org/wikipedia/commons/6/67/Kennedy_Space_Center_Logo.svg",
-        style: {
-        height: "51px",
-        margin: "22px 12px"
-        },
-        label: "rgb(13, 28, 83)"
-    },
-    {
-        src:
-        "https://beebom.com/wp-content/uploads/2015/02/airline-logos-qatar-e1424574584611.png",
-        style: {
-        height: "26px",
-        margin: "34px 16px"
-        },
-        label: "rgb(90, 5, 49)"
-    },
-    {
-        src:
-        "https://beebom.com/wp-content/uploads/2015/02/airline-logos-swiss.png",
-        style: {
-        height: "23px",
-        margin: "41px 12px"
-        },
-        label: "rgb(230, 26, 56)"
-    },
-    {
-        src:
-        "https://beebom.com/wp-content/uploads/2018/12/Singapore-Airlines-logo.jpg",
-        style: {
-        height: "46px",
-        margin: "22px 15px"
-        },
-        label: "rgb(252, 178, 50)"
-    }
-];
+// const StylingFlight = [
+//     {
+//         src: "https://afspacemuseum.org/wp-content/uploads/Cape-Canaveral-AFS-logo.png",
+//         style: {
+//         height: "51px",
+//         margin: "22px 12px"
+//         },
+//         label: "rgb(13, 28, 83)"
+//     },
+//     {
+//         src:
+//         "https://militarybase.net/wp-content/uploads/2019/02/Vandenberg-Air-Force-Base-California.png",
+//         style: {
+//         height: "46px",
+//         margin: "34px 16px"
+//         },
+//         label: "rgb(90, 5, 49)"
+//     },
+//     {
+//         src:
+//         "https://www.wallopsisland.org/wp-content/uploads/2016/06/747px-Nasa_Wallops_Flight_Facility_Insignia.svg.png",
+//         style: {
+//         height: "43px",
+//         margin: "31px 22px"
+//         },
+//         label: "rgb(230, 26, 56)"
+//     },
+//     {
+//         src:
+//         "https://p.kindpng.com/picc/s/474-4746211_spacex-falcon-9-spacex-logo-hd-png-download.png",
+//         style: {
+//         height: "46px",
+//         margin: "22px 20px"
+//         },
+//         label: "rgb(252, 178, 50)"
+//     },
+//     {
+//         src: "https://upload.wikimedia.org/wikipedia/commons/6/67/Kennedy_Space_Center_Logo.svg",
+//         style: {
+//         height: "51px",
+//         margin: "22px 12px"
+//         },
+//         label: "rgb(13, 28, 83)"
+//     },
+//     {
+//         src:
+//         "https://beebom.com/wp-content/uploads/2015/02/airline-logos-qatar-e1424574584611.png",
+//         style: {
+//         height: "26px",
+//         margin: "34px 16px"
+//         },
+//         label: "rgb(90, 5, 49)"
+//     },
+//     {
+//         src:
+//         "https://beebom.com/wp-content/uploads/2015/02/airline-logos-swiss.png",
+//         style: {
+//         height: "23px",
+//         margin: "41px 12px"
+//         },
+//         label: "rgb(230, 26, 56)"
+//     },
+//     {
+//         src:
+//         "https://beebom.com/wp-content/uploads/2018/12/Singapore-Airlines-logo.jpg",
+//         style: {
+//         height: "46px",
+//         margin: "22px 15px"
+//         },
+//         label: "rgb(252, 178, 50)"
+//     }
+// ];
+
+
 
 const Cell = (props)=> {
   const { index } = props;
   const [active, handleActive] = useState(false);
-  const [flightState, setFlightState] = useState([])
-
-  useEffect(() => {
-    axios.get(`/api/booking`)
-    .then(res => {
-      const flights = res.data;
-      setFlightState(flights);
-      console.log(res);
-    })
-  },[])
 	
   return (
     <div
@@ -510,12 +504,12 @@ const Cell = (props)=> {
         <div id="flightDetail">
           <div
             id="detailLabel"
-            style={{ fontWeight: "bold", color: Flight[index].label }}
+            style={{ fontWeight: "bold", color: props.label }}
           >
             From
           </div>
           AFS
-          <div id="detailLabel">Cape Canaveral Air Force Station</div>
+          <div id="detailLabel">{ props.departure }</div>
         </div>
         <div
           id="flightDetail"
@@ -545,7 +539,7 @@ const Cell = (props)=> {
         <div id="flightDetail">
           <div
             id="detailLabel"
-            style={{ fontWeight: "bold", color: Flight[index].label }}
+            style={{ fontWeight: "bold", color: props.label }}
           >
             To
           </div>
@@ -562,7 +556,7 @@ const Cell = (props)=> {
         }}
       >
         <div id="firstTop">
-          <img style={Flight[index].style} src={Flight[index].src} />
+          <img style={props.style} src={props.src} />
           <div id="timecontainer">
             <div id="detailDate">
             Cape Canaveral
@@ -604,16 +598,16 @@ const Cell = (props)=> {
                 <div id="detailLabel">Duration</div>
               </div>
               <div id="detail">
-                8<div id="detailLabel">Gate</div>
+                {props.currentReservations}<div id="detailLabel">Gate</div>
               </div>
             </div>
             <div id="firstBehindRow">
               <div id="detail">
-                5:35
+                {props.boardingTime}
                 <div id="detailLabel">Boarding</div>
               </div>
               <div id="detail">
-                20A
+                {props.seatNumber}
                 <div id="detailLabel">Seat</div>
               </div>
             </div>
@@ -631,11 +625,11 @@ const Cell = (props)=> {
             <div id="secondBehind">
               <div id="secondBehindDisplay">
                 <div id="price">
-                  Michael
+                  {props.captain}
                   <div id="priceLabel">Captain</div>
                 </div>
                 <div id="price">
-                  Economy
+                  {props.seatingClass}
                   <div id="priceLabel">Class</div>
                 </div>
                 <img
@@ -658,8 +652,8 @@ const Cell = (props)=> {
                     <Button
                       id="button"
                       style={{
-                        color: Flight[index].label,
-                        border: `1px solid ${Flight[index].label}`
+                        color: props.label,
+                        border: `1px solid ${props.label}`
                       }}
                     >
                       Select
@@ -821,10 +815,10 @@ const Ticket = () => {
 
   useEffect(() => {
     axios.get(`/api/booking`)
-    .then(res => {
-      const flights = res.data;
+    .then(data => {
+      const flights = data.data;
       setFlightState(flights);
-      console.log(res);
+      console.log(flights);
     })
   },[])
 
@@ -832,8 +826,22 @@ const Ticket = () => {
     <FlightStyle>
       <div className="App">
         {Header}
-        {DataArr.map((val, i) => (
-          <Cell key={i} index={i} />
+        { flightState.map((flight) => (
+          <Cell 
+          key={flight.flightNum} 
+          aircraftType={flight.aircraftType}
+          seatingClass={flight.seatingClass}
+          flightTime={flight.flightTime}
+          boardingTime={flight.boardingTime}
+          seatNumber={flight.seatNumber}
+          currentReservations={flight.currentReservations}
+          departure={flight.departure}
+          arrival={flight.arrival}
+          captain={flight.captain}
+          src={flight.src}
+          style={flight.style}
+          label={flight.label}
+          />
         ))}
       </div>
     </FlightStyle>
