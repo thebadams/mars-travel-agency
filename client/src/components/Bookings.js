@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
+import clsx from 'clsx';
+import axios from 'axios';
 
 const BookingsStyle = styled.div`
   display: inline-block;
@@ -43,12 +44,19 @@ const BookingsStyle = styled.div`
 }
 
 .booking-button {
-  padding: 5px 90px;
+  padding: 5px 100px;
+  margin-left: 2rem;
+  top: 0;
+}
+
+.passengers, .booking-button {
+  margin-top: 2rem;
 }
 
 .from, 
 .to,
-.depart-field,
+.departure,
+.depart,
 .return-field  {
   padding-right: 15px;
 }
@@ -60,44 +68,44 @@ const BookingsStyle = styled.div`
 `;
 
 const useStyles = makeStyles({
-root: {
-'&:hover': {
-backgroundColor: 'transparent',
-},
-},
-icon: {
-borderRadius: '50%',
-width: 16,
-height: 16,
-boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
-backgroundColor: '#f5f8fa',
-backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
-'$root.Mui-focusVisible &': {
-outline: '2px auto rgba(19,124,189,.6)',
-outlineOffset: 2,
-},
-'input:hover ~ &': {
-backgroundColor: '#ebf1f5',
-},
-'input:disabled ~ &': {
-boxShadow: 'none',
-background: 'rgba(206,217,224,.5)',
-},
-},
-checkedIcon: {
-backgroundColor: '#137cbd',
-backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
-'&:before': {
-display: 'block',
-width: 16,
-height: 16,
-backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
-content: '""',
-},
-'input:hover ~ &': {
-backgroundColor: '#106ba3',
-},
-},
+  root: {
+    '&:hover': {
+    backgroundColor: 'transparent',
+    },
+  },
+  icon: {
+    borderRadius: '50%',
+    width: 16,
+    height: 16,
+    boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+    backgroundColor: '#f5f8fa',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+    '$root.Mui-focusVisible &': {
+    outline: '2px auto rgba(19,124,189,.6)',
+    outlineOffset: 2,
+    },
+    'input:hover ~ &': {
+    backgroundColor: '#ebf1f5',
+    },
+    'input:disabled ~ &': {
+    boxShadow: 'none',
+    background: 'rgba(206,217,224,.5)',
+    },
+  },
+  checkedIcon: {
+    backgroundColor: '#137cbd',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+    '&:before': {
+    display: 'block',
+    width: 16,
+    height: 16,
+    backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+    content: '""',
+    },
+    'input:hover ~ &': {
+    backgroundColor: '#106ba3',
+    },
+  },
 });
 
 
@@ -132,12 +140,22 @@ const passengers = [
   },
 ];
 
-const Bookings = () => {
 
+const Bookings = () => {
+const [flightState, setFlightState] = useState([])
 const [passenger, setPassenger] = React.useState('1');
 const handleChange = (event) => {
   setPassenger(event.target.value);
 };
+
+useEffect(() => {
+  axios.get(`/api/booking`)
+  .then(data => {
+    const flights = data.data;
+    setFlightState(flights);
+    console.log(flights);
+  })
+},[])
 
 return (
     <BookingsStyle>
@@ -154,21 +172,39 @@ return (
               >
                 Flight
               </Fab>
+              <FormControl component="fieldset">
+                <RadioGroup aria-label="booking" name="booking" row>
+                  <FormControlLabel value="one-way" control={<StyledRadio />} label="One-Way" labelPlacement="top"/>
+                </RadioGroup>
+              </FormControl>
           </div>
-          <FormControl component="fieldset">
-            <RadioGroup aria-label="booking" name="booking" row>
-              <FormControlLabel value="one-way" control={<StyledRadio />} label="One-Way" labelPlacement="top"/>
-            </RadioGroup>
-          </FormControl>
           <form noValidate autoComplete="off">
-            <TextField id="outlined-basic" label="From" variant="outlined" className="from"/>
-            <TextField id="outlined-basic" label="MARS" variant="outlined" className="to" disabled="disabled"/>
-            <TextField
+          <TextField
               id="outlined-select-passenger-native"
               select
-              label="Number of passengers"
+              onChange={handleChange}
+              className="departure"
+              SelectProps={{
+                native: true,
+              }}
+              helperText="Please select your departure location"
+              variant="outlined"
+            >
+              { flightState.map((flight) => (
+                <option key={flight.flightNum} departure={flight.departure}>
+                  {flight.departure}
+                </option>
+              ))}
+            </TextField>
+            <TextField id="outlined-basic" label="MARS" variant="outlined" className="to" disabled="disabled"/>
+          </form>
+          <form noValidate autoComplete="off">
+          <TextField
+              id="outlined-select-passenger-native"
+              select
               value={passenger}
               onChange={handleChange}
+              className="passengers"
               SelectProps={{
                 native: true,
               }}
@@ -181,10 +217,6 @@ return (
                 </option>
               ))}
             </TextField>
-          </form>
-          <form noValidate autoComplete="off">
-            <span className="depart">Depart</span>
-            <TextField id="outlined-basic" label="mm/dd/yyyy" variant="outlined" className="depart-field"/>
             <Button variant="contained" color="primary" className="booking-button">Search</Button>
           </form>
         </Container>
