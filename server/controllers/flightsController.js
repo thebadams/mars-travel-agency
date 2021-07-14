@@ -62,3 +62,4 @@ module.exports = {
       res.json({statusCode: error.statusCode, message: error.message})
     }
 }
+};
