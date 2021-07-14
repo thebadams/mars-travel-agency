@@ -1,37 +1,64 @@
-const db = require('../models');
-
+const {Flight} = require('../models');
+const ExpressError = require('../utils/expressError')
 
 module.exports = {
-  findAll: function (req,res) {
-    db.Flight
-    .find(req.query)
-    .sort({ name: 1})
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err))
+  findAll: async function (req,res) {
+    try {
+      const flights = await Flight.find(req.query).sort({name: 1})
+      if(!flights) {
+        throw new ExpressError(404, "No Flights Found")
+      } else {
+        res.status(200).json(flights)
+      }
+
+    } catch (error) {
+      res.json({
+        status: error.statusCode,
+        message: error.message
+      })
+    }
   },
-  findById: function (req,res) {
-    db.Flight
-    .findById(req.params.id)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err))
+  findById: async function (req,res) {
+    try {
+      const flight = await Flight.findById(req.params.id)
+      if(!flight) {
+        throw new ExpressError(404, "No Flight Found");
+      } else {
+        res.status(200).json(flight);
+      }
+    } catch (error) {
+      res.json({status: error.statusCode,
+      message: error.message})
+    }
   },
-  create: function (req,res) {
-    db.Flight
-    .create(req.body)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err))
+  create: async function (req,res) {
+    try {
+      const flight = await Flight.create(req.body)
+      res.status(200).json(flight)
+    } catch (error) {
+      res.status(422).json(error)
+    }
   },
-  update: function (req, res) {
-    db.Flight
-    .findOneAndUpdate({ _id: req.params.id}, req.body)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err))
+  update: async function (req, res) {
+    try {
+      const flight = await Flight.findOneAndUpdate({_id: req.params.id}, req.body)
+      if(!flight) {
+        throw new ExpressError(404, "No Flight Found With that ID")
+      }
+    } catch (error) {
+      res.json({statusCode: error.statusCode,
+      message: error.message})
+    }
   },
-  remove: function (req, res) {
-    db.Flight
-    .findById({ _id: req.params.id })
-    .then(dbModel => dbModel.remove())
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err))
-  }
-};
+  remove: async function (req, res) {
+    try {
+      const flight = await Flight.findById({_id: req.params.id})
+      if(!flight){
+        throw new ExpressError(404, "No flight found");
+      }
+      const removedFlight = await flight.remove();
+      res.status.json(removedFlight);
+    } catch (error) {
+      res.json({statusCode: error.statusCode, message: error.message})
+    }
+}
