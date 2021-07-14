@@ -31,6 +31,7 @@ const WeatherBgImg = styled.div `
 background-image: url(${MarsLandscape});
 background-repeat: no-repeat;
 background-size: cover;
+background-attachment: fixed;
 width: 100vw;
 height: 100vh;
 `

@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
+import axios from 'axios';
+
 //Icons
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -28,8 +30,24 @@ import { useAppStateContext } from "../../utils/GlobalContext"
 //   </motion.ul>
 // );
 
-const logMeOut = (dispatch) => {
+const logMeOut = async (dispatch) => {
   //dispatch the object or log out get req to /auth/logout
+  try {
+    const response = axios.get('/auth/logout')
+    if(response.data === {
+      message: "You have been successfully logged out",
+      user: {}
+    }) {
+      dispatch({type: 'LOG_OUT',
+    value: response.data.user})
+      dispatch({ type: 'SET_SUCCESS_MESSAGE',
+    value: response.data.message })
+    }
+  } catch (error) {
+    dispatch({type:'SET_FAILURE_MESSAGE',
+    value: "There was an error logging out"})
+  }
+  
   //DISPATCH 
 }
 

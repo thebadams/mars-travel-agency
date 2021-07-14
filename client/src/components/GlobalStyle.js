@@ -7,10 +7,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto-Regular, HelveticaNeue, Arial, sans-serif;
 }
 
 body {
-    background: #1b1b1b;
+    background: #000000;
     /* background-image: url(${Img});
     background-position: center;
     width: 100vw;
