@@ -55,8 +55,8 @@ export default function Profile () {
       </Grid>
       <Grid item xs={6} md={4}>
         <Paper className={classes.test}>
-          <ProfileCard name={state.user.firstName} />
-          <ProfileTicket />
+          <ProfileCard firstName={state.user.firstName + " " } lastName={state.user.lastName}/>
+          <ProfileTicket firstName={state.user.firstName + " " } lastName={state.user.lastName}/>
         </Paper>
       </Grid>
       <Grid item xs={4}>
