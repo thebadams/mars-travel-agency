@@ -31,14 +31,14 @@ const ProfileCard = () => {
   const classes = useStyles();
   const [state, dispatch] = useAppStateContext();
 console.log(state.user.lastName);
+  if(state.user.firstName) {
   const firstNameInitial = state.user.firstName.split('');
   const firstInitial = firstNameInitial.shift().charAt(0);
   const lastNameInitial = state.user.lastName.split('');
   const lastInitial = lastNameInitial.shift().charAt(0);
   let dateOptions =  {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   let today = new Date().toLocaleTimeString('en-us', dateOptions);
-
-  return (
+    return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -63,6 +63,9 @@ console.log(state.user.lastName);
      
     </Card>
   );
+  } else return <h1>Hello There General Kenobi</h1>
+  
+  
 }
 
 export default ProfileCard;
