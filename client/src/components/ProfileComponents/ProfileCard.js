@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
   const classes = useStyles();
 
 
@@ -41,7 +41,11 @@ const ProfileCard = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Name of User"
+
+        title={props.name}
+
+        title={props.name}
+
         subheader="September 14, 2016"
       />
       <CardContent>
