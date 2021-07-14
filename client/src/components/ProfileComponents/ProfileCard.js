@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import { useAppStateContext } from "../../utils/GlobalContext";
+
 const randomColor = Math.floor(Math.random()*16777215).toString(16);
 const color = "#" + randomColor
 
@@ -25,13 +27,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileCard = (props) => {
+const ProfileCard = () => {
   const classes = useStyles();
-
-  const firstNameInitial = props.firstName.split('');
+  const [state, dispatch] = useAppStateContext();
+console.log(state.user.lastName);
+  const firstNameInitial = state.user.firstName.split('');
   const firstInitial = firstNameInitial.shift().charAt(0);
-  // const lastNameInitial = props.lastName.split('');
-  // const lastInitial = lastNameInitial.shift().charAt(0);
+  const lastNameInitial = state.user.lastName.split('');
+  const lastInitial = lastNameInitial.shift().charAt(0);
   let dateOptions =  {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   let today = new Date().toLocaleTimeString('en-us', dateOptions);
 
@@ -40,7 +43,7 @@ const ProfileCard = (props) => {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {firstInitial}
+            {`${firstInitial}${lastInitial}`}
           </Avatar>
         }
         action={
@@ -49,13 +52,12 @@ const ProfileCard = (props) => {
           </IconButton>
         }
 
-        title={props.firstName + props.lastName}
+        title={`${state.user.firstName} ${state.user.lastName}`}
         subheader={today}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          Below Is Your Ticket, please make sure to save a screenshot of your ticket to show at the flight terminal. The future is now, welcome aboard!
         </Typography>
       </CardContent>
      

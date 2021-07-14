@@ -7,16 +7,16 @@ import { GlobalProvider } from "./utils/GlobalContext";
 import GlobalStyle from "./components/GlobalStyle";
 
 import reportWebVitals from "./reportWebVitals";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename="/">
+    <BrowserRouter>
       <GlobalProvider>
       <App />
       </GlobalProvider>
       <GlobalStyle />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

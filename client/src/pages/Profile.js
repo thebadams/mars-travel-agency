@@ -38,13 +38,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile () {
   const classes = useStyles;
   const [state, dispatch] = useAppStateContext();
-  
+ 
+
   useEffect(()=> {
     if(!state.loggedIn) {
-      getSession(dispatch)
+      getSession(dispatch, state)
     }
-    
-    console.log()
+    console.log(state.user.firstName)
   }, [])
 
   
@@ -55,8 +55,8 @@ export default function Profile () {
       </Grid>
       <Grid item xs={6} md={4}>
         <Paper className={classes.test}>
-          <ProfileCard firstName={state.user.firstName + " " } lastName={state.user.lastName}/>
-          <ProfileTicket firstName={state.user.firstName + " " } lastName={state.user.lastName}/>
+          <ProfileCard />
+          <ProfileTicket />
         </Paper>
       </Grid>
       <Grid item xs={4}>
