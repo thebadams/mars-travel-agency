@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 //Import Pages
 import Booking from "./pages/Booking";
@@ -23,10 +23,11 @@ import { AnimatePresence } from "framer-motion";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 //Context
-import { GlobalProvider } from "./utils/GlobalContext";
+import { GlobalProvider, useAppStateContext } from "./utils/GlobalContext";
 
 function App() {
   const location = useLocation();
+  
 
   return (
     <GlobalProvider>

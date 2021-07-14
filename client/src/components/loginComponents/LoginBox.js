@@ -131,6 +131,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
+    
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
@@ -141,8 +142,14 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   container: {
+    position: "absolute",
+    marginLeft: "auto",
+    marginRight: "auto",
+    left: "0",
+    right: "0",
+    textaAlign: "center",
     border: "1px solid #54a7a8",
-    marginTop: "20px",
+    height: "80%",
     opacity: ".8",
     zIndex: "2",
     borderRadius: "44px",

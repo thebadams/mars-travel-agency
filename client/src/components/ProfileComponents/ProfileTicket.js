@@ -75,7 +75,7 @@ const TicketStyle = styled.div`
     body{
   margin: 0;
   padding: 0;
-  background: #fff;
+  /* background: red; */
 }
 
 .box{

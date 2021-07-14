@@ -12,7 +12,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center; */
 font-family: Roboto-Regular, HelveticaNeue, Arial, sans-serif;
-height: 100vh;
+/* height: 100vh; */
 `
 const WeatherTop = styled.div `
 display: flex;
@@ -29,11 +29,11 @@ align-items: center;
 
 const WeatherBgImg = styled.div `
 background-image: url(${MarsLandscape});
+
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
-width: 100vw;
-height: 100vh;
+height: 100%;
 `
 
 const Weather = () => {

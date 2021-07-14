@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons"
 
 import { useAppStateContext } from "../../utils/GlobalContext"
+import getSession from "../../utils/getSession";
 
 
 // export const Navigation = () => (
@@ -44,7 +45,7 @@ const logMeOut = async (dispatch) => {
     value: response.data.message })
     }
   } catch (error) {
-    dispatch({type:'SET_FAILURE_MESSAGE',
+    dispatch({type:'SET_ERROR_MESSAGE',
     value: "There was an error logging out"})
   }
   
@@ -67,7 +68,9 @@ const displayLoginOrOut = (state, dispatch) => {
 
   if (state.loggedIn) {
     return (
-      <MenuItem navItems={logOutButton} onClick={() => {logMeOut(dispatch)}}></MenuItem>
+      <MenuItem navItems={logOutButton} onClick={(e) => {
+        e.preventDefault();
+        logMeOut(dispatch)}}></MenuItem>
     )
 
   }
@@ -80,7 +83,9 @@ const displayLoginOrOut = (state, dispatch) => {
 
 export const Navigation = () => {
   const [state, dispatch] = useAppStateContext()
-
+  useEffect(()=>{
+    getSession(dispatch, state)
+  },[])
   return (
   <motion.ul variants={NavAnim}>
     {navItems.map((navitem) => (
