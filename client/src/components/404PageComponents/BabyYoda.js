@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-import {gsap} from "gsap"
+import { gsap } from "gsap"
+
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);
+console.log(gsap);
+const { Linear } = window
+const { timeline, to, set, registerPlugin } = gsap
 
 const BabyYoda = () => {
-
-    const { gsap, Linear } = window
-    const { timeline, to, set, registerPlugin } = gsap
+    
+   
     //register the plugin (just once)
     const svg = document.querySelector('svg')
     const lightsaber = document.getElementById('lightsaber')
