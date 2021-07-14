@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Background = () => {
   $(document).ready(function () {
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 150; i++) {
       let twinkle = Math.random() * 10 + 0.2;
       $(".space").append(
         `<div class="star"><div class="glow" style="animation: twinkle ${twinkle}s infinite alternate;"></div></div>`
@@ -55,7 +55,7 @@ const StarStyle = styled.div`
     /* display: flex;
     justify-items: center;
     align-content: center; */
-    z-index: -1;
+    z-index: 0;
 
   }
   .space .star .glow {
