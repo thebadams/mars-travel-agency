@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProfileTicket = () => {
+const ProfileTicket = (props) => {
     return (
         <TicketStyle>
             <div className="box">
@@ -52,7 +52,7 @@ const ProfileTicket = () => {
                 <span className="sfo sfoslip">SFO</span>
                 <div className="sub-content">
                 <span className="watermark">Space-X</span>
-                <span className="name">PASSENGER NAME<br/><span>Rex, Anonasaurus</span></span>
+                <span className="name">PASSENGER NAME<br/><span>{props.firstName + ", " + props.lastName}</span></span>
                 <span className="flight">FLIGHT N&deg;<br/><span>X3-65C3</span></span>
                 <span className="gate">GATE<br/><span>11B</span></span>
                 <span className="seat">SEAT<br/><span>45A</span></span>
@@ -60,7 +60,7 @@ const ProfileTicket = () => {
                     
                 <span className="flight flightslip">FLIGHT N&deg;<br/><span>X3-65C3</span></span>
                     <span className="seat seatslip">SEAT<br/><span>45A</span></span>
-                <span className="name nameslip">PASSENGER NAME<br/><span>Rex, Anonasaurus</span></span>
+                <span className="name nameslip">PASSENGER NAME<br/><span>{props.firstName + ", " + props.lastName}</span></span>
                 </div>
             </div>
             <div className="barcode"></div>
