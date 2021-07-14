@@ -21,15 +21,15 @@ const Background = () => {
   });
 
   return (
+    <StarStyle>
     <div>
-      <StarStyle>
         <div className="space">
           <div className="star">
             <div className="glow"></div>
           </div>
         </div>
-      </StarStyle>
     </div>
+    </StarStyle>
   );
 };
 
@@ -39,22 +39,24 @@ const StarStyle = styled.div`
   }
 
   body {
-    height: 100vh;
     margin: 0;
     background: #000;
   }
   .space {
-    position: relative;
-  }
+    height: 100vh;
+    width: 100vw;
+    }
 
   .space .star {
     position: absolute;
     padding: 20px;
     border-radius: 64px;
     background-color: none;
-    display: flex;
+    /* display: flex;
     justify-items: center;
-    align-content: center;
+    align-content: center; */
+    z-index: -1;
+
   }
   .space .star .glow {
     width: 2px;
