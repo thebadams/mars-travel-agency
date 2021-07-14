@@ -49,9 +49,6 @@ const ProfileCard = (props) => {
         }
 
         title={props.name}
-
-        title={props.name}
-
         subheader="September 14, 2016"
       />
       <CardContent>

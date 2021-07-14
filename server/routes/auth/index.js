@@ -7,7 +7,9 @@ router.use('/facebook', facebookRoutes);
 router.use('/google', googleRoutes)
 
 router.get('/logout', function(req, res){
+  console.log('Loggin Out')
   req.logout();
+  req.session.destroy()
   res.json({
     message: "You have been successfully logged out",
     user: {}
