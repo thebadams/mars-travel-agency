@@ -12,6 +12,10 @@ import Earth from '../assets/img/Earth.jpg'
 //StyleS
 const ProfileStyle = styled.div`
 background-image: url(${Earth});
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
 `;
 
 
@@ -24,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   test:{
     background: 'red',
+    display: 'flex',
   },
 
 }));
