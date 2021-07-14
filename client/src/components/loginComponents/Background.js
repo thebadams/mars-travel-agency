@@ -55,6 +55,8 @@ const StarStyle = styled.div`
     /* display: flex;
     justify-items: center;
     align-content: center; */
+    z-index: -1;
+
   }
   .space .star .glow {
     width: 2px;
