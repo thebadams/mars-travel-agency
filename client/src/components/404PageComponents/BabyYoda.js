@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import { gsap } from "gsap"
+import { gsap, Linear } from "gsap"
 
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);
-console.log(gsap);
-const { Linear } = window
+
+// const { Linear } = window
 const { timeline, to, set, registerPlugin } = gsap
+console.log(Linear);
 
 const BabyYoda = () => {
-    
-   
-    //register the plugin (just once)
+  
+    useEffect(() => {
+        //register the plugin (just once)
     const svg = document.querySelector('svg')
     const lightsaber = document.getElementById('lightsaber')
     const beam = document.getElementById('lightSaberBeam')
@@ -32,34 +33,34 @@ const BabyYoda = () => {
     /**
      * Set things up in the scene
      */
-    const BLINK_SPEED = 0.1
-    const EYE_OPEN = 1
-    const EYE_CLOSED = 0.25
-    const EAR_ROTATION_DEFAULT = 10
-    const ROCK_SPEED = 0.1
-    const ROCK_ROTATION = 4
-    const EAR_SPEED = 0.1
-    const EAR_DELAY = Math.floor(gsap.utils.random(1, 3))
-    const EAR_COMBI_DELAY = Math.floor(gsap.utils.random(2, 4))
-    const EAR_COMBI_REPEAT_DELAY = Math.floor(gsap.utils.random(2, 4))
-    const SABER_RAISE = 1
-    const SABER_ROTATE = 0.25
-    const SABER_ACTIVATE = 0.1
+    const blinkSpeed = 0.1
+    const eyeOpen = 1
+    const eyeClosed = 0.25
+    const earRotationDefault = 10
+    const rockSpeed = 0.1
+    const rockRotation = 4
+    const earSpeed = 0.1
+    const earDelay = Math.floor(gsap.utils.random(1, 3))
+    const earCombiDelay = Math.floor(gsap.utils.random(2, 4))
+    const earCombiRepeatDelay = Math.floor(gsap.utils.random(2, 4))
+    const saberRaise = 1
+    const saberRotate = 0.25
+    const saberActive = 0.1
     // Had to grab this by running the motion path. Likely a better way 🤔
-    const MP_HEIGHT = 28.151
+    const mpHeight = 28.151
     /**
      * STATE
      */
-    let FORCE_TL
-    let ROCK_SABER_TL
-    let USING_FORCE = false
+    let forceTL
+    let rockSaberTL
+    let usingForce = false
     registerPlugin(MotionPathPlugin)
     set(lightsaber, { transformOrigin: '20%, 50%', scale: 1.25, x: 40, y: 125 })
     set(beam, { transformOrigin: 'left', scale: 0 })
-    set(eyelidsTop, { transformOrigin: '50%, 0%', scaleY: EYE_CLOSED })
-    set(eyelidsBottom, { transformOrigin: '50%, 100%', scaleY: EYE_CLOSED })
-    set(ears[0], { transformOrigin: '100% 0', rotate: -EAR_ROTATION_DEFAULT })
-    set(ears[1], { transformOrigin: '0 0', rotate: EAR_ROTATION_DEFAULT })
+    set(eyelidsTop, { transformOrigin: '50%, 0%', scaleY: eyeClosed })
+    set(eyelidsBottom, { transformOrigin: '50%, 100%', scaleY: eyeClosed })
+    set(ears[0], { transformOrigin: '100% 0', rotate: -earRotationDefault })
+    set(ears[1], { transformOrigin: '0 0', rotate: earRotationDefault })
     set(eyelidsLeft, { transformOrigin: '50% 50%', rotate: -5 })
     set(eyelidsRight, { transformOrigin: '50% 50%', rotate: 5 })
     set(hand, { y: -1.5, scaleX: 0.75 })
@@ -75,22 +76,22 @@ const BabyYoda = () => {
     delay: gsap.utils.random(1, 5),
     repeatDelay: gsap.utils.random(4, 10),
     })
-    .add(to(eyelidsTop, BLINK_SPEED, { scaleY: EYE_OPEN }), 0)
-    .add(to(eyelidsBottom, BLINK_SPEED, { scaleY: EYE_OPEN }), 0)
-    .add(to(eyelidsTop, BLINK_SPEED, { scaleY: EYE_CLOSED }), BLINK_SPEED)
-    .add(to(eyelidsBottom, BLINK_SPEED, { scaleY: EYE_CLOSED }), BLINK_SPEED)
+    .add(to(eyelidsTop, blinkSpeed, { scaleY: eyeOpen }), 0)
+    .add(to(eyelidsBottom, blinkSpeed, { scaleY: eyeOpen }), 0)
+    .add(to(eyelidsTop, blinkSpeed, { scaleY: eyeClosed }), blinkSpeed)
+    .add(to(eyelidsBottom, blinkSpeed, { scaleY: eyeClosed }), blinkSpeed)
     const earsTL = new timeline({
     repeat: -1,
-    delay: EAR_COMBI_DELAY,
-    repeatDelay: EAR_COMBI_REPEAT_DELAY,
+    delay: earCombiDelay,
+    repeatDelay: earCombiRepeatDelay,
     })
-    .add(to(ears[0], EAR_SPEED, { rotate: 0 }))
-    .add(to(ears[0], EAR_SPEED, { rotate: -10, delay: EAR_DELAY }))
-    .add(to(ears[1], EAR_SPEED, { rotate: 0, delay: EAR_SPEED * 2 }), 0)
+    .add(to(ears[0], earSpeed, { rotate: 0 }))
+    .add(to(ears[0], earSpeed, { rotate: -10, delay: earDelay }))
+    .add(to(ears[1], earSpeed, { rotate: 0, delay: earSpeed * 2 }), 0)
     .add(
-        to(ears[1], EAR_SPEED * 1.5, {
+        to(ears[1], earSpeed * 1.5, {
         rotate: 10,
-        delay: EAR_DELAY,
+        delay: earDelay,
         }),
         0
     )
@@ -100,22 +101,22 @@ const BabyYoda = () => {
     paused: true,
     })
     .add(
-        to(ears[0], EAR_SPEED, {
+        to(ears[0], earSpeed, {
         rotation: 6,
         })
     )
-    .add(to(ears[1], EAR_SPEED, { rotation: -6 }), 0)
+    .add(to(ears[1], earSpeed, { rotation: -6 }), 0)
     /**
      * If we mouse over yoda, make the ears perk up!
      *  */
     baby.addEventListener('pointerover', () => {
-    if (!USING_FORCE) earsUpTL.play()
+    if (!usingForce) earsUpTL.play()
     })
     baby.addEventListener('pointerout', () => {
-    if (!USING_FORCE) earsUpTL.reverse()
+    if (!usingForce) earsUpTL.reverse()
     })
-    const FORCE_SPEED = 0.75
-    const INIT_SHIFT = FORCE_SPEED * 0.1
+    const forceSpeed = 0.75
+    const initShift = forceSpeed * 0.1
     const raiseArmTL = () =>
     new timeline({
         onStart: () => {
@@ -124,18 +125,18 @@ const BabyYoda = () => {
         },
     })
         .add(
-        to(leftArm, FORCE_SPEED, { transformOrigin: '100% 15%', rotate: 45 }),
+        to(leftArm, forceSpeed, { transformOrigin: '100% 15%', rotate: 45 }),
         0
         )
-        .add(to(sleeve, FORCE_SPEED, { y: -2 }), INIT_SHIFT)
-        .add(to(ears[0], FORCE_SPEED, { rotation: -18 }), INIT_SHIFT)
-        .add(to(ears[1], FORCE_SPEED, { rotation: 18 }), INIT_SHIFT)
-        .add(to(fingers[3], FORCE_SPEED, { y: 1 }), INIT_SHIFT)
-        .add(to(fingers[4], FORCE_SPEED, { y: 0 }), INIT_SHIFT)
-        .add(to(fingers[5], FORCE_SPEED, { y: -1 }), INIT_SHIFT)
-        .add(to(eyelidsBottom, FORCE_SPEED, { scaleY: 0.9 }), INIT_SHIFT)
-        .add(to(eyelidsTop, FORCE_SPEED, { scaleY: 0.9 }), INIT_SHIFT)
-    const USE_FORCE_TL = new timeline({ paused: true }).add(
+        .add(to(sleeve, forceSpeed, { y: -2 }), initShift)
+        .add(to(ears[0], forceSpeed, { rotation: -18 }), initShift)
+        .add(to(ears[1], forceSpeed, { rotation: 18 }), initShift)
+        .add(to(fingers[3], forceSpeed, { y: 1 }), initShift)
+        .add(to(fingers[4], forceSpeed, { y: 0 }), initShift)
+        .add(to(fingers[5], forceSpeed, { y: -1 }), initShift)
+        .add(to(eyelidsBottom, forceSpeed, { scaleY: 0.9 }), initShift)
+        .add(to(eyelidsTop, forceSpeed, { scaleY: 0.9 }), initShift)
+    const useForceTL = new timeline({ paused: true }).add(
     to(baby, 0.065, { repeat: -1, yoyo: true, x: 0.5 })
     )
     const genForceTL = opts => {
@@ -154,20 +155,20 @@ const BabyYoda = () => {
         yoyo: true,
     })
     )
-    const ROCK_SABER = () =>
+    const rockSaber = () =>
     new timeline({ repeat: -1 })
         .add(
-        to(lightsaber, ROCK_SPEED * 0.25, {
-            rotate: -ROCK_ROTATION,
+        to(lightsaber, rockSpeed * 0.25, {
+            rotate: -rockRotation,
         })
         )
-        .add(to(lightsaber, ROCK_SPEED * 0.25, { rotate: 0 }))
+        .add(to(lightsaber, rockSpeed * 0.25, { rotate: 0 }))
         .add(
-        to(lightsaber, ROCK_SPEED * 0.25, {
-            rotate: ROCK_ROTATION,
+        to(lightsaber, rockSpeed * 0.25, {
+            rotate: rockRotation,
         })
         )
-        .add(to(lightsaber, ROCK_SPEED * 0.25, { rotate: 0 }))
+        .add(to(lightsaber, rockSpeed * 0.25, { rotate: 0 }))
     const genSwing = () => {
     const repeat = Math.floor(gsap.utils.random(1, 3))
     const duration = Math.floor(gsap.utils.random(1, 3))
@@ -198,52 +199,52 @@ const BabyYoda = () => {
     return new timeline({
         onComplete,
     })
-        .add(to(lightsaber, SABER_RAISE, { y: MP_HEIGHT }), 0)
-        .add(to(saberShadow, SABER_RAISE * 0.75, { scale: 0, opacity: 0 }), 0)
+        .add(to(lightsaber, saberRaise, { y: mpHeight }), 0)
+        .add(to(saberShadow, saberRaise * 0.75, { scale: 0, opacity: 0 }), 0)
         // Rotate the saber on the way up 👍
-        .add(to(lightsaber, SABER_ROTATE, { rotate: -90 }), SABER_RAISE * 0.25)
-        .add(to(beam, SABER_ACTIVATE, { scale: 1, delay: 0.2 }))
+        .add(to(lightsaber, saberRotate, { rotate: -90 }), saberRaise * 0.25)
+        .add(to(beam, saberActive, { scale: 1, delay: 0.2 }))
         .add(genSwing())
-        .add(to(beam, SABER_ACTIVATE, { scale: 0, delay: 0.5 }))
+        .add(to(beam, saberActive, { scale: 0, delay: 0.5 }))
         .add(
         new timeline({ delay: 0.25 })
-            .add(to(lightsaber, SABER_ROTATE, { rotate: 0 }), 0)
-            .add(to(lightsaber, SABER_RAISE * 0.5, { y: 125 }), 0)
+            .add(to(lightsaber, saberRotate, { rotate: 0 }), 0)
+            .add(to(lightsaber, saberRaise * 0.5, { y: 125 }), 0)
             .add(
-            to(saberShadow, SABER_RAISE * 0.375, { scale: 0.36, opacity: 1 }),
-            SABER_RAISE * 0.25
+            to(saberShadow, saberRaise * 0.375, { scale: 0.36, opacity: 1 }),
+            saberRaise * 0.25
             )
         )
     }
     // Start using the force to raise and activate the saber
     const useTheForce = () => {
-    USING_FORCE = true
-    USE_FORCE_TL.timeScale(1.5)
-    ROCK_SABER_TL.pause()
+    usingForce = true
+    useForceTL.timeScale(1.5)
+    rockSaberTL.pause()
     set(lightsaber, { rotate: 0 })
     getForce(() => {
         // Once the force is over, reset everything back double time!
-        USING_FORCE = false
-        USE_FORCE_TL.pause()
-        FORCE_TL.timeScale(10).reverse()
+        usingForce = false
+        useForceTL.pause()
+        forceTL.timeScale(10).reverse()
     })
     }
     const onStart = () => {
-    if (USING_FORCE) return
-    ROCK_SABER_TL = ROCK_SABER()
-    USE_FORCE_TL.play()
-    FORCE_TL = genForceTL({
+    if (usingForce) return
+    rockSaberTL = rockSaber()
+    useForceTL.play()
+    forceTL = genForceTL({
         onComplete: useTheForce,
     })
-    FORCE_TL.play()
+    forceTL.play()
     }
     const onStop = () => {
     // Only do something if the saber is still shaking
-    if (ROCK_SABER_TL && !ROCK_SABER_TL.paused()) {
-        ROCK_SABER_TL.pause()
-        ROCK_SABER_TL = null
-        USE_FORCE_TL.pause()
-        FORCE_TL.timeScale(6).reverse()
+    if (rockSaberTL && !rockSaberTL.paused()) {
+        rockSaberTL.pause()
+        rockSaberTL = null
+        useForceTL.pause()
+        forceTL.timeScale(6).reverse()
         set(lightsaber, { rotate: 0 })
     }
     // Else, If we have started something, see it through as it's a nightmare to try and cancel it 👍 😅
@@ -254,7 +255,8 @@ const BabyYoda = () => {
     document.body.addEventListener('touchend', onStop)
     document.body.addEventListener('mousedown', onStart)
     document.body.addEventListener('mouseup', onStop)
-
+    
+    })
  //-----------------------------------------------------------------------------return  --------------------------------------------------------------------// 
         
     return(
@@ -491,7 +493,7 @@ svg {
   max-height: 600px;
   overflow: visible;
   transform: translateZ(0);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.25s ease;
 }
 .babyEye {
