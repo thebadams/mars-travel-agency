@@ -261,7 +261,7 @@ const BabyYoda = () => {
         
     return(
        <BabyYodaStyle>
-           <svg xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none">
+           <StyledSVG xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none" height="100%" width="100%">
         <defs>
             <filter id="a" x="-.478" width="1.955" y="-.069" height="1.137" color-interpolation-filters="sRGB">
             <fegaussianblur stddeviation=".519"></fegaussianblur>
@@ -462,7 +462,7 @@ const BabyYoda = () => {
             <rect ry=".32" y="277.317" x="50.553" height="1.582" width="1.799" fill="#999"></rect>
             </g>
         </g>
-        </svg>
+        </StyledSVG>
         <h1>Hold pointer down, you must</h1>
         <h1 className="text">404 Page Not Found</h1>
         <p>The force can't help you!</p>
@@ -482,16 +482,6 @@ const BabyYodaStyle = styled.div`
     font-variant: small-caps;
   
 
-
-svg {
-  height: 90vmin;
-  max-height: 600px;
-  width: auto; 
-  overflow: visible;
-  transform: translateZ(0);
-  opacity: 1;
-  transition: opacity 0.25s ease;
-}
 .babyEye {
   overflow: hidden;
   -webkit-clip-path: circle(50% at 50%);
@@ -590,6 +580,18 @@ p{
     font-size: 2.5rem;
   }
 }
+`
+
+const StyledSVG = styled.svg`
+
+  height: inherit;
+  /* max-height: 600px; */
+  width: inherit; 
+  overflow: visible;
+  transform: translateZ(0);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+
 `
 
 export default BabyYoda;
