@@ -44,7 +44,7 @@ const BookingsStyle = styled.div`
 }
 
 .booking-button {
-  padding: 5px 100px;
+  padding: 20px 100px;
   margin-left: 2rem;
   top: 0;
 }
