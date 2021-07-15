@@ -34,7 +34,7 @@ background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
 width: 100vw;
-height: 100vh;
+height: 100%;
 `
 
 const Weather = () => {
