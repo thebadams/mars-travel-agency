@@ -3,6 +3,8 @@ import { Carousel } from "react-bootstrap";
 import styled from 'styled-components';
 import { getSpaceNews } from '.././utils/API';
 import { getMarsPhotos } from ".././utils/API";
+import { getFlights } from ".././utils/API";
+
 
 
 
@@ -59,24 +61,38 @@ import { getMarsPhotos } from ".././utils/API";
 
 
 const News = () => {
-  const [photoState, setPhotoState ] = useState([]);
+ 
+
+  const [flightState, setFlightState ] = useState([]);
 
   useEffect(() => {
     
-   getMarsPhotos()
+   getFlights()
    .then(data => {
-       setPhotoState(data.data.photos)
-     console.log(data.data.photos)
+       setFlightState(data.data)
+     console.log(data.data)
+     console.log(data.data[0].aircraftType)
    })
   
   }, [])
  
 
   return (
-    <div>
-      {photoState.map(element => <img src={element.img_src}></img>)}
-    </div>
-  
+    
+    // <div>
+    //     {flightState.map(element => {
+    //     return (
+    //       <li>{element.aircraftType}</li>
+    //     )
+    //     )}
+
+    // </div>
+    <p>Hello</p>
+    
+    
+
+   
+   
   )
 
 } 

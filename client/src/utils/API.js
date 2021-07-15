@@ -27,3 +27,7 @@ export async function getMarsPhotos() {
   return response;
   
   };
+
+  export function getFlights() {
+    return axios.get('/api/booking')
+  }
