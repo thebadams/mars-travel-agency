@@ -472,6 +472,15 @@ const BabyYoda = () => {
 
 const BabyYodaStyle = styled.div`
 
+    background: radial-gradient(circle at top left, #fff, transparent 50%), linear-gradient(0deg, var(--sand), var(--sand) 43%, #c0e9f2 43%), var(--sand);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poller One', cursive;
+    font-variant: small-caps;
+  
 
 
 svg {
