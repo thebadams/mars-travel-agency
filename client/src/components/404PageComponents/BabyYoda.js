@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-
+import "./style.css"
 import { gsap, Linear } from "gsap"
 
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -261,7 +261,7 @@ const BabyYoda = () => {
         
     return(
        <BabyYodaStyle>
-           <svg xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75">
+           <svg xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none">
         <defs>
             <filter id="a" x="-.478" width="1.955" y="-.069" height="1.137" color-interpolation-filters="sRGB">
             <fegaussianblur stddeviation=".519"></fegaussianblur>
@@ -471,26 +471,13 @@ const BabyYoda = () => {
 }
 
 const BabyYodaStyle = styled.div`
-    :root {
-  --yoda-hue: 120;
-  --yoda-saturation: 50;
-  --yoda-lightness: 50;
-  --sand-hue: 40;
-  --sand: #c5b087;
-}
-body {
-  background: radial-gradient(circle at top left, #fff, transparent 50%), linear-gradient(0deg, var(--sand), var(--sand) 43%, #c0e9f2 43%), var(--sand);
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poller One', cursive;
-  font-variant: small-caps;
-}
+
+
+
 svg {
   height: 90vmin;
   max-height: 600px;
+  width: auto; 
   overflow: visible;
   transform: translateZ(0);
   opacity: 1;
