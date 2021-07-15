@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
 import axios from 'axios';
-
+import styled from "styled-components";
 //Icons
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,6 @@ import {
   faCalendarAlt,
   faCloudSun,
   faSignInAlt,
-  faUserPlus,
   faSignOutAlt,
   faUserAstronaut
 } from "@fortawesome/free-solid-svg-icons";
@@ -87,14 +86,14 @@ export const Navigation = () => {
     getSession(dispatch, state)
   },[])
   return (
-  <motion.ul variants={NavAnim}>
+  <StyledUL variants={NavAnim}>
     {navItems.map((navitem) => (
       <MenuItem navItems={navitem} key={navitem.id}/>
     ))}
 
     {displayProfile(state)}
     {displayLoginOrOut(state, dispatch)}
-  </motion.ul>
+  </StyledUL>
   )
 };
 
@@ -165,3 +164,13 @@ const logOutButton =   {
   icons: faSignOutAlt,
   id: 4
 }
+
+const StyledUL = styled(motion.ul)`
+  
+  padding: 25px;
+  position: absolute;
+  top: 100px;
+  width: 230px;
+
+
+`
