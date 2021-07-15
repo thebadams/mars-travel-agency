@@ -29,11 +29,12 @@ align-items: center;
 
 const WeatherBgImg = styled.div `
 background-image: url(${MarsLandscape});
-
+background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
-height: 100%;
+width: 100vw;
+height: 100vh;
 `
 
 const Weather = () => {

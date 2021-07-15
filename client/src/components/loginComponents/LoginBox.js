@@ -23,17 +23,7 @@ import axios from 'axios'
 import { useAppStateContext } from '../../utils/GlobalContext'
 
 
-const MobileStyle= styled.div `
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-background-color: red;
-height:100vh;
-}
 
-`
 
 function Copyright() {
   return (
