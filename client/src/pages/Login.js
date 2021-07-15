@@ -10,9 +10,10 @@ import styled from "styled-components";
 
 
 const LoginStyle= styled.div `
-height: 100vh;
+height: 80%;
 display: flex;
 align-items: center;
+position: fixed;
 
 `
 
