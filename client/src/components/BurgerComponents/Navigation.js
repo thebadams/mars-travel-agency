@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
 import axios from 'axios';
-
+import styled from "styled-components";
 //Icons
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,6 @@ import {
   faCalendarAlt,
   faCloudSun,
   faSignInAlt,
-  faUserPlus,
   faSignOutAlt,
   faUserAstronaut
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,6 +19,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons"
 
 import { useAppStateContext } from "../../utils/GlobalContext"
+import getSession from "../../utils/getSession";
 
 
 // export const Navigation = () => (
@@ -44,7 +44,7 @@ const logMeOut = async (dispatch) => {
     value: response.data.message })
     }
   } catch (error) {
-    dispatch({type:'SET_FAILURE_MESSAGE',
+    dispatch({type:'SET_ERROR_MESSAGE',
     value: "There was an error logging out"})
   }
   
@@ -67,7 +67,9 @@ const displayLoginOrOut = (state, dispatch) => {
 
   if (state.loggedIn) {
     return (
-      <MenuItem navItems={logOutButton} onClick={() => {logMeOut(dispatch)}}></MenuItem>
+      <MenuItem navItems={logOutButton} onClick={(e) => {
+        e.preventDefault();
+        logMeOut(dispatch)}}></MenuItem>
     )
 
   }
@@ -80,16 +82,18 @@ const displayLoginOrOut = (state, dispatch) => {
 
 export const Navigation = () => {
   const [state, dispatch] = useAppStateContext()
-
+  useEffect(()=>{
+    getSession(dispatch, state)
+  },[])
   return (
-  <motion.ul variants={NavAnim}>
+  <StyledUL variants={NavAnim}>
     {navItems.map((navitem) => (
       <MenuItem navItems={navitem} key={navitem.id}/>
     ))}
 
     {displayProfile(state)}
     {displayLoginOrOut(state, dispatch)}
-  </motion.ul>
+  </StyledUL>
   )
 };
 
@@ -160,3 +164,13 @@ const logOutButton =   {
   icons: faSignOutAlt,
   id: 4
 }
+
+const StyledUL = styled(motion.ul)`
+  
+  padding: 25px;
+  position: absolute;
+  top: 100px;
+  width: 230px;
+
+
+`

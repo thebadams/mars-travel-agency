@@ -1,10 +1,11 @@
 import React from "react";
-// import BabyYoda from "../components/404PageComponents/BabyYoda";
+import BabyYoda from "../components/404PageComponents/BabyYoda";
 
 const NoMatch = () => {
   return (
-     <h1>No Page Found</h1>
+     <BabyYoda />
   )
 };
+
 
 export default NoMatch;

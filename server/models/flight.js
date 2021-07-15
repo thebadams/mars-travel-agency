@@ -16,7 +16,11 @@ const flightSchema = new Schema({
   currentReservations: Number,
   departure: String,
   arrival: String,
-  captain: String
+  captain: String,
+  src: String,
+  style: Object,
+  label: String,
+
 });
 
 flightSchema.methods.setFlightNum = function() {

@@ -6,12 +6,17 @@ import Paper from "@material-ui/core/Paper"
 import ProfileTicket from "../components/ProfileComponents/ProfileTicket";
 import ProfileCard from "../components/ProfileComponents/ProfileCard"
 import { useAppStateContext } from "../utils/GlobalContext";
-import axios from 'axios';
-import Earth from '../assets/img/Earth.jpg'
+import axios from 'axios'
+import getSession from "../utils/getSession";
+import Earth from "../assets/img/Earth.jpg"
 
 //StyleS
 const ProfileStyle = styled.div`
 background-image: url(${Earth});
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
 `;
 
 
@@ -24,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   test:{
     background: 'red',
+    display: 'flex',
   },
 
 }));
@@ -32,18 +38,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile () {
   const classes = useStyles;
   const [state, dispatch] = useAppStateContext();
-  const getSession = async () => {
-    const sessionData = await axios.get('/auth/session')
-    console.log(sessionData.data)
-    if(sessionData.data.loggedIn){
-      dispatch({type:'LOG_IN', value: sessionData.data.user})
-    }
-    console.log(state)
-  }
+ 
 
   useEffect(()=> {
-    getSession()
-    console.log()
+    if(!state.loggedIn) {
+      getSession(dispatch, state)
+    }
+    console.log(state.user.firstName)
   }, [])
 
   
@@ -54,7 +55,7 @@ export default function Profile () {
       </Grid>
       <Grid item xs={6} md={4}>
         <Paper className={classes.test}>
-          <ProfileCard name={state.user.firstName} />
+          <ProfileCard />
           <ProfileTicket />
         </Paper>
       </Grid>
