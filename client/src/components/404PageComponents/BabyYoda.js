@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import "./style.css"
+import "./Yoda.svg"
 import { gsap, Linear } from "gsap"
 
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -261,7 +262,7 @@ const BabyYoda = () => {
         
     return(
        <BabyYodaStyle>
-           <StyledSVG xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none" height="100%" width="100%">
+           <StyledSVG xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none" height="500px" width="600px">
         <defs>
             <filter id="a" x="-.478" width="1.955" y="-.069" height="1.137" color-interpolation-filters="sRGB">
             <fegaussianblur stddeviation=".519"></fegaussianblur>
@@ -584,7 +585,7 @@ p{
 
 const StyledSVG = styled.svg`
 
-  height: inherit;
+  height: 20px;
   /* max-height: 600px; */
   width: inherit; 
   overflow: visible;
