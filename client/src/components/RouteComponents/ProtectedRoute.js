@@ -5,19 +5,19 @@ import Loading from './Loading';
 
 const ProtectedRoute = ({component: Component, ...props}) => {
   const [{loggedIn, isLoading}, dispatch] = useAppStateContext()
-
+const redirectTo = props.redirectto
 return (
         <Route
             {...props}
-            render={props => (
+            render={props2 => (
                 !isLoading
                     ?
                     (
                         loggedIn
                             ?
-                            <Component {...props} />
+                            <Component {...props2} />
                             :
-                            <Redirect to={props.redirectto || '/login'} />
+                            <Redirect to='/login' />
                     )
                     :
                     <Loading />
