@@ -19,6 +19,7 @@ const color = "#" + randomColor
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: "10%",
     maxWidth: 600,
     maxHeight: 500,
   },
@@ -46,11 +47,11 @@ console.log(state.user.lastName);
             {`${firstInitial}${lastInitial}`}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
 
         title={`${state.user.firstName} ${state.user.lastName}`}
         subheader={today}
