@@ -1,9 +1,10 @@
 import React, {useContext} from  'react';
 import { Route, Redirect} from 'react-router-dom';
-import {AppStateContext} from '../../utils/GlobalContext'
+import {useAppStateContext} from '../../utils/GlobalContext'
 import Loading from './Loading';
-const PrivateRoute = ({component: Component, ...props}) => {
-  const [{loggedIn, isLoading}, dispatch] = useContext(AppStateContext)
+
+const ProtectedRoute = ({component: Component, ...props}) => {
+  const [{loggedIn, isLoading}, dispatch] = useAppStateContext()
 
 return (
         <Route
@@ -16,7 +17,7 @@ return (
                             ?
                             <Component {...props} />
                             :
-                            <Redirect to='/' />
+                            <Redirect to={props.redirectto || '/login'} />
                     )
                     :
                     <Loading />
@@ -26,4 +27,4 @@ return (
 
 }
 
-export default PrivateRoute;
+export default ProtectedRoute;

@@ -21,7 +21,7 @@ import { AnimatePresence } from "framer-motion";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
-
+import ProtectedRoute from './components/RouteComponents/ProtectedRoute'
 //Context
 import { GlobalProvider, useAppStateContext } from "./utils/GlobalContext";
 function App() {
@@ -52,9 +52,7 @@ function App() {
           <Route path="/news" exact>
             <News />
           </Route>
-          <Route path="/profile" exact>
-            <Profile />
-          </Route>
+          <ProtectedRoute exact path='/profile' component={Profile}/>
           <Route path="/confirmation" exact>
             <Confirmation />
           </Route>
