@@ -33,6 +33,10 @@ const reducer = (state, action) => {
     
     case 'TOGGLE_MESSAGE_CONTAINER':
       return {...state, messageContainer: !this.messageContainer}
+    
+    case 'SET_IS_LOADING':
+      return {...state, isLoading: action.value}
+
     default:
       return state
 

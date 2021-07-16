@@ -24,16 +24,9 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 //Context
 import { GlobalProvider, useAppStateContext } from "./utils/GlobalContext";
-import getSession from "./utils/getSession";
 function App() {
   const location = useLocation();
   const [state, dispatch] = useAppStateContext();
-
-  useEffect(()=> {
-    if(!state.loggedIn){
-      getSession(dispatch, state)
-    }
-  }, [])
 
   return (
     <GlobalProvider>

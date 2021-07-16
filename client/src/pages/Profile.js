@@ -7,7 +7,6 @@ import ProfileTicket from "../components/ProfileComponents/ProfileTicket";
 import ProfileCard from "../components/ProfileComponents/ProfileCard"
 import { useAppStateContext } from "../utils/GlobalContext";
 import axios from 'axios'
-import getSession from "../utils/getSession";
 import Earth from "../assets/img/Earth.jpg"
 
 //StyleS
@@ -38,14 +37,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile () {
   const classes = useStyles;
   const [state, dispatch] = useAppStateContext();
- 
-
-  useEffect(()=> {
-    if(!state.loggedIn) {
-      getSession(dispatch, state)
-    }
-    console.log(state.user.firstName)
-  }, [])
 
   
   return (  
