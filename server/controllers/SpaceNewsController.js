@@ -58,7 +58,7 @@ const insightMARSAPI = async () => {
 };
 
 
-spaceXAPI();
+spaceNewsAPI();
 
 
 

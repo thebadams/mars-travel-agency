@@ -6,8 +6,12 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { getMarsPhotos } from '../../utils/API';
+import { useEffect, useState } from 'react';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+
 
 const tutorialSteps = [
   {
@@ -78,7 +82,7 @@ function SwipeableTextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
+  
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -92,6 +96,25 @@ function SwipeableTextMobileStepper() {
     setActiveStep(step);
   };
 
+  const [photoState, setPhotoState ] = useState([]);
+  useEffect(() => {
+   getMarsPhotos()
+   .then(data => {
+       setPhotoState(data.data.photos)
+     console.log(data.data.photos)
+   })
+  }, [])
+
+  const maxSteps = photoState.length;
+ 
+
+  // return (
+  //   <div>
+  //     {photoState.map(element => <img src={element.img_src}></img>)}
+  //   </div>
+  
+  // )
+ 
   return (
     <div className={classes.root}>
       <AutoPlaySwipeableViews
@@ -100,10 +123,12 @@ function SwipeableTextMobileStepper() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {tutorialSteps.map((step, index) => (
-          <div key={step.label}>
+        {photoState.map((step, index) => (
+        
+         
+          <div key={step.camera.ful_name}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <img className={classes.img} src={step.imgPath} alt={step.label} />
+              <img className={classes.img} src={step.img_src} alt={step.label} />
             ) : null}
           </div>
         ))}
