@@ -14,14 +14,20 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import styled from "styled-components";
+
 
 import axios from 'axios'
 
 //context
 import { useAppStateContext } from '../../utils/GlobalContext'
 
+
+
+
 function Copyright() {
   return (
+
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <a href="https://github.com/thebadams/mars-travel-agency" target="_blank" rel="noreferrer">
@@ -111,9 +117,10 @@ const LoginBox = () => {
             <Grid item xs={6}>
               <Link to="/signup" style={{textDecoration: "none"}}>Don't have an account, Sign Up here!</Link>
             </Grid>
-            
+
           </Grid>
         </form>
+
       </div>
       <Box mt={8}>
         <Copyright />
@@ -128,6 +135,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    
   },
   avatar: {
     margin: theme.spacing(1),
@@ -159,8 +167,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: "140px",
     height: "40px",
-    justifyContent: "space-around"
-  }
+    justifyContent: "space-around",
+  },
+  copyRight: {
+color: "red",
+marginTop: "50px",
+
+
+},
 }));
 
 export default LoginBox;

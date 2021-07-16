@@ -97,7 +97,7 @@ const Hero = () => {
                             <img src={Img} alt="img"></img>
                             <div className="carousel-caption">
                                 <h1 className="display-2">Mars Travel Agency</h1>
-                                <h3>Book your flight to Mars here!</h3>
+                                {/* <h3>Book your flight to Mars here!</h3> */}
                             </div>
                     </div>
                 </div>

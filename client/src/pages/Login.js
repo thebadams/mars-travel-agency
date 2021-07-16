@@ -13,6 +13,7 @@ const LoginStyle= styled.div `
 height: 100vh;
 display: flex;
 align-items: center;
+position: fixed;
 
 `
 
