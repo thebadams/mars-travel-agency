@@ -3,9 +3,8 @@ import { Route, Redirect} from 'react-router-dom';
 import {useAppStateContext} from '../../utils/GlobalContext'
 import Loading from './Loading';
 
-const ProtectedRoute = ({component: Component, ...props}) => {
+const LoggedInProtectedRoute = ({component: Component, ...props}) => {
   const [{loggedIn, isLoading}, dispatch] = useAppStateContext()
-const redirectTo = props.redirectto
 return (
         <Route
             {...props}
@@ -27,4 +26,4 @@ return (
 
 }
 
-export default ProtectedRoute;
+export default LoggedInProtectedRoute;
