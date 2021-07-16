@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
+import Toggle from '../components/Toggle';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
@@ -141,7 +142,7 @@ const passengers = [
 ];
 
 
-const Bookings = () => {
+const Bookings = (props) => {
 const [flightState, setFlightState] = useState([])
 const [passenger, setPassenger] = React.useState('1');
 const handleChange = (event) => {
@@ -217,7 +218,7 @@ return (
                 </option>
               ))}
             </TextField>
-            <Button variant="contained" color="primary" className="booking-button">Search</Button>
+              <Button variant="contained" color="primary" className="booking-button" onClick={props.onClick}>Search</Button>
           </form>
         </Container>
       </div>

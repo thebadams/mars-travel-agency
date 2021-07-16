@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
 import styled from "styled-components";
+import Toggle from '../components/Toggle';
 import Bookings from '../components/Bookings';
 import Ticket from '../components/TicketComponents/ticket';
 import Img from '../assets/img/mars.jpg';
+import Button from '@material-ui/core/Button';
 
 
 const BookingStyle = styled.div`
@@ -14,11 +17,15 @@ const BookingStyle = styled.div`
 `;
 
 const Booking = () => {
-  
+  const [showTickets, setShowTickets] = useState(false);
+  const onClick = () => setShowTickets(true)
+
   return (
       <BookingStyle>
-          <Bookings />
-          <Ticket />
+          <div>
+            <Bookings onClick={onClick} />
+            { showTickets ? <Ticket /> : null }
+          </div>
       </BookingStyle>
   )
 };
