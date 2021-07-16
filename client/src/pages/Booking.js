@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
-import Toggle from '../components/Toggle';
 import Bookings from '../components/Bookings';
 import Ticket from '../components/TicketComponents/ticket';
 import Img from '../assets/img/mars.jpg';
-import Button from '@material-ui/core/Button';
 
 
 const BookingStyle = styled.div`
