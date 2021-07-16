@@ -15,11 +15,6 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-
-
-
-
 // mongoose.connect('mongodb://localhost/music-reviews',
 // {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true})
 // .then(() => console.log('Connected to MongoDb'))
