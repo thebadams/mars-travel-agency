@@ -3,7 +3,13 @@ import styled from "styled-components";
 import { useAppStateContext } from "../../utils/GlobalContext";
 
 const ProfileTicket = () => {
-  const [state, dispatch] = useAppStateContext();
+  const [state, dispatch] = useAppStateContext()
+  //userId = state.user._id
+  //make an axios call, get by id include reservations
+  //run that call in a use-effect
+  //useState = reservationsLoading
+  //conditionally render something while getting that info
+  //then render the information; 
     return (
         <TicketStyle>
             <div className="box">

@@ -37,10 +37,10 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          {/* <Route path="/login" exact>
+          <Route path="/login" exact>
             <Login />
-          </Route> */}
-          <ProtectedRoute exact path='/login' component={Login}/>
+          </Route>
+          {/* <ProtectedRoute exact path='/login' component={Login}/> */}
           <Route path="/signup" exact>
             <SignUp />
           </Route>
