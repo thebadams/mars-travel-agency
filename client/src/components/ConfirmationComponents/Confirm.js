@@ -36,12 +36,10 @@ const Confirm = () => {
                 initial="hidden"
                 animate="show"
             >
-               
-               Click to View Ticket 
+            
+            Click to View Ticket 
             </motion.h3>
-                  
-                </Link>
-           
+            </Link>
         <div className="ship">
             <div className="ship-rotate">
             <div className="pod"></div>

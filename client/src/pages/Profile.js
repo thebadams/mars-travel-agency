@@ -6,7 +6,6 @@ import Paper from "@material-ui/core/Paper"
 import ProfileTicket from "../components/ProfileComponents/ProfileTicket";
 import ProfileCard from "../components/ProfileComponents/ProfileCard"
 import { useAppStateContext } from "../utils/GlobalContext";
-import axios from 'axios'
 import Earth from "../assets/img/Earth.jpg"
 
 //StyleS
@@ -16,6 +15,13 @@ height: 100vh;
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
+
+.container {
+  padding-top: 2%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
 `;
 
 
@@ -29,8 +35,7 @@ const useStyles = makeStyles((theme) => ({
   test:{
     background: 'red',
     display: 'flex',
-  },
-
+  }
 }));
 
 
@@ -41,19 +46,18 @@ export default function Profile () {
   
   return (  
     <ProfileStyle>
-    <Grid container>
-      <Grid item xs={4}>
-      </Grid>
-      <Grid item xs={6} md={4}>
-        <Paper className={classes.test}>
-          <ProfileCard />
-          <ProfileTicket />
-        </Paper>
-      </Grid>
-      <Grid item xs={4}>
-        
+      <Grid container className="container">
+        <Grid item xs={4}>
         </Grid>
-    </Grid>
+        <Grid item xs={6} md={4}>
+          <Paper className={classes.test}>
+            <ProfileCard />
+            <ProfileTicket />
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          </Grid>
+      </Grid>
     </ProfileStyle>
   
   )

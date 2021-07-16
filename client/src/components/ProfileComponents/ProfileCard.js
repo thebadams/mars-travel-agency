@@ -1,17 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-
 import CardContent from '@material-ui/core/CardContent';
-
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
 import { useAppStateContext } from "../../utils/GlobalContext";
 
 const randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -26,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: color,
   },
+  text: {
+    fontWeight: "bold",
+  }
 }));
 
 const ProfileCard = () => {
@@ -57,7 +53,7 @@ console.log(state.user.lastName);
         subheader={today}
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="p" className={classes.text}>
           Below Is Your Ticket, please make sure to save a screenshot of your ticket to show at the flight terminal. The future is now, welcome aboard!
         </Typography>
       </CardContent>
