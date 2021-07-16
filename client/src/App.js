@@ -42,9 +42,10 @@ function App() {
             <Login />
           </Route> */}
           <LoggedOutProtectedRoute exact path='/login' component={Login}/>
-          <Route path="/signup" exact>
+          {/* <Route path="/signup" exact>
             <SignUp />
-          </Route>
+          </Route> */}
+          <LoggedOutProtectedRoute exact path='/signup' component={SignUp} />
           <Route path="/booking" exact>
             <Booking />
           </Route>
