@@ -1,11 +1,13 @@
-import React, { createContext, useContext, useReducer} from 'react';
+import React, { createContext, useContext, useEffect, useReducer} from 'react';
 import reducer from './globalUserReducer';
+import checkAuthentication from './checkAuthentication';
 const AppStateContext = createContext({
   loggedIn: false,
   user: {},
   successMessage: "",
   errorMessage: "",
-  messageContainer: false
+  messageContainer: false,
+  isLoading: true
   
 })
 
@@ -16,8 +18,30 @@ const GlobalProvider = ({ value = [], ...props}) => {
     },
     successMessage: "",
     errorMessage: "",
-    messageContainer: false
+    messageContainer: false,
+    isLoading: true
   })
+
+  const checkAuth = (state, dispatch) => checkAuthentication()
+  .then((data)=> {
+    console.log("STATE", state)
+    console.log("DATA", data)
+    console.log('Dispatching Login')
+    return dispatch({type:'LOG_IN', value: data.user})
+  })
+
+  .catch(()=>{
+    console.log('Dispatching LogOut')
+    return dispatch({type:'LOG_OUT', value: {}})
+  })
+  .then(()=>{
+    console.log('Dispatching SET Loading False')
+    return dispatch({type: 'SET_IS_LOADING', value: false})
+  }).then(()=> console.log("STATE 2", state))
+
+  useEffect(()=> {
+    checkAuth(state, dispatch)
+  },[])
   return < AppStateContext.Provider value={[state, dispatch]} {...props} />
 
 }

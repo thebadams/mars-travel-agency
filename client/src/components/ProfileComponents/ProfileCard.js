@@ -31,7 +31,7 @@ const ProfileCard = () => {
   const classes = useStyles();
   const [state, dispatch] = useAppStateContext();
 console.log(state.user.lastName);
-  if(state.user.firstName) {
+
   const firstNameInitial = state.user.firstName.split('');
   const firstInitial = firstNameInitial.shift().charAt(0);
   const lastNameInitial = state.user.lastName.split('');
@@ -63,7 +63,7 @@ console.log(state.user.lastName);
      
     </Card>
   );
-  } else return <h1>Hello There General Kenobi</h1>
+ 
   
   
 }

@@ -21,19 +21,12 @@ import { AnimatePresence } from "framer-motion";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
-
+import ProtectedRoute from './components/RouteComponents/ProtectedRoute'
 //Context
 import { GlobalProvider, useAppStateContext } from "./utils/GlobalContext";
-import getSession from "./utils/getSession";
 function App() {
   const location = useLocation();
   const [state, dispatch] = useAppStateContext();
-
-  useEffect(()=> {
-    if(!state.loggedIn){
-      getSession(dispatch, state)
-    }
-  }, [])
 
   return (
     <GlobalProvider>
@@ -44,9 +37,10 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/login" exact>
+          {/* <Route path="/login" exact>
             <Login />
-          </Route>
+          </Route> */}
+          <ProtectedRoute exact path='/login' component={Login}/>
           <Route path="/signup" exact>
             <SignUp />
           </Route>
@@ -59,9 +53,7 @@ function App() {
           <Route path="/news" exact>
             <News />
           </Route>
-          <Route path="/profile" exact>
-            <Profile />
-          </Route>
+          <ProtectedRoute exact path='/profile' component={Profile}/>
           <Route path="/confirmation" exact>
             <Confirmation />
           </Route>

@@ -20,11 +20,8 @@ router.get('/session', (req, res) => {
   if(req.session.user) {
     res.json({ user:req.session.user, loggedIn: true });
   } else {
-    res.json({
-      loggedIn: false,
-      user: {}
-    })
-  }
-})
+    res.json({user: {}, loggedIn: false})
+    }
+  })
 
 module.exports = router;
