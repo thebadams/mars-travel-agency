@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
@@ -412,6 +412,8 @@ const FlightStyle = styled.div`
 }
 `;
 
+const nowDate = Date().toString().split(' ');
+
 
 const Cell = (props)=> {
   const [active, handleActive] = useState(false);
@@ -445,7 +447,7 @@ const Cell = (props)=> {
           >
             From
           </div>
-          AFS
+          {props.abbreviation}
           <div id="detailLabel">{ props.departure }</div>
         </div>
         <div
@@ -496,9 +498,9 @@ const Cell = (props)=> {
           <img style={props.style} src={props.src} />
           <div id="timecontainer">
             <div id="detailDate">
-            Cape Canaveral
-              <div id="detailTime">6:20</div>
-              June 12 2021
+            {props.abbreviation}
+              <div id="detailTime">{props.boardingTime}</div>
+              {`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}
             </div>
             <img
               style={{
@@ -617,7 +619,7 @@ const Header = (
         KSC - MARS<div id="oneWay">One Way</div>
         <div />
       </div>
-      12th June, 2020
+      {`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}
     </div>
     <svg
       id="settings"
@@ -766,7 +768,8 @@ const Ticket = ({ flights }) => {
         {Header}
         { flights.map((flight) => (
           <Cell 
-          key={flight.flightNum} 
+          key={flight.flightNum}
+          abbreviation={flight.abbreviation}
           aircraftType={flight.aircraftType}
           seatingClass={flight.seatingClass}
           flightTime={flight.flightTime}
