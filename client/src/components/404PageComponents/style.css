@@ -3,7 +3,9 @@
     --yoda-saturation: 50;
     --yoda-lightness: 50;
     --sand-hue: 40;
-    --sand: #c5b087;
+    --sand: #9C2E35;
   }
-  
-  
+
+g {
+  height: 60%;
+}
