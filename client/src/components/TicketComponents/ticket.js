@@ -410,10 +410,11 @@ const FlightStyle = styled.div`
 }
 `;
 
+const nowDate = Date().toString().split(' ');
+
 
 const Cell = (props)=> {
   const [active, handleActive] = useState(false);
-  
 	
   return (
     <div
@@ -487,7 +488,7 @@ const Cell = (props)=> {
             <div id="detailDate">
             {props.abbreviation}
               <div id="detailTime">{props.boardingTime}</div>
-              June 12 2021
+              {`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}
             </div>
             <img
               style={{
@@ -605,7 +606,7 @@ const Header = (
         KSC - MARS<div id="oneWay">One Way</div>
         <div />
       </div>
-      12th June, 2020
+      {`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}
     </div>
     <svg
       id="settings"
