@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from "styled-components";
 import Bookings from '../components/Bookings';
 import Ticket from '../components/TicketComponents/ticket';
@@ -14,11 +15,15 @@ const BookingStyle = styled.div`
 `;
 
 const Booking = () => {
-  
+  const [showTickets, setShowTickets] = useState(false);
+  const onClick = () => setShowTickets(true)
+
   return (
       <BookingStyle>
-          <Bookings />
-          <Ticket />
+          <div>
+            <Bookings onClick={onClick} />
+            { showTickets ? <Ticket /> : null }
+          </div>
       </BookingStyle>
   )
 };

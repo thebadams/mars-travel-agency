@@ -19,7 +19,6 @@ import {
 } from "@fortawesome/free-regular-svg-icons"
 
 import { useAppStateContext } from "../../utils/GlobalContext"
-import getSession from "../../utils/getSession";
 
 
 // export const Navigation = () => (
@@ -82,9 +81,6 @@ const displayLoginOrOut = (state, dispatch) => {
 
 export const Navigation = () => {
   const [state, dispatch] = useAppStateContext()
-  useEffect(()=>{
-    getSession(dispatch, state)
-  },[])
   return (
   <StyledUL variants={NavAnim}>
     {navItems.map((navitem) => (

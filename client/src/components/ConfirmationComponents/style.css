@@ -3,24 +3,25 @@
 
 .confirm {
   text-align: center;
-  color: green;
+  color: lightgreen;
   font-family: 'Holtwood One SC', serif;
   margin-top: 10vh;
-  font-size: 7vh;
+  font-size: 5vh;
 }
 .text2 {
   text-align: center;
-  color: #FF5F40;
+  color: lightgreen;
   font-family: 'Holtwood One SC', serif;
   margin-top: 45vh;
   font-size: 4vh;
 }
 .text3 {
     text-align: center;
-    color: #FF5F40;
+    color: lightgreen;
     font-family: 'Holtwood One SC', serif;
     margin-top: 3vh;
     font-size: 3vh;
+    text-decoration: none;
   }
 .outer-space {
   position: absolute;

@@ -21,19 +21,13 @@ import { AnimatePresence } from "framer-motion";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
-
+import LoggedInProtectedRoute from './components/RouteComponents/LoggedInProtectedRoute'
+import LoggedOutProtectedRoute from "./components/RouteComponents/LoggedOutProtectedRoute";
 //Context
 import { GlobalProvider, useAppStateContext } from "./utils/GlobalContext";
-import getSession from "./utils/getSession";
 function App() {
   const location = useLocation();
   const [state, dispatch] = useAppStateContext();
-
-  useEffect(()=> {
-    if(!state.loggedIn){
-      getSession(dispatch, state)
-    }
-  }, [])
 
   return (
     <GlobalProvider>
@@ -44,12 +38,14 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/login" exact>
+          {/* <Route path="/login" exact>
             <Login />
-          </Route>
-          <Route path="/signup" exact>
+          </Route> */}
+          <LoggedOutProtectedRoute exact path='/login' component={Login}/>
+          {/* <Route path="/signup" exact>
             <SignUp />
-          </Route>
+          </Route> */}
+          <LoggedOutProtectedRoute exact path='/signup' component={SignUp} />
           <Route path="/booking" exact>
             <Booking />
           </Route>
@@ -59,9 +55,7 @@ function App() {
           <Route path="/news" exact>
             <News />
           </Route>
-          <Route path="/profile" exact>
-            <Profile />
-          </Route>
+          <LoggedInProtectedRoute exact path='/profile' component={Profile}/>
           <Route path="/confirmation" exact>
             <Confirmation />
           </Route>
