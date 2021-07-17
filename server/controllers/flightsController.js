@@ -3,6 +3,7 @@ const ExpressError = require('../utils/expressError')
 
 module.exports = {
   findAll: async function (req,res) {
+  
     try {
       const flights = await Flight.find(req.query).sort({name: 1})
       if(!flights) {

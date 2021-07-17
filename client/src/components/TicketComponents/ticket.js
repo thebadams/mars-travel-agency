@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useAppStateContext } from "../../utils/GlobalContext";
+import reservation from '../../utils/reservation';
+import { data } from "jquery";
 
 const FlightStyle = styled.div`
   opacity: 0.9;
@@ -413,6 +416,16 @@ const FlightStyle = styled.div`
 const Cell = (props)=> {
   const [active, handleActive] = useState(false);
 	
+  const [state, dispatch ] = useAppStateContext();
+
+   async function handleReservation(e){
+     e.preventDefault();
+    await reservation(state)
+   .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
+   .then(() => document.location.replace("/confirmation"));
+  }
+
+
   return (
     <div
       id="cardContainer"
@@ -575,6 +588,7 @@ const Cell = (props)=> {
                   <Link to="/confirmation" style={{textDecoration: "none"}}>
                     <Button
                       id="button"
+                      onClick={(e) => handleReservation(e)}
                       style={{
                         color: props.label,
                         border: `1px solid ${props.label}`
@@ -733,24 +747,24 @@ const Header = (
 const DataArr = Array(5)
   .fill(0)
   .map(Number.call, Number);
-const Ticket = () => {
+const Ticket = ({ flights }) => {
   
   const [flightState, setFlightState] = useState([])
 
-  useEffect(() => {
-    axios.get(`/api/booking`)
-    .then(data => {
-      const flights = data.data;
-      setFlightState(flights);
-      console.log(flights);
-    })
-  },[])
+  // useEffect(() => {
+  //   axios.get(`/api/booking`)
+  //   .then(data => {
+  //     const flights = data.data;
+  //     setFlightState(flights);
+  //     console.log(flights);
+  //   })
+  // },[])
 
   return (
     <FlightStyle>
       <div className="App">
         {Header}
-        { flightState.map((flight) => (
+        { flights.map((flight) => (
           <Cell 
           key={flight.flightNum} 
           aircraftType={flight.aircraftType}

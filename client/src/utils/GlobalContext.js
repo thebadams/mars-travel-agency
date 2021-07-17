@@ -7,7 +7,10 @@ const AppStateContext = createContext({
   successMessage: "",
   errorMessage: "",
   messageContainer: false,
-  isLoading: true
+  isLoading: true,
+  showTickets: false,
+  searchURL: "",
+  flights: []
   
 })
 
@@ -19,7 +22,11 @@ const GlobalProvider = ({ value = [], ...props}) => {
     successMessage: "",
     errorMessage: "",
     messageContainer: false,
-    isLoading: true
+    isLoading: true,
+    showTickets: false,
+    searchURL: "/api/booking",
+    flights: []
+
     //add a reservations-array 
   })
 

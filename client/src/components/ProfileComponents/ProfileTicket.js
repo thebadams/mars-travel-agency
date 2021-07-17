@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { useAppStateContext } from "../../utils/GlobalContext";
+import { useEffect, useState } from "react";
+import reservation from '../../utils/reservation';
 
 
 const ProfileTicket = () => {
-  const [state, dispatch] = useAppStateContext()
+  const [state, dispatch] = useAppStateContext();
+
+ 
+ 
+  
   //userId = state.user._id
   //make an axios call, get by id include reservations
   //run that call in a use-effect

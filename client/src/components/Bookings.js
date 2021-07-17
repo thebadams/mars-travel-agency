@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
 import clsx from 'clsx';
 import axios from 'axios';
+import { useAppStateContext } from "../utils/GlobalContext";
 
 const BookingsStyle = styled.div`
   display: inline-block;
@@ -143,11 +144,29 @@ const passengers = [
 
 
 const Bookings = (props) => {
+ 
+  // render tickets
+const [state, dispatch ] = useAppStateContext();
+
+// get flight data from backend
 const [flightState, setFlightState] = useState([])
 const [passenger, setPassenger] = React.useState('1');
+const [bookingUrl, setBookingUrl ] = useState("/api/booking");
+
+const handleInputChange = (event) => {
+  console.log(event.target.value);
+  const query = event.target.value;
+  const basicString = "/api/booking";
+  
+  dispatch({type: "SET_SEARCH_URL", value: `${basicString}?departure=${query}`})
+}
+
+
 const handleChange = (event) => {
   setPassenger(event.target.value);
 };
+
+
 
 useEffect(() => {
   axios.get(`/api/booking`)
@@ -157,6 +176,8 @@ useEffect(() => {
     console.log(flights);
   })
 },[])
+
+
 
 return (
     <BookingsStyle>
@@ -183,7 +204,7 @@ return (
           <TextField
               id="outlined-select-passenger-native"
               select
-              onChange={handleChange}
+              onChange={(event) => handleInputChange(event)}
               className="departure"
               SelectProps={{
                 native: true,
@@ -218,7 +239,7 @@ return (
                 </option>
               ))}
             </TextField>
-              <Button variant="contained" color="primary" className="booking-button" onClick={props.onClick}>Search</Button>
+              <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(() => dispatch({ type: "TOGGLE_SEARCH", value: !state.showTickets}) )   }>Search</Button>
           </form>
         </Container>
       </div>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Bookings from '../components/Bookings';
 import Ticket from '../components/TicketComponents/ticket';
 import Img from '../assets/img/mars.jpg';
+import axios from 'axios';
+import { useAppStateContext } from '../utils/GlobalContext';
 
 
 const BookingStyle = styled.div`
@@ -15,14 +17,22 @@ const BookingStyle = styled.div`
 `;
 
 const Booking = () => {
-  const [showTickets, setShowTickets] = useState(false);
-  const onClick = () => setShowTickets(true)
+
+  const [state, dispatch ] = useAppStateContext();
+  
+
+  const handleSearch = async (queryString) => {
+    const result = await axios.get(queryString)
+    return result.data;
+  }
+
 
   return (
       <BookingStyle>
           <div>
-            <Bookings onClick={onClick} />
-            { showTickets ? <Ticket /> : null }
+            <Bookings />
+  
+            { state.showTickets ? <Ticket flights={state.flights}/> : null }
           </div>
       </BookingStyle>
   )
