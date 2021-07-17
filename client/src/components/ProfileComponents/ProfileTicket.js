@@ -1,9 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { useAppStateContext } from "../../utils/GlobalContext";
+import axios from 'axios';
+// add {state.reservations.value} below to render data
 
 const ProfileTicket = () => {
   const [state, dispatch] = useAppStateContext();
+  //userId = state.user._id
+  // make an axios call get by id include resevations
+  // run that call in a useeffect
+  //usestate = reservationsloading
+  // const [resState, setResState ] = useState([]);
+  // useEffect(() => {
+
+  // })
+  
     return (
         <TicketStyle>
             <div className="box">
@@ -51,7 +62,7 @@ const ProfileTicket = () => {
                 
                 <span className="jfk jfkslip">JFK</span>
                 <span className="plane planeslip"><svg clip-rule="evenodd" fill-rule="evenodd" height="50" width="50" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390"/><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10"/></g></svg></span>
-                <span className="sfo sfoslip">SFO</span>
+                <span className="sfo sfoslip">Mars</span>
                 <div className="sub-content">
                 <span className="watermark">Space-X</span>
                 <span className="name">PASSENGER NAME<br/><span>{`${state.user.lastName}, ${state.user.firstName}`}</span></span>
