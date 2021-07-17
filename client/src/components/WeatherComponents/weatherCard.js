@@ -7,9 +7,8 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-    marginTop: '20%',
-    marginBottom: '2%',
+    marginTop: '5%',
+    minHeight:'260px',
   },
   paper: {
     borderRadius: '12px',
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     verticalAlign: 'middle',
     color: 'white',
-    height: 210,
+    // height: 210,
     width: 140,
     opacity: '0.65',
     background: 'black',
