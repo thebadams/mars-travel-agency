@@ -9,18 +9,32 @@ import { useAppStateContext } from "../utils/GlobalContext";
 import Earth from "../assets/img/Earth.jpg"
 
 //StyleS
-const ProfileStyle = styled.div`
+
+const ProfileBG = styled.div `
 background-image: url(${Earth});
 height: 100vh;
+max-height: 100%;
 background-repeat: no-repeat;
 background-size: cover;
-background-attachment: fixed;
+padding-top: 5%;
+`;
 
-.container {
-  padding-top: 2%;
-  position: absolute;
-  top: 10%;
-  right: 10%;
+const ProfileStyle = styled.div`
+
+.test {
+  background: rgba(0, 0, 0, 0.5);
+  height: 75vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 25px;
+}
+
+h1{
+  color: white;
+  font-size: 350%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 `;
 
@@ -32,10 +46,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20%',
     marginBottom: '2%',
   },
-  test:{
-    background: 'red',
-    display: 'flex',
-  }
+
 }));
 
 
@@ -45,12 +56,14 @@ export default function Profile () {
 
   
   return (  
+    <ProfileBG>
     <ProfileStyle>
-      <Grid container className="container">
+    <h1>My Profile</h1>
+      <Grid container >
         <Grid item xs={4}>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <Paper className={classes.test}>
+        <Grid item xs={6} md={4}  className="test" >
+          <Paper >
             <ProfileCard />
             <ProfileTicket />
           </Paper>
@@ -59,6 +72,7 @@ export default function Profile () {
           </Grid>
       </Grid>
     </ProfileStyle>
+    </ProfileBG>
   
   )
 };
