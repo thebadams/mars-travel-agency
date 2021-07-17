@@ -19,9 +19,10 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/session', async (req, res) => {
-  console.log(req.session.user)
-  
+  console.log(req.session)
   if(req.session.user) {
+    console.log('hello brian', req.session.user)
+
     const currentUser = await User.findById(req.session.user._id).populate('reservations')
     console.log('CURRENT USER', currentUser)
     //find user by id include reservation or get all reservations that have user_id= reservation.name
