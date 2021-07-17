@@ -18,6 +18,7 @@ router.get('/logout', function(req, res){
 
 router.get('/session', (req, res) => {
   if(req.session.user) {
+    //find user by id include reservation or get all reservations that have user_id= reservation.name
     res.json({ user:req.session.user, loggedIn: true });
   } else {
     res.json({user: {}, loggedIn: false})

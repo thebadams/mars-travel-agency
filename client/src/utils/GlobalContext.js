@@ -20,6 +20,7 @@ const GlobalProvider = ({ value = [], ...props}) => {
     errorMessage: "",
     messageContainer: false,
     isLoading: true
+    //add a reservations-array 
   })
 
   const checkAuth = (state, dispatch) => checkAuthentication()
