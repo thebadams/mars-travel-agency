@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
 
 })
 
-router.post('/auth/local/login', passport.authenticate('local'), (req, res) => {
+router.post('/login', passport.authenticate('local'), (req, res) => {
   req.session.user = req.user
   res.json(req.user)
 });

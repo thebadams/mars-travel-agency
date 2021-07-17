@@ -7,12 +7,8 @@ import WeatherInfo from "../components/WeatherComponents/weatherInfo";
 
 
 const WeatherStyle = styled.div `
-/* display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; */
 font-family: Roboto-Regular, HelveticaNeue, Arial, sans-serif;
-/* height: 100vh; */
+
 `
 const WeatherTop = styled.div `
 display: flex;
@@ -33,7 +29,7 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
-width: 100vw;
+max-height: 100%;
 height: 100vh;
 `
 

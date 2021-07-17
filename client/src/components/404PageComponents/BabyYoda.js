@@ -262,7 +262,7 @@ const BabyYoda = () => {
         
     return(
        <BabyYodaStyle>
-           <StyledSVG xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none" height="500px" width="600px">
+           <StyledSVG xmlns="http://www.w3.org/2000/svg"  viewbox="-30 -20 188.75 178.75" preserveAspectRatio="none" height="500px" width="600px">
         <defs>
             <filter id="a" x="-.478" width="1.955" y="-.069" height="1.137" color-interpolation-filters="sRGB">
             <fegaussianblur stddeviation=".519"></fegaussianblur>

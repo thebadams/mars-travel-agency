@@ -5,7 +5,7 @@ import { lineAnim } from '../animation';
 import { Container } from '@material-ui/core';
 
 const InfoStyle = styled.div `
-margin-top: 20%;
+margin-top: 2%;
 font-size: large;
 color: whitesmoke;
 
