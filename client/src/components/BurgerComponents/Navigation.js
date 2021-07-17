@@ -155,7 +155,7 @@ const logInButton =   {
 
 const logOutButton =   {
   colors: "#4400FF",
-  links: "/login",
+  // links: "/login",
   text: "Logout",
   icons: faSignOutAlt,
   id: 4
