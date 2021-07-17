@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import axios from 'axios';
 import { Link } from "react-router-dom"
+import { render } from 'react-dom';
 
 const FlightStyle = styled.div`
   opacity: 0.9;
@@ -412,6 +413,7 @@ const FlightStyle = styled.div`
 
 const Cell = (props)=> {
   const [active, handleActive] = useState(false);
+  
 	
   return (
     <div
@@ -432,7 +434,7 @@ const Cell = (props)=> {
           >
             From
           </div>
-          AFS
+          {props.abbreviation}
           <div id="detailLabel">{ props.departure }</div>
         </div>
         <div
@@ -483,8 +485,8 @@ const Cell = (props)=> {
           <img style={props.style} src={props.src} />
           <div id="timecontainer">
             <div id="detailDate">
-            Cape Canaveral
-              <div id="detailTime">6:20</div>
+            {props.abbreviation}
+              <div id="detailTime">{props.boardingTime}</div>
               June 12 2021
             </div>
             <img
@@ -752,7 +754,8 @@ const Ticket = () => {
         {Header}
         { flightState.map((flight) => (
           <Cell 
-          key={flight.flightNum} 
+          key={flight.flightNum}
+          abbreviation={flight.abbreviation}
           aircraftType={flight.aircraftType}
           seatingClass={flight.seatingClass}
           flightTime={flight.flightTime}

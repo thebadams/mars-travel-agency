@@ -15,12 +15,12 @@ const flightSchema = new Schema({
   seatNumber: String,
   currentReservations: Number,
   departure: String,
+  abbreviation: String,
   arrival: String,
   captain: String,
   src: String,
   style: Object,
   label: String,
-
 });
 
 flightSchema.methods.setFlightNum = function() {
