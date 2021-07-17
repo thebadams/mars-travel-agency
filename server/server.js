@@ -118,6 +118,11 @@ app.post('/api/reservation', async (req, res) => {
   res.json(reservation);
 })
 
+app.get('/api/reservation', async (req, res) => {
+  const reservations = await Reservation.find({});
+
+  res.status(200).json(reservations);
+})
 //create new user using the local strategy
 
 
