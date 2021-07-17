@@ -38,10 +38,19 @@ const reducer = (state, action) => {
       return {...state, isLoading: action.value}
 
     case 'ADD_RESERVATION':
-      state.reservations.push(action.value)
+      state.user.reservations.push(action.value)
       return state
     // case 'REFRESH_USER_DATA':
     //   return {...state, user: action.value}
+    case 'TOGGLE_SEARCH':
+      return {...state, showTickets: action.value}
+
+    case 'SET_SEARCH_URL':
+      return {...state, searchURL: action.value}
+
+    case 'SET_FLIGHTS':
+      return {...state, flights: action.value}
+
     default:
       return state
 
