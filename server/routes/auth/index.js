@@ -2,6 +2,8 @@ const router = require('express').Router();
 const localRoutes = require('./localRoutes');
 const facebookRoutes = require('./facebookRoutes');
 const googleRoutes = require('./googleRoutes')
+
+const {User} = require('../../models')
 router.use('/local', localRoutes)
 router.use('/facebook', facebookRoutes);
 router.use('/google', googleRoutes)
@@ -16,10 +18,14 @@ router.get('/logout', function(req, res){
   }).redirect('http://localhost:3000/');
 });
 
-router.get('/session', (req, res) => {
+router.get('/session', async (req, res) => {
+  console.log(req.session.user)
+  
   if(req.session.user) {
+    const currentUser = await User.findById(req.session.user._id).populate('reservations')
+    console.log('CURRENT USER', currentUser)
     //find user by id include reservation or get all reservations that have user_id= reservation.name
-    res.json({ user:req.session.user, loggedIn: true });
+    res.json({ user: currentUser, loggedIn: true });
   } else {
     res.json({user: {}, loggedIn: false})
     }
