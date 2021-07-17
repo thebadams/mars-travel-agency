@@ -12,6 +12,7 @@ const ProfileTicket = () => {
   //conditionally render something while getting that info
   //then render the information; 
     return (
+      <TicketContainer>
         <TicketStyle>
             <div className="box">
             <ul className="left">
@@ -169,8 +170,15 @@ const ProfileTicket = () => {
           </div>
       </div>
     </TicketStyle>
+    </TicketContainer>
   );
 };
+
+
+const TicketContainer = styled.div`
+/* background: red; */
+/* height: 50vh; */
+`;
 
 const TicketStyle = styled.div`
   .box {

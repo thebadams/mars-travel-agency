@@ -16,12 +16,14 @@ height: 100vh;
 max-height: 100%;
 background-repeat: no-repeat;
 background-size: cover;
+background-position: 100%;
 padding-top: 5%;
 `;
 
 const ProfileStyle = styled.div`
 
 .test {
+  min-width: 625px;
   background: rgba(0, 0, 0, 0.5);
   height: 75vh;
   padding-left: 1rem;
@@ -56,6 +58,8 @@ export default function Profile () {
 
   
   return (  
+
+    // todo: figure oput the xs and md for the grid i believe this is where the media class is
     <ProfileBG>
     <ProfileStyle>
     <h1>My Profile</h1>
