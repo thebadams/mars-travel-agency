@@ -21,7 +21,7 @@ const Booking = () => {
   return (
       <BookingStyle>
           <div>
-            <Bookings onClick={onClick} />
+            { !showTickets ? <Bookings onClick={onClick} /> : null }
             { showTickets ? <Ticket /> : null }
           </div>
       </BookingStyle>
