@@ -3,6 +3,6 @@ const bookingRoutes = require('./bookingRoutes');
 const reservationRoutes = require('./reservationRoutes');
 
 router.use('/booking', bookingRoutes);
-router.use('/resevation', reservationRoutes);
+router.use('/reservation', reservationRoutes);
 
 module.exports = router;

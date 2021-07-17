@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 // app.use(express.static(app.use(express.static("client/build"))))
 // const routes = require("./controllers/flightsController");
-// app.use(routes);
+app.use(routes);
 
 
 
@@ -97,32 +97,32 @@ if(req.query){
 }
 })
 
-app.post('/api/reservation', async (req, res) => {
-  const {numTickets, partyNum, name, flight } = req.body;
-  //create the reservation
-  const reservation = await Reservation.create({numTickets, partyNum, name, flight})
-  //when we move into production with front end pass in req.session.user._id
-  //find the user that's logged in, and push the newly created reservation to that item
-    const updatedUser =  await User.findOneAndUpdate({}, {$push: {
-      reservations: reservation._id
-    }}, {new: true})
-    console.log(updatedUser)
-    //pass in flight._id
-    //find the flight by _id, set the current reservations to the new number based on the new reservation
-    const updatedFlight = await Flight.findOneAndUpdate({}, {$set:{
-      currentReservations: 10
-    }})
+// app.post('/api/reservation', async (req, res) => {
+//   const {numTickets, partyNum, name, flight } = req.body;
+//   //create the reservation
+//   const reservation = await Reservation.create({numTickets, partyNum, name, flight})
+//   //when we move into production with front end pass in req.session.user._id
+//   //find the user that's logged in, and push the newly created reservation to that item
+//     const updatedUser =  await User.findOneAndUpdate({}, {$push: {
+//       reservations: reservation._id
+//     }}, {new: true})
+//     console.log(updatedUser)
+//     //pass in flight._id
+//     //find the flight by _id, set the current reservations to the new number based on the new reservation
+//     const updatedFlight = await Flight.findOneAndUpdate({}, {$set:{
+//       currentReservations: 10
+//     }})
 
-    console.log(updatedFlight);
-  // const result = await reservation.save()
-  res.json(reservation);
-})
+//     console.log(updatedFlight);
+//   // const result = await reservation.save()
+//   res.json(reservation);
+// })
 
-app.get('/api/reservation', async (req, res) => {
-  const reservations = await Reservation.find({});
+// app.get('/api/reservation', async (req, res) => {
+//   const reservations = await Reservation.find({});
 
-  res.status(200).json(reservations);
-})
+//   res.status(200).json(reservations);
+// })
 //create new user using the local strategy
 
 
