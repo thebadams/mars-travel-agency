@@ -20,6 +20,10 @@ const CursorStyled = styled.div`
     }
 `
 
+// document.mousemove(function(e){
+//     document.getElementById("image").css({left:e.pageX, top:e.pageY});
+// });
+
 const Cursor = () => {
     return(
         <CursorStyled>
