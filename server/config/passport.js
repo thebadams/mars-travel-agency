@@ -6,7 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //import user
 const User = require('../models/user')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 const axios = require('axios')
 //sets up local strategy
 passport.use(
@@ -16,8 +16,8 @@ User.createStrategy()
 //set up Facebook Strategy
 passport.use(new FacebookStrategy({
   //set up options
-  clientID: '1929218793918754',
-  clientSecret: 'ad7aa9235f311b6e7c3bfd7291afcadd',
+  clientID: process.env.FACEBOOK_TEST_ID,
+  clientSecret: process.env.FACEBOOK_TEST_SECRET,
   callbackURL: 'http://localhost:3001/auth/facebook/callback'
 },
 //setup facebook authenticate middleware
