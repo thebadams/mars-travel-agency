@@ -21,11 +21,10 @@ padding-top: 5%;
 `;
 
 const ProfileStyle = styled.div`
-
 .test {
   min-width: 625px;
   background: rgba(0, 0, 0, 0.5);
-  height: 75vh;
+  height: 65vh;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 25px;
@@ -37,6 +36,7 @@ h1{
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+  color: red;
 }
 `;
 
@@ -62,11 +62,11 @@ export default function Profile () {
     // todo: figure oput the xs and md for the grid i believe this is where the media class is
     <ProfileBG>
     <ProfileStyle>
-    <h1>My Profile</h1>
       <Grid container >
         <Grid item xs={4}>
         </Grid>
         <Grid item xs={6} md={4}  className="test" >
+        <h1>My Profile</h1>
           <Paper >
             <ProfileCard />
             <ProfileTicket />
