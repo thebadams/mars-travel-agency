@@ -165,7 +165,7 @@ const nowDate = Date().toString().split(' ');
 									<span>{state.user.reservations[0].flight.seatNumber}</span>
 								</span>
 								<span className="boardingtime">
-									BOARDING TIME
+									BOARDING DATE
 									<br />
 									<span>{`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}</span>
 								</span>
