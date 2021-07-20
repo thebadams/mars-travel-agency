@@ -1,21 +1,21 @@
 import React, { useEffect, useState, Component } from "react";
 import Button from '@material-ui/core/Button';
+import { Container, Grid } from '@material-ui/core';
 import styled from "styled-components";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useAppStateContext } from "../../utils/GlobalContext";
 import reservation from '../../utils/reservation';
 import { data } from "jquery";
+import { render } from 'react-dom';
 
 const FlightStyle = styled.div`
   opacity: 0.9;
   position: absolute;
-  top: 10%;
-  left: 60%;
   margin-right: auto;
   margin-left: auto;
-  margin: 0;
-  padding: 0;
+  top: 15%;
+  left: 40%;
   box-sizing: border-box;
   perspective: 700px;
   font-family: Roboto-Regular, HelveticaNeue, Arial, sans-serif;
@@ -123,7 +123,6 @@ const FlightStyle = styled.div`
     position: relative;
     width: 340px;
     height: 100px;
-    /* background: rgb(194, 194, 194); */
     border-radius: 5px;
     transform-origin: bottom;
     margin: 20px;
@@ -429,7 +428,7 @@ const Cell = (props)=> {
 
 
   return (
-    <div
+    <Grid
       id="cardContainer"
       style={{
         height: active ? `300px` : `100px`,
@@ -439,7 +438,7 @@ const Cell = (props)=> {
         handleActive(!active);
       }}
     >
-      <div id="firstDisplay">
+      <Container id="firstDisplay">
         <div id="flightDetail">
           <div
             id="detailLabel"
@@ -484,7 +483,7 @@ const Cell = (props)=> {
           </div>
           MARS
         </div>
-      </div>
+      </Container>
       <div
         id="first"
         style={{
@@ -494,7 +493,7 @@ const Cell = (props)=> {
           transitionDelay: active ? "0s" : "0.3s"
         }}
       >
-        <div id="firstTop">
+        <Container id="firstTop">
           <img style={props.style} src={props.src} />
           <div id="timecontainer">
             <div id="detailDate">
@@ -518,8 +517,8 @@ const Cell = (props)=> {
               March 12 2022
             </div>
           </div>
-        </div>
-        <div id="firstBehind">
+        </Container>
+        <Grid id="firstBehind">
           <div id="firstBehindDisplay">
             <div id="firstBehindRow">
               <div id="detail">
@@ -603,15 +602,15 @@ const Cell = (props)=> {
               </div>
             </div>
           </div>
-        </div>
+        </Grid>
       </div>
-    </div>
+    </Grid>
   );
 }
 
 
 const Header = (
-  <div>
+  <Container>
     <div id="headerText">Select Flight</div>
     <div id="tripDetail">
       Your Trip
@@ -743,7 +742,7 @@ const Header = (
         }}
       />
     </svg>
-  </div>
+  </Container>
 );
 
 const DataArr = Array(5)

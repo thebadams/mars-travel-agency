@@ -22,12 +22,12 @@ padding-top: 5%;
 
 const ProfileStyle = styled.div`
 .test {
-  min-width: 625px;
-  background: rgba(0, 0, 0, 0.5);
-  height: 65vh;
+  /* min-width: 625px; */
+  /* background: rgba(0, 0, 0, 0.5);
+  height: 25vh;
   padding-left: 1rem;
   padding-right: 1rem;
-  border-radius: 25px;
+  border-radius: 25px; */
 }
 
 h1{
@@ -36,7 +36,6 @@ h1{
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
-  color: red;
 }
 `;
 

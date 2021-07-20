@@ -218,10 +218,10 @@ const TicketStyle = styled.div`
     position: absolute;
     top: 0px;
     left: -5px;
-    display: none;
+
   }
 
-  /* .left li {
+  .left li {
     width: 0px;
     height: 0px;
   }
@@ -296,7 +296,7 @@ const TicketStyle = styled.div`
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-right: 5px solid #ffb300;
-  } */
+  }
 
   .right {
     margin: 0;
@@ -305,10 +305,9 @@ const TicketStyle = styled.div`
     position: absolute;
     top: 0px;
     right: -5px;
-    display: none;
   }
 
-  /* .right li:nth-child(-n + 2) {
+  .right li:nth-child(-n + 2) {
     margin-top: 8px;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
@@ -370,7 +369,7 @@ const TicketStyle = styled.div`
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 5px solid #ffb300;
-  } */
+  }
 
   .ticket:after {
     content: "";

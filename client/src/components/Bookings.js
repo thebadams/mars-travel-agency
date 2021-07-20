@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
-import Toggle from '../components/Toggle';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab } from '@material-ui/core';
+import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Fab, Grid } from '@material-ui/core';
 import clsx from 'clsx';
 import axios from 'axios';
 import { useAppStateContext } from "../utils/GlobalContext";
@@ -13,8 +12,6 @@ const BookingsStyle = styled.div`
   display: inline-block;
 
 .hero {
-  display: flex;
-  flex-wrap: wrap;
   text-align: left;
   opacity: 0.9;
   border-radius: 25px;
@@ -25,7 +22,7 @@ const BookingsStyle = styled.div`
   margin-right: auto;
   margin-left: auto;
   top: 20%;
-  left: 30%;
+  left: 50%;
   margin-left: -300px;
 }
 
@@ -181,7 +178,7 @@ useEffect(() => {
 
 return (
     <BookingsStyle>
-      <div className="hero">
+      <Grid className="hero">
         <Container maxWidthLg>
           <h1 className="hero_heading">Book</h1>
           <div>
@@ -242,7 +239,7 @@ return (
               <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(() => dispatch({ type: "TOGGLE_SEARCH", value: !state.showTickets}) )   }>Search</Button>
           </form>
         </Container>
-      </div>
+      </Grid>
     </BookingsStyle>
   );
 };
