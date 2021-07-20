@@ -23,7 +23,7 @@ const GlobalProvider = ({ value = [], ...props}) => {
     loggedIn: false,
     user: {
     },
-    message:"",
+    message: "",
     error: false,
     success: false,
     messageContainer: false,
@@ -54,7 +54,7 @@ const GlobalProvider = ({ value = [], ...props}) => {
     dispatch({type: 'SET_MESSAGE', value: 'User Is Not Currently Logged In'})
     dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
     return dispatch({type:'LOG_OUT', value: {}})
-  })
+  })  
   .then(()=>{
     console.log('Dispatching SET Loading False')
     return dispatch({type: 'SET_IS_LOADING', value: false})
