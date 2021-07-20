@@ -30,8 +30,8 @@ const ProfileStyle = styled.div`
   border-radius: 25px; */
 }
 
-h1{
-  color: white;
+h1 {
+  color: black;
   font-size: 350%;
   display: flex;
   justify-content: center;
