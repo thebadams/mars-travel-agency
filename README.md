@@ -52,7 +52,7 @@ For this application we wanted to think out side of the box as well as have it b
 With commercial space travel on the horizon, it seemed like a fun idea to mock up a one stop portal to get information on weather, potential launch stations, and to book said info into a ticket.
 
 
-All Mars informations was sourced from multiple APIs including: [NASA](INSERT LINK HERE)
+All Mars informations was sourced from multiple APIs including: [NASA](https://api.nasa.gov/)
 
 **** TO DO: SOURCE OUR APIS***
 
@@ -73,26 +73,30 @@ All Mars informations was sourced from multiple APIs including: [NASA](INSERT LI
       <a href="https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react"><img src="https://img.shields.io/badge/-React%20Font%20Awesome-blue?style=for-the-badge" alt="React Font Awesome" /></a>
 </p>
 
-**** TO DO. UPDATE THESE FOR OUR PROJECT
+**** TO DO. UPDATE THESE FOR OUR PROJECT****
 
 </br>
 <p align="center">
-    <img src="https://img.shields.io/github/languages/count/CliffordMorin/React-Portfolio?style=plastic" alt="Languages" />
-    <img src="https://img.shields.io/github/languages/top/CliffordMorin/React-Portfolio?style=plastic&labelColor=yellow" alt="Top Language" />
-    <img src="https://img.shields.io/github/languages/code-size/CliffordMorin/React-Portfolio?style=plastic" alt="Code Size" />
-    <img src="https://img.shields.io/github/repo-size/CliffordMorin/React-Portfolio?style=plastic" alt="Repo Size" />   
-    <img src="https://img.shields.io/tokei/lines/github/CliffordMorin/React-Portfolio?style=plastic" alt="Total Lines" />
-    <img src="https://img.shields.io/github/package-json/dependency-version/CliffordMorin/React-Portfolio/react?style=plastic" alt="React Version" />
-    <img src="https://img.shields.io/github/package-json/dependency-version/CliffordMorin/React-Portfolio/react-bootstrap?style=plastic" alt="React bootstrap Version" />
-    <img src="https://img.shields.io/github/package-json/dependency-version/CliffordMorin/React-Portfolio/styled-components?style=plastic" alt="Styled-components Version" />
-     <img src="https://img.shields.io/github/package-json/dependency-version/CliffordMorin/React-Portfolio/react-router-dom?style=plastic" alt="react-router-dom Version" />
-      <img src="https://img.shields.io/github/package-json/dependency-version/CliffordMorin/React-Portfolio/framer-motion?style=plastic" alt="framer-motion Version" />
-    <img src="https://img.shields.io/github/last-commit/CliffordMorin/React-Portfolio?style=plastic" alt="Last Commit" />  
-    <img src="https://img.shields.io/github/issues/CliffordMorin/React-Portfolio?style=plastic" alt="Issues" />  
-    <img src="https://img.shields.io/github/followers/CliffordMorin?style=social" alt="Followers" />  
+    <img src="https://img.shields.io/github/languages/count/thebadams/mars-travel-agency?style=plastic" alt="Languages" />
+    <img src="https://img.shields.io/github/languages/top/thebadams/mars-travel-agency?style=plastic&labelColor=yellow" alt="Top Language" />
+    <img src="https://img.shields.io/github/languages/code-size/thebadams/mars-travel-agency?style=plastic" alt="Code Size" />
+    <img src="https://img.shields.io/github/repo-size/thebadams/mars-travel-agency?style=plastic" alt="Repo Size" />   
+    <img src="https://img.shields.io/tokei/lines/github/thebadams/mars-travel-agency?style=plastic" alt="Total Lines" />
+    <img src="https://img.shields.io/github/package-json/dependency-version/thebadams/mars-travel-agency/react?style=plastic" alt="React Version" />
+    <img src="https://img.shields.io/github/package-json/dependency-version/thebadams/mars-travel-agency/react-bootstrap?style=plastic" alt="React bootstrap Version" />
+    <img src="https://img.shields.io/github/package-json/dependency-version/thebadams/mars-travel-agency/styled-components?style=plastic" alt="Styled-components Version" />
+     <img src="https://img.shields.io/github/package-json/dependency-version/thebadams/mars-travel-agency/react-router-dom?style=plastic" alt="react-router-dom Version" />
+      <img src="https://img.shields.io/github/package-json/dependency-version/thebadams/mars-travel-agency/framer-motion?style=plastic" alt="framer-motion Version" />
+    <img src="https://img.shields.io/github/last-commit/thebadams/mars-travel-agency?style=plastic" alt="Last Commit" />  
+    <img src="https://img.shields.io/github/issues/thebadams/mars-travel-agency?style=plastic" alt="Issues" />  
+  
 </p>
 
+For parts of the project we sourced from [CodePen](www.codepen.io).
 
+[Baby Yoda](https://codepen.io/jh3y/pen/abzvyXG?editors=1000)
+[Flight Ticket](https://codepen.io/motorlatitude/details/JhuoB)
+[Mars Landing](https://codepen.io/mgitch/pen/pECcD)
 
 # License
 
