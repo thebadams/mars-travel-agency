@@ -423,8 +423,13 @@ const Cell = (props)=> {
      e.preventDefault();
     await reservation(state)
    .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
-   .then(() => document.location.replace("/confirmation"));
-  }
+  //  .then(()=> dispatch({type: 'SET_SUCCESS', value: true}))
+  //  .then(()=> dispatch({type: 'SET_MESSAGE', value: 'Successfully Added Reservation'}))
+  //  .then(()=> dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true}))
+   .then(() => {
+     document.location.replace("/confirmation");
+  })
+}
 
 
   return (
