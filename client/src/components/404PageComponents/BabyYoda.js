@@ -3,7 +3,6 @@ import styled from "styled-components";
 import "./style.css"
 import "./Yoda.svg"
 import { gsap, Linear } from "gsap"
-
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);

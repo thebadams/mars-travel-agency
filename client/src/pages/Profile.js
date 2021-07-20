@@ -9,18 +9,33 @@ import { useAppStateContext } from "../utils/GlobalContext";
 import Earth from "../assets/img/Earth.jpg"
 
 //StyleS
-const ProfileStyle = styled.div`
+
+const ProfileBG = styled.div `
 background-image: url(${Earth});
 height: 100vh;
+max-height: 100%;
 background-repeat: no-repeat;
 background-size: cover;
-background-attachment: fixed;
+background-position: 100%;
+padding-top: 5%;
+`;
 
-.container {
-  padding-top: 2%;
-  position: absolute;
-  top: 10%;
-  right: 10%;
+const ProfileStyle = styled.div`
+.test {
+  /* min-width: 625px; */
+  /* background: rgba(0, 0, 0, 0.5);
+  height: 25vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 25px; */
+}
+
+h1{
+  color: white;
+  font-size: 350%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 `;
 
@@ -32,10 +47,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20%',
     marginBottom: '2%',
   },
-  test:{
-    background: 'red',
-    display: 'flex',
-  }
+
 }));
 
 
@@ -45,12 +57,16 @@ export default function Profile () {
 
   
   return (  
+
+    // todo: figure oput the xs and md for the grid i believe this is where the media class is
+    <ProfileBG>
     <ProfileStyle>
-      <Grid container className="container">
+      <Grid container >
         <Grid item xs={4}>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <Paper className={classes.test}>
+        <Grid item xs={6} md={4}  className="test" >
+        <h1>My Profile</h1>
+          <Paper >
             <ProfileCard />
             <ProfileTicket />
           </Paper>
@@ -59,6 +75,7 @@ export default function Profile () {
           </Grid>
       </Grid>
     </ProfileStyle>
+    </ProfileBG>
   
   )
 };

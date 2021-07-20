@@ -1,9 +1,12 @@
 import React, {useEffect} from "react";
 import { motion } from "framer-motion";
-import { MenuItem } from "./MenuItem";
+import { MenuItem, StyledItems } from "./MenuItem";
 import { NavAnim } from "./BurgerAnimation";
 import axios from 'axios';
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ItemAnim } from "./BurgerAnimation";
 //Icons
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -66,9 +69,30 @@ const displayLoginOrOut = (state, dispatch) => {
 
   if (state.loggedIn) {
     return (
-      <MenuItem navItems={logOutButton} onClick={(e) => {
-        e.preventDefault();
-        logMeOut(dispatch)}}></MenuItem>
+      // <MenuItem navItems={logOutButton} onClick={(e) => {
+      //   e.preventDefault();
+      //   logMeOut(dispatch)}}></MenuItem>
+    <StyledItems>
+      <motion.li
+        variants={ItemAnim}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Link to="/login">
+          <FontAwesomeIcon className="icon" icon= {faSignOutAlt} color="#4400FF" size="4x" onClick={(e) => {
+            window.location.reload();
+            console.log("You Have Been Logged Out");
+            logMeOut(dispatch)}}/>
+        </Link>
+        <Link to="/login" className="text" style={{border: '2px solid #4400FF', color: '#4400FF'}} onClick={(e) => {
+          window.location.reload();
+          console.log("You Have Been Logged Out");
+          logMeOut(dispatch)}}
+          >
+            Logout
+        </Link>
+      </motion.li>
+    </StyledItems>
     )
 
   }
@@ -153,13 +177,17 @@ const logInButton =   {
 }
 
 
-const logOutButton =   {
-  colors: "#4400FF",
-  links: "/login",
-  text: "Logout",
-  icons: faSignOutAlt,
-  id: 4
-}
+// const logOutButton =  {
+//   colors: "#4400FF",
+//   links: "/login",
+//   text: "Logout",
+//   icons: faSignOutAlt,
+//   id: 4,
+//   logOut: (e) => {
+//     e.preventDefault();
+//     console.log("logout");
+//     logMeOut()},
+// }
 
 const StyledUL = styled(motion.ul)`
   

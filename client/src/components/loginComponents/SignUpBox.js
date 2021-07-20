@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     left: "0",
     right: "0",
-    textaAlign: "center",
+    textAlign: "center",
     border: "1px solid #54a7a8",
     height: "80%",
     opacity: ".8",
@@ -171,7 +171,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
           <Grid item xs={6}>
-             <FacebookButton/>
+            <FacebookButton/>
             </Grid>
             <Grid item>
               <Link to="/login">Already have an account? Sign in</Link>

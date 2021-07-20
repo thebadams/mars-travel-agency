@@ -22,7 +22,7 @@ router.get('/session', async (req, res) => {
   console.log(req.session.user)
   
   if(req.session.user) {
-    const currentUser = await User.findById(req.session.user._id).populate('reservations')
+    const currentUser = await User.findById(req.session.user._id).populate({path:'reservations', populate: {path: 'flight', populate: 'name'}})
     console.log('CURRENT USER', currentUser)
     //find user by id include reservation or get all reservations that have user_id= reservation.name
     res.json({ user: currentUser, loggedIn: true });

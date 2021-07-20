@@ -30,7 +30,8 @@ const Booking = () => {
   return (
       <BookingStyle>
           <div>
-            <Bookings />
+            {state.showSearchBox ? <Bookings /> : null }
+            
   
             { state.showTickets ? <Ticket flights={state.flights}/> : null }
           </div>
