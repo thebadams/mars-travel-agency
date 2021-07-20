@@ -18,6 +18,7 @@ const seedDb = async () => {
       flightTime: 300,
       boardingTime: 1500,
       seatNumber: "14A",
+      gateNumber: "10B",
       currentReservations: 9,
       departure:  "Kennedy Space Center - Cape Canaveral, Florida",
       abbreviation: "KSC",
@@ -31,11 +32,13 @@ const seedDb = async () => {
       label: "rgb(13, 28, 83)",
     },
     {
+      flightNum: uuidv4(),
       aircraftType: "Inspiration4",
       seatingClass: "First",
       flightTime: 300,
       boardingTime: 1700,
       seatNumber: "5A",
+      gateNumber: "2A",
       currentReservations: 2,
       departure:  "Vandenberg Air Force Base  - AFB, California",
       abbreviation: "VAFB",
@@ -49,11 +52,13 @@ const seedDb = async () => {
       label: "rgb(90, 5, 49)"
     },
     {
+      flightNum: uuidv4(),
       aircraftType: "Falcon-9",
       seatingClass: "Economy",
       flightTime: 300,
       boardingTime: 2000,
       seatNumber: "15A",
+      gateNumber: "21D",
       currentReservations: 4,
       departure:  "SpaceX South Texas - Cameron County, Texas",
       abbreviation: "SX",
@@ -67,11 +72,13 @@ const seedDb = async () => {
       label: "rgb(230, 26, 56)"
     },
     {
+      flightNum: uuidv4(),
       aircraftType: "Space Shuttle U.S.",
       seatingClass: "Economy",
       flightTime: 300,
       boardingTime: 0900,
       seatNumber: "30A",
+      gateNumber: "7C",
       currentReservations: 6,
       departure:  "Wallops Flight Facility - Wallops Island, VA",
       abbreviation: "WFF",
@@ -85,11 +92,13 @@ const seedDb = async () => {
         label: "rgb(252, 178, 50)"
     },
     {
+      flightNum: uuidv4(),
       aircraftType: "Electron",
       seatingClass: "First",
       flightTime: 300,
       boardingTime: 1200,
       seatNumber: "1A",
+      gateNumber: "14D",
       currentReservations: 1,
       departure:  "Launch Complex 1 - Mahia, New Zealand",
       abbreviation: "LC1",

@@ -13,6 +13,7 @@ const flightSchema = new Schema({
   flightTime: Number,
   boardingTime: Number,
   seatNumber: String,
+  gateNumber: String,
   currentReservations: Number,
   departure: String,
   abbreviation: String,
