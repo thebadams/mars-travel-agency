@@ -47,7 +47,7 @@ module.exports = {
         //find the flight by _id, set the current reservations to the new number based on the new reservation
         const updatedFlight = await Flight.findOneAndUpdate({}, {$set:{
           currentReservations: 10
-        }})
+        }}).populate(updatedFlight);
     
         console.log(updatedFlight);
       // const result = await reservation.save()
