@@ -239,7 +239,7 @@ return (
                 </option>
               ))}
             </TextField>
-              <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(() => dispatch({ type: "TOGGLE_SEARCH", value: !state.showTickets}) )   }>Search</Button>
+              <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(() => dispatch({ type: "TOGGLE_SEARCH", value: true}) )   }>Search</Button>
           </form>
         </Container>
       </div>
