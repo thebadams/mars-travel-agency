@@ -32,10 +32,11 @@ export default function CustomizedSnackbars() {
       console.log('RESETTING MESSAGES')
       console.log(state)
       dispatch({type: 'RESET_MESSAGES', value: ''})
+      dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
       return;
     }
 
-    setOpen(false);
+   dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
   };
 
   return (

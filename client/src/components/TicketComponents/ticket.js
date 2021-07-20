@@ -429,7 +429,15 @@ const Cell = (props)=> {
    .then(() => {
      document.location.replace("/confirmation");
   })
-}
+  .catch((err) => {
+    console.log(err)
+    dispatch({type: 'SET_SUCCESS', value: false})
+    dispatch({type: 'SET_MESSAGE', value: 'There was an error adding the reservation to your account'})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    })
+    
+  }
 
 
   return (

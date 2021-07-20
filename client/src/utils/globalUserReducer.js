@@ -18,11 +18,13 @@ const reducer = (state, action) => {
     user: action.value }
     
     case 'SET_MESSAGE':
+      console.log('SETMESSAGE')
       return { ...state,
       message: action.value
       }
     
     case 'SET_SUCCESS':
+      console.log('SET SUCCESS')
       return {...state, success: action.value}
 
     case 'SET_ERROR':
@@ -33,6 +35,7 @@ const reducer = (state, action) => {
       message: action.value}
     
     case 'TOGGLE_MESSAGE_CONTAINER':
+      console.log('MESSAGE CONTAINER')
       return {...state, messageContainer: action.value}
     
     case 'SET_IS_LOADING':

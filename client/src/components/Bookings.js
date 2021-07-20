@@ -178,7 +178,7 @@ useEffect(() => {
       dispatch({type:'SET_SUCCESS', value: false  })
       dispatch({type: 'SET_MESSAGE', value: 'Failure to Get Flight Data'})
       dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
-    }
+    } 
     
     console.log(flights);
   })
