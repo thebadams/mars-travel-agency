@@ -4,9 +4,29 @@ import { useAppStateContext } from '../../utils/GlobalContext';
 import { useEffect, useState } from 'react';
 import reservation from '../../utils/reservation';
 
+
+
 const ProfileTicket = () => {
-	const [ state, dispatch ] = useAppStateContext();
+const [ state, dispatch ] = useAppStateContext();
 const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
+const nowDate = Date().toString().split(' ');
+// const dateObj = state.user.reservations[0].flight.date
+// const newDate = new Date(dateObj)
+// console.log(dateObj)
+// const date = newDate.getDate()
+// console.log(date)
+// const month = newDate.getMonth()
+// console.log(month)
+// const year = newDate.getFullYear()
+// console.log(year)
+// switch(){
+// 	case:
+// 	case:
+// 	case:
+// 	case:
+// 	default:
+// }
+
 	//userId = state.user._id
 	//make an axios call, get by id include reservations
 	//run that call in a use-effect
@@ -51,11 +71,11 @@ const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 						<li />
 					</ul>
 					<div className="ticket">
-						<span className="airline">Lufthansa</span>
-						<span className="airline airlineslip">Lufthansa</span>
+						<span className="airline">{state.user.reservations[0].flight.aircraftType}</span>
+						<span className="airline airlineslip">{state.user.reservations[0].flight.aircraftType}</span>
 						<span className="boarding">Boarding pass</span>
 						<div className="content">
-							<span className="jfk">JFK</span>
+							<span className="jfk">{state.user.reservations[0].flight.abbreviation}</span>
 							<span className="plane">
 								<svg
 									clip-rule="evenodd"
@@ -89,7 +109,7 @@ const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 							</span>
 							<span className="sfo">MARS</span>
 
-							<span className="jfk jfkslip">JFK</span>
+							<span className="jfk jfkslip">{state.user.reservations[0].flight.abbreviation}</span>
 							<span className="plane planeslip">
 								<svg
 									clip-rule="evenodd"
@@ -142,12 +162,12 @@ const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 								<span className="seat">
 									SEAT
 									<br />
-									<span>45A</span>
+									<span>{state.user.reservations[0].flight.seatNumber}</span>
 								</span>
 								<span className="boardingtime">
 									BOARDING TIME
 									<br />
-									<span>8:25PM ON AUGUST 2013</span>
+									<span>{`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}</span>
 								</span>
 
 								<span className="flight flightslip">
@@ -158,7 +178,7 @@ const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 								<span className="seat seatslip">
 									SEAT
 									<br />
-									<span>45A</span>
+									<span>{state.user.reservations[0].flight.seatNumber}</span>
 								</span>
 								<span className="name nameslip">
 									PASSENGER NAME
@@ -581,13 +601,13 @@ const TicketStyle = styled.div`
 	}
 
 	.jfkslip {
-		font-size: 30px;
+		font-size: 22px;
 		top: 20px;
 		left: 410px;
 	}
 
 	.sfoslip {
-		font-size: 30px;
+		font-size: 22px;
 		top: 20px;
 		left: 530px;
 	}

@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const Flight = require('../models/flight');
 // const db = "mongodb://localhost/music-reviews";
 const db = 'mongodb://localhost:27017/marstravelDB';
@@ -11,6 +12,7 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology:true, useFindAnd
 const seedDb = async () => {
   const seedData = await Flight.insertMany([
     {
+      flightNum: uuidv4(),
       aircraftType: "Falcon-9",
       seatingClass: "Economy",
       flightTime: 300,
