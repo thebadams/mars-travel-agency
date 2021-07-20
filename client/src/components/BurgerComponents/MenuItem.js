@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export const MenuItem = (props) => {
-  const { colors, links, text, icons } = props.navItems
+  const { colors, links, text, icons, logOut } = props.navItems
   const style = { border: `2px solid ${colors}`, color: `${colors}` };
 
   // const loggedIn = true; 
@@ -31,15 +31,15 @@ export const MenuItem = (props) => {
       whileTap={{ scale: 0.95 }}
     >
       <Link to={`${links}`}>
-      <FontAwesomeIcon className="icon" icon={icons} color={`${colors}`} size="4x"/>
+      <FontAwesomeIcon className="icon" icon={icons} color={`${colors}`} size="4x" onClick={logOut}/>
       </Link>
-      <Link to={`${links}`} className="text" style={style}>{`${text}`}</Link>
+      <Link to={`${links}`} className="text" style={style} onClick={logOut}>{`${text}`}</Link>
     </motion.li>
     </StyledItems>
   );
 };
 
-const StyledItems = styled.div`
+export const StyledItems = styled.div`
 
 li {
   list-style: none;
