@@ -52,9 +52,7 @@ For this application we wanted to think out side of the box as well as have it b
 With commercial space travel on the horizon, it seemed like a fun idea to mock up a one stop portal to get information on weather, potential launch stations, and to book said info into a ticket.
 
 
-All Mars informations was sourced from multiple APIs including: [NASA](https://api.nasa.gov/)
-
-**** TO DO: SOURCE OUR APIS***
+For Mars information we sourced APIs from: [NASA](https://api.nasa.gov/)
 
 
 # Technologies Used

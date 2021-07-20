@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { motion } from 'framer-motion';
 import { lineAnim } from '../animation';
@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
 export default function WeatherCard() {
   const [spacing, setSpacing] = React.useState(5);
   const classes = useStyles();
+  const [date,setDate] = useState(22)
+  const [solDate, setSolDate]= useState(3157)
+  const cardDate = date;
 
   const handleChange = (event) => {
     setSpacing(Number(event.target.value));
@@ -47,8 +50,8 @@ export default function WeatherCard() {
                 {[0, 1, 2, 3, 4, 5, 6].map((value) => (
                     <Grid key={value} item>
                     <Paper  className={classes.paper}>
-                    <h2>Sol 3157</h2>
-                    <h2>June 23</h2>
+                    <h2>Sol {solDate + value}</h2>
+                    <h2>July {cardDate + value}</h2>
                     <motion.div variants={lineAnim} className={classes.line}></motion.div>
                     <h2>High: -13F</h2>
                     <h2>Low: -108F</h2>
