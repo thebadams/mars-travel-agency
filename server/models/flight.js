@@ -27,6 +27,10 @@ flightSchema.methods.setFlightNum = function() {
   this.flightNum = uuidv4();
 }
 
+flightSchema.methods.setAbbreviation = function() {
+  this.abbreviation = this.departure.split('-')[0].trim().split(' ').map(el=>el.charAt(0)).join('')
+}
+
 const Flight = mongoose.model('Flight', flightSchema);
 module.exports = Flight;
 

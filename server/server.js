@@ -71,6 +71,7 @@ app.post('/api/flight', async (req, res) => {
   const flight = new Flight({totalSeats, currentReservations});
   //set the flight num
   flight.setFlightNum();
+  flight.setAbbreviation()
   //create the flight using the data in the flight object
   try {
     const flightData = await Flight.create(flight);

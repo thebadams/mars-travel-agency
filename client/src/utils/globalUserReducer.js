@@ -42,7 +42,7 @@ const reducer = (state, action) => {
       return state
     // case 'REFRESH_USER_DATA':
     //   return {...state, user: action.value}
-    case 'TOGGLE_SEARCH':
+    case 'TOGGLE_SEARCH_RESULTS':
       return {...state, showTickets: action.value}
 
     case 'SET_SEARCH_URL':
@@ -50,6 +50,9 @@ const reducer = (state, action) => {
 
     case 'SET_FLIGHTS':
       return {...state, flights: action.value}
+
+    case 'TOGGLE_SEARCH_BOX':
+      return {...state, showSearchBox: action.value}
 
     default:
       return state

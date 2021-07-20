@@ -15,6 +15,7 @@ import Weather from "./pages/Weather";
 
 //Import Components
 import Burger from "./components/BurgerComponents/Burger";
+import CustomizedSnackbars from "./components/SnackbarComponents/Snackbar";
 
 //Animations
 import { AnimatePresence } from "framer-motion";
@@ -33,6 +34,7 @@ function App() {
     <GlobalProvider>
     <div className="App">
       <Burger />
+      <CustomizedSnackbars />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
