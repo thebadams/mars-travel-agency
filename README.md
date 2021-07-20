@@ -92,11 +92,13 @@ All Mars informations was sourced from multiple APIs including: [NASA](https://a
   
 </p>
 
-For parts of the project we sourced from [CodePen](www.codepen.io).
+## For parts of the project we sourced from [CodePen](www.codepen.io).
 
-[Baby Yoda](https://codepen.io/jh3y/pen/abzvyXG?editors=1000)
-[Flight Ticket](https://codepen.io/motorlatitude/details/JhuoB)
-[Mars Landing](https://codepen.io/mgitch/pen/pECcD)
+## [Baby Yoda](https://codepen.io/jh3y/pen/abzvyXG?editors=1000)
+
+## [Flight Ticket](https://codepen.io/motorlatitude/details/JhuoB)
+
+## [Mars Landing](https://codepen.io/mgitch/pen/pECcD)
 
 # License
 
