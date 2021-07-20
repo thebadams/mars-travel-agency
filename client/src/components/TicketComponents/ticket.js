@@ -419,11 +419,11 @@ const Cell = (props)=> {
 	
   const [state, dispatch ] = useAppStateContext();
 
-   async function handleReservation(e){
-     e.preventDefault();
+  async function handleReservation(e){
+  e.preventDefault();
     await reservation(state)
-   .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
-   .then(() => document.location.replace("/confirmation"));
+    .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
+    .then(() => document.location.replace("/confirmation"));
   }
 
 

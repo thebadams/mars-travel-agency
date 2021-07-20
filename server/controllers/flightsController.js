@@ -34,7 +34,9 @@ module.exports = {
   },
   create: async function (req,res) {
     try {
-      const flight = await Flight.create(req.body)
+      const flight = new Flight.create(req.body)
+      flight.setFlightNum()
+      flight.setAbbreviation()
       res.status(200).json(flight)
     } catch (error) {
       res.status(422).json(error)
