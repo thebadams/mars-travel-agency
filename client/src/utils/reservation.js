@@ -14,6 +14,7 @@ const reservation = async (state, dispatch, e) => {
  // } else {
    // throw Error()
   //}
+}
 };
 
 export default reservation;
