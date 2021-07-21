@@ -422,8 +422,21 @@ const Cell = (props)=> {
   async function handleReservation(e){
   e.preventDefault();
     await reservation(state)
-    .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
-    .then(() => document.location.replace("/confirmation"));
+   .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
+  //  .then(()=> dispatch({type: 'SET_SUCCESS', value: true}))
+  //  .then(()=> dispatch({type: 'SET_MESSAGE', value: 'Successfully Added Reservation'}))
+  //  .then(()=> dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true}))
+   .then(() => {
+     document.location.replace("/confirmation");
+  })
+  .catch((err) => {
+    console.log(err)
+    dispatch({type: 'SET_SUCCESS', value: false})
+    dispatch({type: 'SET_MESSAGE', value: 'There was an error adding the reservation to your account'})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    })
+    
   }
 
 
