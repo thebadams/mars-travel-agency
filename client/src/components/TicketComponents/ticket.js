@@ -415,13 +415,15 @@ const nowDate = Date().toString().split(' ');
 
 
 const Cell = (props)=> {
+
   const [active, handleActive] = useState(false);
 	
   const [state, dispatch ] = useAppStateContext();
 
   async function handleReservation(e){
+    
   e.preventDefault();
-    await reservation(state)
+    await reservation(state, dispatch, e)
     .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
     .then(() => document.location.replace("/confirmation"));
   }
@@ -589,6 +591,7 @@ const Cell = (props)=> {
                   <Link to="/confirmation" style={{textDecoration: "none"}}>
                     <Button
                       id="button"
+                      value={props.Id}
                       onClick={(e) => handleReservation(e)}
                       style={{
                         color: props.label,
@@ -767,7 +770,8 @@ const Ticket = ({ flights }) => {
         {Header}
         { flights.map((flight) => (
           <Cell 
-          key={flight.flightNum}
+          key={flight._id}
+          Id={flight._id}
           abbreviation={flight.abbreviation}
           aircraftType={flight.aircraftType}
           seatingClass={flight.seatingClass}
