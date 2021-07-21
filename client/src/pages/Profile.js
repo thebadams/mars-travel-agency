@@ -68,7 +68,8 @@ export default function Profile () {
         <h1>My Profile</h1>
           <Paper >
             <ProfileCard />
-            <ProfileTicket />
+            {state.user.reservations.length !== 0 ? <ProfileTicket /> : null}
+            
           </Paper>
         </Grid>
         <Grid item xs={4}>
