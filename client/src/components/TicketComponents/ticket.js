@@ -762,7 +762,7 @@ const DataArr = Array(5)
   .fill(0)
   .map(Number.call, Number);
 const Ticket = ({ flights }) => {
-  
+  console.log(flights)
   const [flightState, setFlightState] = useState([])
 
   // useEffect(() => {
@@ -780,7 +780,7 @@ const Ticket = ({ flights }) => {
         {Header}
         { flights.map((flight) => (
           <Cell 
-          key={flight.flightNum}
+          key={flight._id}
           abbreviation={flight.abbreviation}
           aircraftType={flight.aircraftType}
           seatingClass={flight.seatingClass}
