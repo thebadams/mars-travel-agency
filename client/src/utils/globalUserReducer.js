@@ -58,6 +58,9 @@ const reducer = (state, action) => {
     case 'TOGGLE_SEARCH_BOX':
       return {...state, showSearchBox: action.value}
 
+    case 'SET_ACTIVE_TICKET':
+      return {...state, activeFlight: action.value}
+
     default:
       return state
 
