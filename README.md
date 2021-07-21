@@ -77,19 +77,20 @@ All Mars informations was sourced from multiple APIs including: [NASA](https://a
     <img src="https://img.shields.io/github/repo-size/thebadams/mars-travel-agency?style=plastic" alt="Repo Size" />   
     <img src="https://img.shields.io/tokei/lines/github/thebadams/mars-travel-agency?style=plastic" alt="Total Lines" />
     <img src="https://img.shields.io/github/last-commit/thebadams/mars-travel-agency?style=plastic" alt="Last Commit" />  
-    <img src="https://img.shields.io/github/issues/thebadams/mars-travel-agency?style=plastic" alt="Issues" />  
+    <img src="https://img.shields.io/github/issues/thebadams/mars-travel-agency?style=plastic" alt="Issues" /> 
   
 </p>
 
 ## For parts of the project we sourced from [CodePen](www.codepen.io).
 
-| Name           | Link                                             |
-| -------------- | ------------------------------------------------ |
-| Baby Yoda      | https://codepen.io/jh3y/pen/abzvyXG?editors=1000 |
-| Flight Ticket  | https://codepen.io/motorlatitude/details/JhuoB   |
-| Mars Landing   | https://codepen.io/mgitch/pen/pECcD              |
-| Folding Ticket | https://codepen.io/pizza3/pen/bGVPZvo            |
-| Astronaut      | https://codepen.io/adamdehaven/pen/PoZREME       |
+| Name             | Link                                             |
+| ---------------- | ------------------------------------------------ |
+| Baby Yoda        | https://codepen.io/jh3y/pen/abzvyXG?editors=1000 |
+| Flight Ticket    | https://codepen.io/motorlatitude/details/JhuoB   |
+| Mars Landing     | https://codepen.io/mgitch/pen/pECcD              |
+| Folding Ticket   | https://codepen.io/pizza3/pen/bGVPZvo            |
+| Astronaut        | https://codepen.io/adamdehaven/pen/PoZREME       |
+| Background Stars | https://codepen.io/simonhorner/pen/MLKYdo        |
 
 # License
 
