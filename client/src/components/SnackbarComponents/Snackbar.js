@@ -31,12 +31,13 @@ export default function CustomizedSnackbars() {
     if (reason === 'clickaway') {
       console.log('RESETTING MESSAGES')
       console.log(state)
-      dispatch({type: 'RESET_MESSAGES', value: ''})
+      dispatch({type: 'RESET_MESSAGE', value: ''})
       dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
       return;
     }
 
    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
+   dispatch({type: 'RESET_MESSAGE', value: ''})
   };
 
   return (
