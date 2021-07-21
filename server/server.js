@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //body parser
 app.use(express.json())
-// app.use(express.static(app.use(express.static("client/build"))))
+app.use(express.static(path.join(__dirname, "../client/build")))
 // const routes = require("./controllers/flightsController");
 // app.use(routes);
 
@@ -128,9 +128,9 @@ app.post('/api/reservation', async (req, res) => {
 
 //run call back, redirect if successful
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"))
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 app.listen(PORT, ()=> {
   console.log(`Listening on ${PORT}`)
