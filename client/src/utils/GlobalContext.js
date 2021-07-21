@@ -4,8 +4,11 @@ import checkAuthentication from './checkAuthentication';
 const AppStateContext = createContext({
   loggedIn: false,
   user: {},
-  successMessage: "",
-  errorMessage: "",
+  // successMessage: "",
+  // errorMessage: "",
+  message: "",
+  error: false,
+  success: false,
   messageContainer: false,
   isLoading: true,
   showTickets: false,
@@ -20,8 +23,9 @@ const GlobalProvider = ({ value = [], ...props}) => {
     loggedIn: false,
     user: {
     },
-    successMessage: "",
-    errorMessage: "",
+    message: "",
+    error: false,
+    success: false,
     messageContainer: false,
     isLoading: true,
     showTickets: false,
@@ -37,13 +41,20 @@ const GlobalProvider = ({ value = [], ...props}) => {
     console.log("STATE", state)
     console.log("DATA", data)
     console.log('Dispatching Login')
+    // dispatch({type:'SET_SUCCESS', value: true})
+    // dispatch({type: 'SET_MESSAGE', value: 'Dispatched Logged In Successfully'})
+    // dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    // dispatch({type: 'SET_SUCCESS', value: false})
     return dispatch({type:'LOG_IN', value: data.user})
   })
 
   .catch(()=>{
     console.log('Dispatching LogOut')
+    // dispatch({type: 'SET_SUCCESS', value: false})
+    // dispatch({type: 'SET_MESSAGE', value: 'User Is Not Currently Logged In'})
+    // dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
     return dispatch({type:'LOG_OUT', value: {}})
-  })
+  })  
   .then(()=>{
     console.log('Dispatching SET Loading False')
     return dispatch({type: 'SET_IS_LOADING', value: false})

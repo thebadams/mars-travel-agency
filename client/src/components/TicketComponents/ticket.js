@@ -425,7 +425,20 @@ const Cell = (props)=> {
   e.preventDefault();
     await reservation(state, dispatch, e)
     .then((data) => dispatch({ type: "ADD_RESERVATION", value: data}))
-    .then(() => document.location.replace("/confirmation"));
+  //  .then(()=> dispatch({type: 'SET_SUCCESS', value: true}))
+  //  .then(()=> dispatch({type: 'SET_MESSAGE', value: 'Successfully Added Reservation'}))
+  //  .then(()=> dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true}))
+    .then(() => {
+      document.location.replace("/confirmation");
+  })
+  .catch((err) => {
+    console.log(err)
+    dispatch({type: 'SET_SUCCESS', value: false})
+    dispatch({type: 'SET_MESSAGE', value: 'There was an error adding the reservation to your account'})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    })
+    
   }
 
 
@@ -612,13 +625,14 @@ const Cell = (props)=> {
 }
 
 
-const Header = (
+const Header = (props) => {
+  return (
   <Container>
     <div id="headerText">Select Flight</div>
     <div id="tripDetail">
       Your Trip
       <div id="tripDest">
-        KSC - MARS<div id="oneWay">One Way</div>
+        {props.abbreviation} - MARS<div id="oneWay">One Way</div>
         <div />
       </div>
       {`${nowDate[0]} ${nowDate[1]} ${nowDate[2]} ${nowDate[3]}`}
@@ -746,13 +760,14 @@ const Header = (
       />
     </svg>
   </Container>
-);
+  );
+};
 
-const DataArr = Array(5)
-  .fill(0)
-  .map(Number.call, Number);
+// const DataArr = Array(5)
+//   .fill(0)
+//   .map(Number.call, Number);
 const Ticket = ({ flights }) => {
-  
+  console.log(flights)
   const [flightState, setFlightState] = useState([])
 
   // useEffect(() => {
@@ -767,7 +782,11 @@ const Ticket = ({ flights }) => {
   return (
     <FlightStyle>
       <div className="App">
-        {Header}
+        { flights.map((flight) => ( 
+          <Header 
+          abbreviation={flight.abbreviation}
+          />
+          ))}
         { flights.map((flight) => (
           <Cell 
           key={flight._id}

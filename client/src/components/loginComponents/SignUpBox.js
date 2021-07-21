@@ -81,12 +81,26 @@ export default function SignUp() {
       lastName: document.querySelector('#lastName').value,
       password: document.querySelector('#password').value
     }
-    const response = await axios.post('/auth/local/register', body)
-    console.log(response)
+    try {
+      const response = await axios.post('/auth/local/register', body)
+      dispatch({type: 'SET_SUCCESS', value: true})
+    dispatch({type: 'SET_MESSAGE', value: 'Successfully Registered'})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
     dispatch({
       type: 'LOG_IN',
       value: response.data
     })
+      
+    } catch (error) {
+      dispatch({type: 'SET_SUCCESS', value: false})
+    dispatch({type: 'SET_MESSAGE', value: 'There Was an error registering'})
+    dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    dispatch({
+      type: 'LOG_OUT',
+      value: {}
+    })
+    }
+    
 
     //if response status = 200 then dispatch(LOGIN)
     //sets app state to LOGGED IN: true

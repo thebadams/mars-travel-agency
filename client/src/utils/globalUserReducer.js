@@ -17,22 +17,26 @@ const reducer = (state, action) => {
       loggedIn: false,
     user: action.value }
     
-    case 'SET_SUCCESS_MESSAGE':
+    case 'SET_MESSAGE':
+      console.log('SETMESSAGE')
       return { ...state,
-      successMessage: action.value
+      message: action.value
       }
-    case 'SET_ERROR_MESSAGE':
-      return { ...state,
-      
-        errorMessage: action.value }
     
-    case 'RESET_MESSAGES':
+    case 'SET_SUCCESS':
+      console.log('SET SUCCESS')
+      return {...state, success: action.value}
+
+    case 'SET_ERROR':
+      return {...state, error: action.value}
+    
+    case 'RESET_MESSAGE':
       return { ...state, 
-      successMessage: "",
-      errorMessage: "" }
+      message: action.value}
     
     case 'TOGGLE_MESSAGE_CONTAINER':
-      return {...state, messageContainer: !this.messageContainer}
+      console.log('MESSAGE CONTAINER')
+      return {...state, messageContainer: action.value}
     
     case 'SET_IS_LOADING':
       return {...state, isLoading: action.value}

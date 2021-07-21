@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
+import {useAppStateContext} from '../../utils/GlobalContext'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CustomizedSnackbars() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [state, dispatch] = useAppStateContext()
 
   const handleClick = () => {
     setOpen(true);
@@ -27,19 +29,25 @@ export default function CustomizedSnackbars() {
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
+      console.log('RESETTING MESSAGES')
+      console.log(state)
+      dispatch({type: 'RESET_MESSAGE', value: ''})
+      dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
       return;
     }
 
-    setOpen(false);
+   dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: false})
+   dispatch({type: 'RESET_MESSAGE', value: ''})
   };
 
   return (
+    state.messageContainer ?
     <div className={classes.root}>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success">
-          This is a success message!
+        <Alert onClose={handleClose} severity={state.success ? "success" : "error"}>
+          {state.message}
         </Alert>
       </Snackbar>
-    </div>
+    </div> : null
   );
 }
