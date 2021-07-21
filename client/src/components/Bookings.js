@@ -168,8 +168,18 @@ const handleChange = (event) => {
 useEffect(() => {
   axios.get(`/api/booking`)
   .then(data => {
-    const flights = data.data;
-    setFlightState(flights);
+    const flights = data.data
+    if(data.status === 200) {
+      dispatch({type:'SET_SUCCESS', value: true})
+      dispatch({type: 'SET_MESSAGE', value: 'Successfully Connected'})
+      dispatch({type:'TOGGLE_MESSAGE_CONTAINER', value: true})
+      setFlightState(flights);
+    } else {
+      dispatch({type:'SET_SUCCESS', value: false  })
+      dispatch({type: 'SET_MESSAGE', value: 'Failure to Get Flight Data'})
+      dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+    } 
+    
     console.log(flights);
   })
 },[])
@@ -236,7 +246,7 @@ return (
                 </option>
               ))}
             </TextField>
-              <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(()=>dispatch({type: 'TOGGLE_SEARCH_BOX', value: false})).then(() => dispatch({ type: "TOGGLE_SEARCH_RESULTS", value: !state.showTickets}) )   }>Search</Button>
+              <Button variant="contained" color="primary" className="booking-button" onClick={() => axios.get(state.searchURL).then((data) => dispatch({ type: "SET_FLIGHTS", value: data.data})).then(()=> dispatch({type: 'TOGGLE_SEARCH_BOX', value: false})).then(() => dispatch({ type: "TOGGLE_SEARCH_RESULTS", value: !state.showTickets}) )   }>Search</Button>
           </form>
         </Container>
       </Grid>

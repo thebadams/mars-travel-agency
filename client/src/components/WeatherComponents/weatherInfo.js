@@ -51,14 +51,14 @@ export default function WeatherInfo () {
             </Container>
             <Container className="weather-info">
                 <Container maxWidth="sm" className="left">
-                    <h4>Sol 3163</h4>
+                    <h4>Sol 3156</h4>
                     <motion.div variants={lineAnim} className="line"></motion.div>
-                    <h4>June 30, 2021</h4>
+                    <h4>July 22, 2021</h4>
                 </Container>
                 <Container maxWidth="sm" className="right">
-                    <h4>High: -13 F | C</h4>
+                    <h4>High: -15 F | C</h4>
                     <motion.div variants={lineAnim} className="line"></motion.div>
-                    <h4>Low: -108 F | C</h4>
+                    <h4>Low: -117 F | C</h4>
                 </Container>
             </Container>
             </InfoStyle>
