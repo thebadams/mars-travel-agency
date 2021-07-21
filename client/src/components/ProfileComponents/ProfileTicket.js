@@ -10,6 +10,8 @@ const ProfileTicket = () => {
 const [ state, dispatch ] = useAppStateContext();
 const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 const nowDate = Date().toString().split(' ');
+const flightData = state.user.reservations;
+console.log(state.user.reservations)
 // const dateObj = state.user.reservations[0].flight.date
 // const newDate = new Date(dateObj)
 // console.log(dateObj)
@@ -34,7 +36,10 @@ const nowDate = Date().toString().split(' ');
 	//conditionally render something while getting that info
 	//then render the information;
 	return (
+		
 		<TicketContainer>
+			{state.user.reservations.map(el => (
+				
 			<TicketStyle>
 				<div className="box">
 					<ul className="left">
@@ -71,11 +76,11 @@ const nowDate = Date().toString().split(' ');
 						<li />
 					</ul>
 					<div className="ticket">
-						<span className="airline">{state.user.reservations[0].flight.aircraftType}</span>
-						<span className="airline airlineslip">{state.user.reservations[0].flight.aircraftType}</span>
+						<span className="airline">{el.flight.aircraftType}</span>
+						<span className="airline airlineslip">{el.flight.aircraftType}</span>
 						<span className="boarding">Boarding pass</span>
 						<div className="content">
-							<span className="jfk">{state.user.reservations[0].flight.abbreviation}</span>
+							<span className="jfk">{el.flight.abbreviation}</span>
 							<span className="plane">
 								<svg
 									clip-rule="evenodd"
@@ -109,7 +114,7 @@ const nowDate = Date().toString().split(' ');
 							</span>
 							<span className="sfo">MARS</span>
 
-							<span className="jfk jfkslip">{state.user.reservations[0].flight.abbreviation}</span>
+							<span className="jfk jfkslip">{el.flight.abbreviation}</span>
 							<span className="plane planeslip">
 								<svg
 									clip-rule="evenodd"
@@ -162,7 +167,7 @@ const nowDate = Date().toString().split(' ');
 								<span className="seat">
 									SEAT
 									<br />
-									<span>{state.user.reservations[0].flight.seatNumber}</span>
+									<span>{el.flight.seatNumber}</span>
 								</span>
 								<span className="boardingtime">
 									BOARDING DATE
@@ -178,7 +183,7 @@ const nowDate = Date().toString().split(' ');
 								<span className="seat seatslip">
 									SEAT
 									<br />
-									<span>{state.user.reservations[0].flight.seatNumber}</span>
+									<span>{el.flight.seatNumber}</span>
 								</span>
 								<span className="name nameslip">
 									PASSENGER NAME
@@ -192,6 +197,7 @@ const nowDate = Date().toString().split(' ');
 					</div>
 				</div>
 			</TicketStyle>
+			))}
 		</TicketContainer>
 	);
 };

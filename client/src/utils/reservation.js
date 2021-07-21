@@ -1,20 +1,10 @@
 import axios from 'axios';
 
-const reservation = async (state, dispatch) => {
-  //if(state.loggedIn) {
-    // try {
-      const reservation = await axios.post('/api/reservation', {})
-      console.log('RESERVATION', reservation)
-      if(reservation.status !== 200) {
-        throw new Error()
-      } else {
-          return reservation.data
-      }
-    
-    // } catch (error) {
-    //   return {error:error, message: "Error Message:"}
-    // }
-    
+const reservation = async (state, dispatch, e) => {
+  console.log(e.currentTarget.value);
+  
+  if(state.loggedIn) {
+    const reservation = await axios.post('/api/reservation', {numTickets: 7, partyNum: 5, name: state.user._id, flight: e.currentTarget.value})
     //pass in extra information as an object {flight: flightIDNumber numtickets: 1, partyNum, name: state.user._id, };
     console.log(reservation)
     if(reservation.status !== 200) {
