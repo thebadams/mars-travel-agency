@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     right: "0",
     textAlign: "center",
     border: "1px solid #54a7a8",
-    height: "80%",
+    height: "55%",
     opacity: ".8",
     zIndex: "2",
     borderRadius: "44px",

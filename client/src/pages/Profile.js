@@ -66,11 +66,8 @@ export default function Profile () {
         </Grid>
         <Grid item xs={6} md={4}  className="test" >
         <h1>My Profile</h1>
-          <Paper >
             <ProfileCard />
             {state.user.reservations.map((reservation)=> <ProfileTicket reservation = {reservation}/>)}
-            
-          </Paper>
         </Grid>
         <Grid item xs={4}>
           </Grid>
