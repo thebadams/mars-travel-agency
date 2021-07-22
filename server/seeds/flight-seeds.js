@@ -10,6 +10,7 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology:true, useFindAnd
 
 
 const seedDb = async () => {
+  
   const seedData = await Flight.insertMany([
     {
       flightNum: uuidv4(),
