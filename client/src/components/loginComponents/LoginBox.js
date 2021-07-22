@@ -53,15 +53,21 @@ const LoginBox = () => {
     console.log(body)
 
   try {
-    const response = await axios.post('/auth/local/login', body)
-     dispatch({
+    const response = await axios.post('/auth/local/login', body).then((response)=>{
+    document.location.replace('/profile')
+    dispatch({
     type: 'LOG_IN',
     value: response.data
   })
   dispatch({ type: 'SET_SUCCESS', value: true})
   dispatch({type: 'SET_MESSAGE', value: 'Successfully Logged In'})
   dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
-  document.location.replace('/profile')
+  // document.location.replace('/profile')
+  
+    })
+    
+  // window.location.replace('/profile')
+  // window.location.reload()
   } catch (error) {
   dispatch({ type: 'SET_SUCCESS', value: false})
   dispatch({type: 'SET_MESSAGE', value: 'Failed To Log In'})
