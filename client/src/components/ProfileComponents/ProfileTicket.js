@@ -451,7 +451,7 @@ const TicketStyle = styled.div`
 		top: 10px;
 		left: 20px;
 		font-family: Arial;
-		font-size: 38px;
+		font-size: 33px;
 		color: #222;
 	}
 
@@ -460,13 +460,13 @@ const TicketStyle = styled.div`
 		top: 10px;
 		left: 180px;
 		font-family: Arial;
-		font-size: 38px;
+		font-size: 33px;
 		color: #222;
 	}
 
 	.plane {
 		position: absolute;
-		left: 105px;
+		left: 115px;
 		top: 0px;
 	}
 
