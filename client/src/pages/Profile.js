@@ -68,7 +68,7 @@ export default function Profile () {
         <h1>My Profile</h1>
           <Paper >
             <ProfileCard />
-            {state.user.reservations.length !== 0 ? <ProfileTicket /> : null}
+            {state.user.reservations.map((reservation)=> <ProfileTicket reservation = {reservation}/>)}
             
           </Paper>
         </Grid>

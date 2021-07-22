@@ -23,7 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 
 //body parser
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "../client/build")))
+//if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname,"../client/build")))
+//}
+
 // const routes = require("./controllers/flightsController");
 // app.use(routes);
 
@@ -127,10 +130,11 @@ app.post('/api/reservation', async (req, res) => {
 //run the facebook authorization using the authenticate middleware, ask for email scope
 
 //run call back, redirect if successful
-
-app.get('*', (req, res) => {
+//if(process.env.NODE_ENV === 'production'){
+  app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"))
 })
+//}
 
 app.listen(PORT, ()=> {
   console.log(`Listening on ${PORT}`)

@@ -14,8 +14,8 @@ const AppStateContext = createContext({
   showTickets: false,
   searchURL: "",
   flights: [],
-  showSearchBox: true
-  
+  showSearchBox: true,
+  activeFlight: {}
 })
 
 const GlobalProvider = ({ value = [], ...props}) => {
@@ -29,10 +29,11 @@ const GlobalProvider = ({ value = [], ...props}) => {
     messageContainer: false,
     isLoading: true,
     showTickets: false,
+    showTicketHeader: false,
     searchURL: "/api/booking",
     flights: [],
-    showSearchBox: true
-
+    showSearchBox: true,
+    activeFlight: {}
     //add a reservations-array 
   })
 

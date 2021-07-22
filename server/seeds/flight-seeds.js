@@ -40,7 +40,7 @@ const seedDb = async () => {
       seatNumber: "5A",
       gateNumber: "2A",
       currentReservations: 2,
-      departure:  "Vandenberg Air Force Base  - AFB, California",
+      departure:  "Vandenberg Air Force Base - AFB, California",
       abbreviation: "VAFB",
       arrival: "Mars",
       captain: "Lucy",
