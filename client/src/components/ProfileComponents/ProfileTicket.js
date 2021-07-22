@@ -6,7 +6,7 @@ import reservation from '../../utils/reservation';
 
 
 
-const ProfileTicket = () => {
+const ProfileTicket = ({reservation}) => {
 const [ state, dispatch ] = useAppStateContext();
 const flightNum = state.user.reservations[0].flight.flightNum.split('-')[0]
 const nowDate = Date().toString().split(' ');
@@ -37,9 +37,7 @@ console.log(state.user.reservations)
 	//then render the information;
 	return (
 		
-		<TicketContainer>
-			{state.user.reservations.map(el => (
-				
+			<TicketContainer>
 			<TicketStyle>
 				<div className="box">
 					<ul className="left">
@@ -76,11 +74,11 @@ console.log(state.user.reservations)
 						<li />
 					</ul>
 					<div className="ticket">
-						<span className="airline">{el.flight.aircraftType}</span>
-						<span className="airline airlineslip">{el.flight.aircraftType}</span>
+						<span className="airline">{reservation.flight.aircraftType}</span>
+						<span className="airline airlineslip">{reservation.flight.aircraftType}</span>
 						<span className="boarding">Boarding pass</span>
 						<div className="content">
-							<span className="jfk">{el.flight.abbreviation}</span>
+							<span className="jfk">{reservation.flight.abbreviation}</span>
 							<span className="plane">
 								<svg
 									clip-rule="evenodd"
@@ -114,7 +112,7 @@ console.log(state.user.reservations)
 							</span>
 							<span className="sfo">MARS</span>
 
-							<span className="jfk jfkslip">{el.flight.abbreviation}</span>
+							<span className="jfk jfkslip">{reservation.flight.abbreviation}</span>
 							<span className="plane planeslip">
 								<svg
 									clip-rule="evenodd"
@@ -167,7 +165,7 @@ console.log(state.user.reservations)
 								<span className="seat">
 									SEAT
 									<br />
-									<span>{el.flight.seatNumber}</span>
+									<span>{reservation.flight.seatNumber}</span>
 								</span>
 								<span className="boardingtime">
 									BOARDING DATE
@@ -183,7 +181,7 @@ console.log(state.user.reservations)
 								<span className="seat seatslip">
 									SEAT
 									<br />
-									<span>{el.flight.seatNumber}</span>
+									<span>{reservation.flight.seatNumber}</span>
 								</span>
 								<span className="name nameslip">
 									PASSENGER NAME
@@ -197,8 +195,7 @@ console.log(state.user.reservations)
 					</div>
 				</div>
 			</TicketStyle>
-			))}
-		</TicketContainer>
+			</TicketContainer>
 	);
 };
 
