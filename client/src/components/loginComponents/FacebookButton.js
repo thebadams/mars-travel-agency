@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
             variant="contained"
             color="default"
             className={classes.button}
-            href='http://localhost:3001/auth/facebook'
+            href='/auth/facebook'
           >
             <FontAwesomeIcon icon={faFacebookSquare} color="blue" size="3x"/>
           Sign In
