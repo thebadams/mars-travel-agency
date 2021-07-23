@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node server/seeds/flight-seeds.js",
-    "start": "node server/server.js",
-    "start:prod": "node server/server.js",
-    "start:dev": "concurrently \"nodemon server/server.js --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "seed": "node server/seeds/flight-seeds.js",
+      "start": "node server/server.js",
+      "start:prod": "node server/server.js",
+      "start:dev": "concurrently \"nodemon server/server.js --ignore 'client/*'\" \"npm run client\"",
+      "client": "cd client && npm run start",
+      "install": "cd client && npm install",
+      "build": "cd client && npm run build",
+      "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
