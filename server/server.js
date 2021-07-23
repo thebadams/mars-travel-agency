@@ -34,7 +34,7 @@ app.use(express.json())
 
 //set up session
 const secret = "General"
-const dbURL = 'mongodb://localhost:27017/marstravelDB'
+const dbURL = process.env.MONGODB_URI ||'mongodb://localhost:27017/marstravelDB'
 const store =  MongoDBStore.create({
   mongoUrl: dbURL,
     secret,
