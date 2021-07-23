@@ -175,7 +175,7 @@ const useStyles = makeStyles((theme) => ({
     right: "0",
     textAlign: "center",
     border: "1px solid #54a7a8",
-    height: "55%",
+    height: "65%",
     opacity: ".8",
     zIndex: "auto",
     borderRadius: "44px",

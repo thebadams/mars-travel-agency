@@ -230,7 +230,7 @@ const FlightStyle = styled.div`
 }
 
 #firstTop {
-    width: 340px;
+    width: 351px;
     height: 100px;
     position: absolute;
     background: #ffffff;
@@ -409,7 +409,6 @@ const FlightStyle = styled.div`
 }
 `;
 
-const nowDate = Date().toString().split(' ');
 
 
 const Cell = (props) => {
@@ -417,6 +416,26 @@ const Cell = (props) => {
   const [active, handleActive] = useState(false);
 	
   const [state, dispatch ] = useAppStateContext();
+
+  const nowDate = Date().toString().split(' ');
+
+  function getRandomSol(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth() * Math.random();
+    var day = d.getDate() * Math.random();
+    var c = new Date(year + 1, month, day).toString().split(' ');
+    console.log(c);
+
+    var x = new Date();
+    var year = x.getFullYear();
+    var month = x.getMonth() * Math.random();
+    var day = x.getDate() * Math.random();
+    var y = new Date(year + 2, month, day).toString().split(' ');
+
 
   async function handleReservation(e){
     
@@ -447,9 +466,9 @@ const Cell = (props) => {
         height: active ? `300px` : `100px`,
         transition: "0.9s"
       }}
-      onClick={() => {
+      onClick={(e) => {
         handleActive(!active);
-        dispatch({type: 'SET_ACTIVE_TICKET', value: {abbreviation: props.abbreviation}})
+        dispatch({type: 'SET_ACTIVE_TICKET', value: {abbreviation: props.abbreviation}});
       }}
     >
       <Container id="firstDisplay">
@@ -530,7 +549,7 @@ const Cell = (props) => {
             <div id="detailDate">
               Mars
               <div id="detailTime">Sol 147</div>
-              March 12 2022
+              March 12 2023
             </div>
           </div>
         </Container>

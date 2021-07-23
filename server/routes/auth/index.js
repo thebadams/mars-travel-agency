@@ -15,7 +15,7 @@ router.get('/logout', function(req, res){
   res.json({
     message: "You have been successfully logged out",
     user: {}
-  }).redirect('/');
+  });
 });
 
 router.get('/session', async (req, res) => {
