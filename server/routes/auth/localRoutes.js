@@ -15,7 +15,7 @@ router.post('/register', async (req, res) => {
       console.log(req.user)
       req.session.user = req.user
       console.log(req.session.user)
-      res.json(registered).redirect('http://localhost:3000/profile')
+      res.json(registered).redirect('/profile')
   } catch (error) {
     res.json(error)
   }
@@ -24,7 +24,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
   req.session.user = req.user
-  res.json(req.user)
+  console.log('STUFF', req.session.user)
+  res.json(req.user)  
 });
 
 module.exports = router;

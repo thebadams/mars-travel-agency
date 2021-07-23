@@ -53,14 +53,21 @@ const LoginBox = () => {
     console.log(body)
 
   try {
-    const response = await axios.post('/auth/local/login', body)
-     dispatch({
+    const response = await axios.post('/auth/local/login', body).then((response)=>{
+    document.location.replace('/profile')
+    dispatch({
     type: 'LOG_IN',
     value: response.data
   })
   dispatch({ type: 'SET_SUCCESS', value: true})
   dispatch({type: 'SET_MESSAGE', value: 'Successfully Logged In'})
   dispatch({type: 'TOGGLE_MESSAGE_CONTAINER', value: true})
+  // document.location.replace('/profile')
+  
+    })
+    
+  // window.location.replace('/profile')
+  // window.location.reload()
   } catch (error) {
   dispatch({ type: 'SET_SUCCESS', value: false})
   dispatch({type: 'SET_MESSAGE', value: 'Failed To Log In'})
@@ -168,7 +175,7 @@ const useStyles = makeStyles((theme) => ({
     right: "0",
     textAlign: "center",
     border: "1px solid #54a7a8",
-    height: "55%",
+    height: "65%",
     opacity: ".8",
     zIndex: "auto",
     borderRadius: "44px",
