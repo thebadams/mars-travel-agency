@@ -36,7 +36,6 @@ export default function WeatherCard() {
   const classes = useStyles();
   const [date,setDate] = useState(22)
   const [solDate, setSolDate]= useState(3157)
-  const cardDate = date;
 
   const handleChange = (event) => {
     setSpacing(Number(event.target.value));
@@ -51,7 +50,7 @@ export default function WeatherCard() {
                     <Grid key={value} item>
                     <Paper  className={classes.paper}>
                     <h2>Sol {solDate + value}</h2>
-                    <h2>July {cardDate + value}</h2>
+                    <h2>July {date + value}</h2>
                     <motion.div variants={lineAnim} className={classes.line}></motion.div>
                     <h2>High: -13F</h2>
                     <h2>Low: -108F</h2>

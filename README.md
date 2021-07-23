@@ -69,7 +69,6 @@ All Mars informations was sourced from multiple APIs including: [NASA](https://a
 
 </p>
 
-\***\* TO DO. UPDATE THESE FOR OUR PROJECT\*\***
 
 </br>
 <p align="center">
@@ -96,13 +95,13 @@ All Mars informations was sourced from multiple APIs including: [NASA](https://a
 
 # License
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/thebadams/mars-travel-agency/blob/main/LICENSE)
 
 # Screen Recording
 
-Example of how deployed application should run:
+Preview of application from the Homepage.
 
-![ScreenshotRecording](ADD SCREEN RECORDING)
+![ScreenshotRecording](./Assets/HomePage.gif)
 
 # Contributions
 
@@ -116,4 +115,4 @@ Example of how deployed application should run:
 
 # Application
 
-[Click Here](INSERT LIVE LINK HERE) , for the deployed application.
+[Click Here](https://mars-travel-app.herokuapp.com/) , for the deployed application.
