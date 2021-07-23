@@ -13,6 +13,7 @@ const seedDb = async () => {
   const seedData = await Flight.insertMany([
     {
       flightNum: uuidv4(),
+      date: Date.now() + 1000 * 60 * 60 * 24 * 7,
       aircraftType: "Falcon-9",
       seatingClass: "Economy",
       flightTime: 300,
@@ -33,6 +34,7 @@ const seedDb = async () => {
     },
     {
       flightNum: uuidv4(),
+      date: Date.now() + 2*1000 * 60 * 60 * 24 * 7,
       aircraftType: "Inspiration4",
       seatingClass: "First",
       flightTime: 300,
@@ -53,6 +55,7 @@ const seedDb = async () => {
     },
     {
       flightNum: uuidv4(),
+      date: Date.now() + 1000 * 60 * 60 * 24 * 7 * 3,
       aircraftType: "Falcon-9",
       seatingClass: "Economy",
       flightTime: 300,
@@ -73,6 +76,7 @@ const seedDb = async () => {
     },
     {
       flightNum: uuidv4(),
+      date: Date.now() + 1000 * 60 * 60 * 24 * 7 * 4,
       aircraftType: "Space Shuttle U.S.",
       seatingClass: "Economy",
       flightTime: 300,
@@ -93,7 +97,9 @@ const seedDb = async () => {
     },
     {
       flightNum: uuidv4(),
+
       aircraftType: "Electron",
+      date: Date.now() + 1000 * 60 * 60 * 24 * 7 * 5,
       seatingClass: "First",
       flightTime: 300,
       boardingTime: 1200,

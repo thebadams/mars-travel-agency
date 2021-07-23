@@ -67,7 +67,7 @@ export default function Profile () {
         <Grid item xs={6} md={4}  className="test" >
         <h1>My Profile</h1>
             <ProfileCard />
-            {state.user.reservations.map((reservation)=> <ProfileTicket reservation = {reservation}/>)}
+            {state.user.reservations.length > 0 ? <ProfileTicket reservation={state.user.reservations[0]}/> : null}
         </Grid>
         <Grid item xs={4}>
           </Grid>
