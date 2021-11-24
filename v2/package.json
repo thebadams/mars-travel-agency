@@ -1,0 +1,19 @@
+{
+  "name": "mars-travel-agency",
+  "version": "2.0.0",
+  "description": "A reboot of the previous iteration of the Mar Travel Agency, built using Typescript, and Jest as a Testing Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thebadams/mars-travel-agency.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebadams/mars-travel-agency/issues"
+  },
+  "homepage": "https://github.com/thebadams/mars-travel-agency#readme"
+}
