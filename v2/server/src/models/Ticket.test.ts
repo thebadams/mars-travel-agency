@@ -2,9 +2,11 @@ import Ticket, {ITicket} from './Ticket';
 import {Document, Error} from 'mongoose'
 
 describe('Ticket Model', () => {
-	let newTicket: Document<ITicket>
+	let newTicket: Document<ITicket>;
+	let newTicketValidation: Error.ValidationError | null;
 	beforeAll(() => {
 		newTicket = new Ticket({seat:1});
+		newTicketValidation = newTicket.validateSync();
 		console.log(newTicket)
 	})
 	describe('Ticket Properties', () => {
@@ -20,10 +22,17 @@ describe('Ticket Model', () => {
 	describe('Ticket Validation', () => {
 		let badTicket: Document<ITicket>
 		let badTicketValidation: Error.ValidationError | null
-		beforeAll(() => {
+		beforeAll(async () => {
 			badTicket = new Ticket({})
 			badTicketValidation = badTicket.validateSync();
 			console.log(badTicketValidation)
+		})
+		describe('Good Ticket Validation', () => {
+			test('When Validated, A Good Ticket Should Not Return a Validation Error on Document.validateSync', () => {
+				expect(newTicketValidation).not.toBeInstanceOf(Error.ValidationError);
+				expect(newTicketValidation).toBe(undefined);
+			})
+			
 		})
 		describe('Seat Property Requirement', () => {
 			test('Ticket Seat Property Is Required, Should Return a Validation Error', () => {
