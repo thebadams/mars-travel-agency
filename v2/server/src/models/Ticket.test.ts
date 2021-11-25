@@ -30,7 +30,7 @@ describe('Ticket Model', () => {
 				expect(badTicketValidation).toBeInstanceOf(Error.ValidationError)
 				expect(badTicketValidation).not.toBe(null)
 			})
-			test.todo('When A Validation Error Is Thrown, Return the Message: "Seat Is Required"')
+			test('When A Validation Error Is Thrown, Return the Message: "Seat Is Required"')
 		})
 		describe('Flight Property Requirement', () => {
 			test.todo('Ticket Flight Property Is Required, Should Return a Validation Error')
