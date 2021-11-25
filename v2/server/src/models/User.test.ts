@@ -1,14 +1,18 @@
 import User, {IUser}  from './User';
+import Ticket, {ITicket} from './Ticket';
 import {Document} from 'mongoose';
 
 describe('User Model', () => {
 	let newUser: Document<IUser>;
+	let newTicket: Document<ITicket>;
 	beforeAll(() => {
+		newTicket = new Ticket({seat: 1})
 		newUser = new User({
 			email: 'test@test.com',
 			firstName: 'John',
 			lastName: 'Doe',
-			facebookId: 'FACEBOOK_ID'
+			facebookId: 'FACEBOOK_ID',
+			ticket: newTicket._id
 		});
 	})
 	describe('User Model Properties', () => {
@@ -27,6 +31,8 @@ describe('User Model', () => {
 		test('User Should Have a facebookId property, that is the String "FACEBOOK_ID"', () => {
 			expect(newUser).toHaveProperty('facebookId', 'FACEBOOK_ID');
 		});
-		test.todo('User Should Have a Ticket Property, that references a Ticket');
+		test('User Should Have a Ticket Property, that references a Ticket', () => {
+			expect(newUser).toHaveProperty('ticket', newTicket._id);
+		});
 	})
 })
