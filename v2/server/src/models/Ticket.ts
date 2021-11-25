@@ -5,7 +5,10 @@ export interface ITicket {
 }
 
 const ticketSchema = new Schema <ITicket>({
-	seat: Number
+	seat: {
+		type: Number,
+		required: [true, 'Seat Is Required']
+	}
 })
 
 const Ticket = model<ITicket>('Ticket', ticketSchema);

@@ -1,7 +1,8 @@
 import Ticket, {ITicket} from './Ticket';
+import {Document, Error} from 'mongoose'
 
 describe('Ticket Model', () => {
-	let newTicket: ITicket
+	let newTicket: Document<ITicket>
 	beforeAll(() => {
 		newTicket = new Ticket({seat:1});
 		console.log(newTicket)
@@ -17,8 +18,18 @@ describe('Ticket Model', () => {
 		test.todo('ticketHolder should be a Property, referencing a User');
 	})
 	describe('Ticket Validation', () => {
+		let badTicket: Document<ITicket>
+		let badTicketValidation: Error.ValidationError | null
+		beforeAll(() => {
+			badTicket = new Ticket({})
+			badTicketValidation = badTicket.validateSync();
+			console.log(badTicketValidation)
+		})
 		describe('Seat Property Requirement', () => {
-			test.todo('Ticket Seat Property Is Required, Should Return a Validation Error')
+			test('Ticket Seat Property Is Required, Should Return a Validation Error', () => {
+				expect(badTicketValidation).toBeInstanceOf(Error.ValidationError)
+				expect(badTicketValidation).not.toBe(null)
+			})
 			test.todo('When A Validation Error Is Thrown, Return the Message: "Seat Is Required"')
 		})
 		describe('Flight Property Requirement', () => {
