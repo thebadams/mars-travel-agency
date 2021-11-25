@@ -5,7 +5,10 @@ describe('User Model', () => {
 	let newUser: Document<IUser>;
 	beforeAll(() => {
 		newUser = new User({
-			email: 'test@test.com'
+			email: 'test@test.com',
+			firstName: 'John',
+			lastName: 'Doe',
+			facebookId: 'FACEBOOK_ID'
 		});
 	})
 	describe('User Model Properties', () => {
@@ -15,9 +18,15 @@ describe('User Model', () => {
 		test('User Should have an email Property that is the String "test@test.com"', () => {
 			expect(newUser).toHaveProperty('email', 'test@test.com');
 		});
-		test.todo('User Should Have a firstName Property, that is the string, "John"')
-		test.todo('User Should Have A lastName Property, that is the String, "Doe"')
-		test.todo('User Should Have a facebookId property, that is the String "FACEBOOK_ID"');
+		test('User Should Have a firstName Property, that is the string, "John"', () => {
+			expect(newUser).toHaveProperty('firstName', 'John');
+		})
+		test('User Should Have A lastName Property, that is the String, "Doe"', () => {
+			expect(newUser).toHaveProperty('lastName', 'Doe');
+		})
+		test('User Should Have a facebookId property, that is the String "FACEBOOK_ID"', () => {
+			expect(newUser).toHaveProperty('facebookId', 'FACEBOOK_ID');
+		});
 		test.todo('User Should Have a Ticket Property, that references a Ticket');
 	})
 })
