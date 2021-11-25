@@ -30,7 +30,18 @@ describe('Ticket Model', () => {
 				expect(badTicketValidation).toBeInstanceOf(Error.ValidationError)
 				expect(badTicketValidation).not.toBe(null)
 			})
-			test('When A Validation Error Is Thrown, Return the Message: "Seat Is Required"')
+			test('When A Validation Error Is Thrown, Return the Message: "Seat Is Required"', () => {
+				const expected = {
+					seat: expect.objectContaining({
+						properties: expect.objectContaining({ message: 'Seat Is Required', type: 'required', path: 'seat' }
+						),
+						kind: 'required',
+						path: 'seat'
+					})
+
+				};
+				expect(badTicketValidation).toHaveProperty('errors', expect.objectContaining(expected));
+			})
 		})
 		describe('Flight Property Requirement', () => {
 			test.todo('Ticket Flight Property Is Required, Should Return a Validation Error')
