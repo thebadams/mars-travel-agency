@@ -6,12 +6,15 @@
   "repository": "http://github.com/thebadams/mars-travel-agency",
   "author": "thebadams",
   "license": "MIT",
-	"scripts": {
-		"test": "jest"
-	},
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
+    "@types/passport": "^1.0.7",
+    "@types/passport-local": "^1.0.34",
+    "@types/passport-local-mongoose": "^6.1.0",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
@@ -19,6 +22,9 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.0.13",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
   }
 }
