@@ -6,8 +6,10 @@ export interface IFlightDoc extends Document {
 	date: Date;
 	departure: string;
 	arrival: 'MARS'
+	getAbbreviation: getAbbreviationFunction
 };
 
+type getAbbreviationFunction = () => string
 const flightSchema = new Schema<IFlightDoc>({
 	flightNum: {
 		type:String,
@@ -23,12 +25,12 @@ const flightSchema = new Schema<IFlightDoc>({
 
 })
 
-// flightSchema.methods.getAbbreviation = function() {
-// 	const flight = this as IFlightDoc;
-// 	const abbreviation = flight.departure.split('-')[0].trim().split(' ').map(el => el.charAt(0).join(''))
-
-// 	return abbreviation;
-// }
+flightSchema.methods.getAbbreviation = function() {
+	const flight = this as IFlightDoc;
+	const {flightNum, departure} = flight;
+	const shortNum = flightNum.split('-')[0]
+	return `${departure}-${shortNum}`
+}
 
 const Flight = model<IFlightDoc>('Flight', flightSchema);
 
