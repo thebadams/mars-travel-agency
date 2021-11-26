@@ -8,8 +8,18 @@ export interface IUser extends Document {
 	password: string;
 	facebookId?: string;
 	ticket?: Schema.Types.ObjectId;
+	comparePassword: comparePasswordFunction;
 }
 
+type comparePasswordFunction = (candidatePassword: string, cb: (err: any, isMatch: any) => void) => void;
+
+
+const comparePassword: comparePasswordFunction = function (this: IUser, candidatePassword, cb) {
+	const user = this;
+	bcrypt.compare(candidatePassword, user.password, (err: Error | undefined, isMatch: boolean) => {
+		cb(err, isMatch);
+	});
+};
 const userSchema = new Schema<IUser>({
 	email: String,
 	firstName: String,
@@ -21,6 +31,8 @@ const userSchema = new Schema<IUser>({
 		ref: 'Ticket'
 	}
 })
+
+userSchema.methods.comparePassword = comparePassword;
 
 userSchema.pre('save', function save(next){
 	userSchema.pre("save", function save(next) {
