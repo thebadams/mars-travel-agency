@@ -3,7 +3,7 @@ import Ticket, {ITicket} from './Ticket';
 import {Document} from 'mongoose';
 
 describe('User Model', () => {
-	let newUser: Document<IUser>;
+	let newUser: IUser;
 	let newTicket: Document<ITicket>;
 	beforeAll(() => {
 		newTicket = new Ticket({seat: 1})
@@ -38,5 +38,9 @@ describe('User Model', () => {
 		test('User Should Have a Password Property That Is the String, "Password"', () => {
 			expect(newUser).toHaveProperty('password', 'Password');
 		});
+		test('User Should have Property, comparePassword, that is a function', () => {
+			expect(newUser).toHaveProperty('comparePassword');
+			expect(typeof newUser.comparePassword).toBe('function')
+		})
 	})
 })
