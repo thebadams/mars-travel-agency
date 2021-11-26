@@ -6,9 +6,9 @@
   "repository": "http://github.com/thebadams/mars-travel-agency",
   "author": "thebadams",
   "license": "MIT",
-	"scripts": {
-		"test": "jest"
-	},
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
@@ -19,6 +19,7 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "mongoose": "^6.0.13"
   }
 }

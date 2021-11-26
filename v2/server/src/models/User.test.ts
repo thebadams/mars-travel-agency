@@ -11,6 +11,7 @@ describe('User Model', () => {
 			email: 'test@test.com',
 			firstName: 'John',
 			lastName: 'Doe',
+			password: 'Password',
 			facebookId: 'FACEBOOK_ID',
 			ticket: newTicket._id
 		});
@@ -33,6 +34,9 @@ describe('User Model', () => {
 		});
 		test('User Should Have a Ticket Property, that references a Ticket', () => {
 			expect(newUser).toHaveProperty('ticket', newTicket._id);
+		});
+		test('User Should Have a Password Property That Is the String, "Password"', () => {
+			expect(newUser).toHaveProperty('password', 'Password');
 		});
 	})
 })
