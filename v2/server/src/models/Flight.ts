@@ -1,7 +1,7 @@
 import { Schema, model, Document, Date } from 'mongoose';
 import {v4 as uuidv4} from 'uuid'
 
-interface IFlightDoc extends Document {
+export interface IFlightDoc extends Document {
 	flightNum: string;
 	date: Date;
 	departure: string;
